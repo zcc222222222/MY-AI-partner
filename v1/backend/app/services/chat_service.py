@@ -35,9 +35,13 @@ def stream_reply(
 
     assistant = session_service.append_message(db, session.id, "assistant", full_text)
 
+    # 先把 done 发出去:回答已经完整到达,前端应当立刻解锁输入框,
+    # 不要为了下面那次「生成标题」的额外 LLM 调用再干等几秒。
+    yield json.dumps({"type": "done", "message_id": assistant.id}, ensure_ascii=False)
+
     user_turns = sum(1 for m in history if m.role == "user")
     if user_turns == 1:
-        session.title = session_service.generate_title(user_content)
+        title = session_service.generate_title(user_content)
+        session.title = title
         db.commit()
-
-    yield json.dumps({"type": "done", "message_id": assistant.id}, ensure_ascii=False)
+        yield json.dumps({"type": "title", "title": title}, ensure_ascii=False)

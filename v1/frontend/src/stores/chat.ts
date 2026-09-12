@@ -70,9 +70,21 @@ export const useChatStore = defineStore('chat', () => {
     streamBuffer.value = ''
 
     try {
-      const messageId = await api.sendMessage(sessionId, text, (delta) => {
-        draft.content += delta
-        streamBuffer.value = draft.content
+      const messageId = await api.sendMessage(sessionId, text, {
+        onDelta: (delta) => {
+          draft.content += delta
+          streamBuffer.value = draft.content
+        },
+        onDone: (id) => {
+          // 回答已经完整了 —— 立刻解锁,不等后面那次生成标题的请求。
+          draft.id = id
+          streaming.value = false
+          streamBuffer.value = ''
+        },
+        onTitle: (title) => {
+          const target = sessions.value.find((s) => s.id === sessionId)
+          if (target) target.title = title
+        },
       })
       if (messageId !== null) draft.id = messageId
       sessions.value = await api.listSessions()

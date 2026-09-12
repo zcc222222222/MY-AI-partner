@@ -13,9 +13,9 @@
   --ok: oklch(0.72 0.18 150);
 
   /* 全页背景图(2560×1440,带 alpha)。scrim 越大图越淡:
-     0 = 原图,0.9 ≈ 几乎看不见。这里取 0.78,让底图若隐若现又不压住文字。 */
+     0 = 原图,0.9 ≈ 几乎看不见。当前 0.66,比初始的 0.78 亮一档。 */
   --bg-image: url("/assets/app-background.webp");
-  --bg-image-scrim: 0.78;
+  --bg-image-scrim: 0.66;
 
   --font-display: "Songti SC", "STSong", "SimSun", "Noto Serif SC", serif;
   --font-body: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
@@ -486,7 +486,8 @@ textarea {
 }
 
 .portrait {
-  aspect-ratio: 3 / 4;
+  /* 与立绘实际比例(1080×1701)一致:contain 下不裁切、也不留黑边 */
+  aspect-ratio: 1080 / 1701;
   border: 1px solid var(--border);
   border-radius: 16px;
   background: var(--surface);
@@ -498,6 +499,7 @@ textarea {
 .portrait img {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: contain;
 }
 

@@ -7,8 +7,8 @@ const portraitFailed = ref(false)
 
 // 运行时拼接路径,不要写成静态 src="/assets/...":
 // @vitejs/plugin-vue 会把模板里的根绝对路径改写成 import,构建期会去文件系统根解析而失败。
-// 立绘尚未放入 public/assets/ 时,@error 会把面板切到占位提示。
-const portraitSrc = '/assets/amis-portrait.png'
+// 立绘不存在时,@error 会把面板切到占位提示。
+const portraitSrc = '/assets/amis-portrait.jpg'
 </script>
 
 <template>
@@ -17,12 +17,14 @@ const portraitSrc = '/assets/amis-portrait.png'
       <img
         v-if="!portraitFailed"
         :src="portraitSrc"
-        alt="爱弥斯立绘"
+        width="1080"
+        height="1701"
+        alt="飞行雪绒(爱弥斯)立绘"
         @error="portraitFailed = true"
       />
       <div v-else class="portrait-placeholder">
-        <span>爱弥斯立绘</span>
-        <small>将透明立绘放入 frontend/public/assets/amis-portrait.png</small>
+        <span>飞行雪绒立绘</span>
+        <small>将立绘放入 frontend/public/assets/amis-portrait.jpg</small>
       </div>
     </div>
     <div class="character-meta">
