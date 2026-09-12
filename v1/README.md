@@ -104,13 +104,22 @@ npm run dev
 | GET | `/api/v1/chat/sessions/{id}/messages` | 消息列表 |
 | POST | `/api/v1/chat/sessions/{id}/messages` | 发消息 → SSE 流式 |
 
-SSE 事件:每条 `data: {"type":"delta","content":"..."}`,结束 `data: {"type":"done","message_id":N}`,异常 `data: {"type":"error","detail":"..."}`。
+SSE 事件:
+
+| 事件 | 何时发出 | 载荷 |
+|---|---|---|
+| `delta` | 每段正文增量 | `{"type":"delta","content":"..."}` |
+| `done` | **回复已完整落库**——前端收到即解锁输入框 | `{"type":"done","message_id":N}` |
+| `title` | 首条消息之后,会话标题生成完毕(额外一次 LLM 调用) | `{"type":"title","title":"..."}` |
+| `error` | 生成失败 | `{"type":"error","detail":"..."}` |
+
+> `done` 一定在 `title` 之前。标题生成是首条消息才做的额外调用,放在 `done` 之后补发,所以不会让用户多等几秒。
 
 ## 素材
 
-- **全页背景**:`frontend/public/assets/app-background.webp`(2560×1440,带 alpha)。淡浓由 `main.css` 里的 `--bg-image-scrim` 控制:`0` = 原图,`0.9` ≈ 几乎看不见,当前 `0.78`。换图只要覆盖这个文件,或改 `--bg-image` 的路径。
+- **全页背景**:`frontend/public/assets/app-background.webp`(2560×1440,带 alpha)。淡浓由 `main.css` 里的 `--bg-image-scrim` 控制:`0` = 原图,`0.9` ≈ 几乎看不见,当前 `0.66`。换图只要覆盖这个文件,或改 `--bg-image` 的路径。
+- **角色立绘**:`frontend/public/assets/amis-portrait.jpg`(1080×1701)。面板比例已按这个尺寸设为 `1080 / 1701`,所以 `object-fit: contain` 既不裁切也不留黑边;换图若比例不同,记得同步改 `.portrait` 的 `aspect-ratio`。文件缺失时面板显示占位提示,不会报错。
 - 头像:复用旧版 `feixingxuerong.png`(爱弥斯)与 `piaobozhe.jpg`(漂泊者)。
-- **仍缺** `frontend/public/assets/amis-portrait.png`:角色面板的透明立绘;未放时面板显示占位提示,不会报错。
 - 可选:favicon / 应用图标。
 
 > 素材版权提示:使用《鸣潮》官方公开素材(官方 Wiki 立绘、官方公告图)并标注来源,不要用仿绘替代。
