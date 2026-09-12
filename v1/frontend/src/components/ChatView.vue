@@ -66,6 +66,7 @@ function onSessionChange(event: Event) {
         :key="index"
         :data-od-id="`message-${index}`"
         :message="m"
+        :thinking="chat.awaitingFirstToken && index === chat.messages.length - 1"
         :avatar="m.role === 'assistant' ? 'feixingxuerong.png' : 'piaobozhe.jpg'"
       />
     </div>

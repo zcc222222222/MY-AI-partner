@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import * as api from '../api/chat'
 import type { Character, Message, Session } from '../types'
 
@@ -13,6 +13,8 @@ export const useChatStore = defineStore('chat', () => {
   const error = ref('')
 
   const activeCharacter = computed(() => characters.value[0] ?? null)
+  /** 已发出请求但还没有任何字到达 —— 也就是模型正在思考(含推理阶段与工具轮次)。 */
+  const awaitingFirstToken = computed(() => streaming.value && streamBuffer.value === '')
 
   async function init() {
     error.value = ''
@@ -55,7 +57,14 @@ export const useChatStore = defineStore('chat', () => {
     error.value = ''
     const sessionId = activeSessionId.value as string
     messages.value.push({ id: 0, role: 'user', content: text, created_at: new Date().toISOString() })
-    const draft: Message = { id: 0, role: 'assistant', content: '', created_at: new Date().toISOString() }
+    // 必须是 reactive 对象:v-for 渲染的是数组里的响应式代理,
+    // 直接改这个「裸对象」绕过了代理的 setter,Vue 收不到通知 —— 表现为流式内容要刷新才出现。
+    const draft = reactive<Message>({
+      id: 0,
+      role: 'assistant',
+      content: '',
+      created_at: new Date().toISOString(),
+    })
     messages.value.push(draft)
     streaming.value = true
     streamBuffer.value = ''
@@ -79,6 +88,7 @@ export const useChatStore = defineStore('chat', () => {
   return {
     characters,
     activeCharacter,
+    awaitingFirstToken,
     sessions,
     activeSessionId,
     messages,

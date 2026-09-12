@@ -12,6 +12,11 @@
   --danger: oklch(0.66 0.17 22);
   --ok: oklch(0.72 0.18 150);
 
+  /* 全页背景图(2560×1440,带 alpha)。scrim 越大图越淡:
+     0 = 原图,0.9 ≈ 几乎看不见。这里取 0.78,让底图若隐若现又不压住文字。 */
+  --bg-image: url("/assets/app-background.webp");
+  --bg-image-scrim: 0.78;
+
   --font-display: "Songti SC", "STSong", "SimSun", "Noto Serif SC", serif;
   --font-body: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
     "Noto Sans SC", "Segoe UI", sans-serif;
@@ -38,6 +43,25 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* 全页背景图层:固定铺满、不可交互,压在 .app-shell 之下。
+   叠一层暗色 scrim,保证面板与文字对比度不被底图拉低。 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      oklch(0.16 0.022 255 / var(--bg-image-scrim)),
+      oklch(0.12 0.022 255 / calc(var(--bg-image-scrim) + 0.14))
+    ),
+    var(--bg-image);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
 button,
 select,
 textarea {
@@ -45,12 +69,13 @@ textarea {
 }
 
 .app-shell {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 272px minmax(0, 1fr) 320px;
   height: 100vh;
-  background:
-    radial-gradient(1100px 560px at 82% -12%, oklch(0.3 0.055 240 / 0.35), transparent 62%),
-    var(--bg);
+  /* 只留一层冷光,底色交给 body + 背景图层 */
+  background: radial-gradient(1100px 560px at 82% -12%, oklch(0.3 0.055 240 / 0.35), transparent 62%);
 }
 
 /* ---------- 侧边栏 ---------- */
@@ -315,6 +340,57 @@ textarea {
   background: oklch(0.3 0.05 235);
   color: var(--fg);
   border-top-right-radius: 4px;
+}
+
+/* ---------- 思考中 ---------- */
+.thinking {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+
+.thinking-dots {
+  display: inline-flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 12px;
+}
+
+.thinking-dots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: thinking-bounce 1.1s infinite ease-in-out;
+}
+
+.thinking-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.thinking-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes thinking-bounce {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thinking-dots span {
+    animation: none;
+    opacity: 0.75;
+  }
 }
 
 /* ---------- 输入区 ---------- */
