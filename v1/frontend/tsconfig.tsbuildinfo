@@ -1,1 +1,0 @@
-{"root":["./src/env.d.ts","./src/main.ts","./src/types.ts","./src/api/chat.ts","./src/api/client.ts","./src/stores/chat.ts","./src/app.vue","./src/components/characterpanel.vue","./src/components/chatinput.vue","./src/components/chatmessage.vue","./src/components/chatsidebar.vue","./src/components/chatview.vue"],"version":"5.9.3"}
