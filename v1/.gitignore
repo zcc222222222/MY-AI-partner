@@ -1,0 +1,12 @@
+# 依赖
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+backend/data/
+
+# 前端
+node_modules/
+dist/
+*.local
