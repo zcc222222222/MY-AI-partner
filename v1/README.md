@@ -106,10 +106,11 @@ npm run dev
 
 SSE 事件:每条 `data: {"type":"delta","content":"..."}`,结束 `data: {"type":"done","message_id":N}`,异常 `data: {"type":"error","detail":"..."}`。
 
-## 待补素材
+## 素材
 
-- `frontend/public/assets/amis-portrait.png`:爱弥斯透明立绘(角色面板用,未放时显示占位提示)。
-- 头像已复用旧版 `feixingxuerong.png`(爱弥斯)与 `piaobozhe.jpg`(漂泊者)。
-- 可选:背景场景图、favicon / 应用图标。
+- **全页背景**:`frontend/public/assets/app-background.webp`(2560×1440,带 alpha)。淡浓由 `main.css` 里的 `--bg-image-scrim` 控制:`0` = 原图,`0.9` ≈ 几乎看不见,当前 `0.78`。换图只要覆盖这个文件,或改 `--bg-image` 的路径。
+- 头像:复用旧版 `feixingxuerong.png`(爱弥斯)与 `piaobozhe.jpg`(漂泊者)。
+- **仍缺** `frontend/public/assets/amis-portrait.png`:角色面板的透明立绘;未放时面板显示占位提示,不会报错。
+- 可选:favicon / 应用图标。
 
-> 立绘版权提示:使用《鸣潮》官方公开素材(官方 Wiki 立绘、官方公告图)并标注来源,不要用仿绘替代。
+> 素材版权提示:使用《鸣潮》官方公开素材(官方 Wiki 立绘、官方公告图)并标注来源,不要用仿绘替代。
