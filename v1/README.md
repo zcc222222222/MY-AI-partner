@@ -61,13 +61,16 @@ uvicorn app.main:app --reload --port 8000
 
 `.env` 关键项:
 
-- `DEEPSEEK_API_KEY`:你的密钥。
-- `DEEPSEEK_MODEL`:按你账号实际可用模型填。旧代码写的是 `deepseek-v4-pro`,官方常用 `deepseek-chat` / `deepseek-reasoner`,请确认后填写。
+- `DEEPSEEK_API_KEY`:你的密钥。**注意优先级**:进程环境变量优先于 `.env`(dotenv 默认不覆盖已有变量)。密钥放在系统用户变量里时,从 PyCharm 终端或任意新终端启动都能读到;但若启动它的进程是在你设置变量**之前**启动的(PyCharm 主进程就是这样),它读不到,此时 `.env` 里的占位符会被当成真密钥,聊天会报鉴权失败。最稳的做法是把真密钥写进 `.env`。
+- `DEEPSEEK_MODEL`:实测可用的两个取值:
+  - `deepseek-chat` —— 普通对话模型,首字延迟低,适合角色扮演聊天。
+  - `deepseek-flash` —— **推理模型**:回答前先输出 `reasoning_content`(简单问题也可能思考上千字符),已确认支持 function calling,工具调用链路正常。代价是回答前有几秒静默思考,界面会先显示一个空气泡再逐字出内容。
+  - 当前 `llm.py` 只转发 `delta.content`,推理内容被忽略;想让 UI 显示「思考中…」需要额外把它透传出去。
 - `DATABASE_URL`:默认 SQLite(`sqlite:///./data/app.db`),本地无需 MySQL。
 
 首次启动会自动建表、把 `characters/amis.json` 写入数据库。改角色卡后,把 `version` 字段 +1 重启即可刷新。
 
-> 说明:`.env` 里 `DEEPSEEK_MODEL` 请按你账号实际可用模型填(旧代码写的是 `deepseek-v4-pro`,未必是官方模型名)。当前版本为单用户、无鉴权,适合本地联调。
+> 说明:当前版本为单用户、无鉴权,适合本地联调。实测记录见上文 `DEEPSEEK_MODEL` 一项。
 
 验证:`http://localhost:8000/api/v1/health` 返回 `{"status":"ok"}`,或 `http://localhost:8000/docs` 看交互式 API 文档。
 
