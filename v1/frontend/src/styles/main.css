@@ -12,10 +12,11 @@
   --danger: oklch(0.66 0.17 22);
   --ok: oklch(0.72 0.18 150);
 
-  /* 全页背景图(2560×1440,带 alpha)。scrim 越大图越淡:
-     0 = 原图,0.9 ≈ 几乎看不见。当前 0.66,比初始的 0.78 亮一档。 */
+  /* 全页背景:静态底图(兜底)+ 视频层(.bg-video)。
+     scrim 是压在背景之上的暗色层,数值越大背景越淡:
+     0 = 原图原视频,0.9 ≈ 几乎看不见。 */
   --bg-image: url("/assets/app-background.webp");
-  --bg-image-scrim: 0.66;
+  --bg-image-scrim: 0.6;
 
   --font-display: "Songti SC", "STSong", "SimSun", "Noto Serif SC", serif;
   --font-body: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
@@ -43,23 +44,46 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* 全页背景图层:固定铺满、不可交互,压在 .app-shell 之下。
-   叠一层暗色 scrim,保证面板与文字对比度不被底图拉低。 */
+/* 背景共三层,书写顺序即绘制顺序:
+   body::before 静态底图(视频不可用时的兜底)
+   → .bg-video 视频层
+   → body::after 暗色压暗层
+   三层都是 z-index:0,而 .app-shell 是 z-index:1,所以内容永远浮在最上面。 */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image:
-    linear-gradient(
-      oklch(0.16 0.022 255 / var(--bg-image-scrim)),
-      oklch(0.12 0.022 255 / calc(var(--bg-image-scrim) + 0.14))
-    ),
-    var(--bg-image);
-  background-size: cover, cover;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 全页视频背景。素材缺失或解码失败时由 store 加上 v-show 隐藏,
+   自动退回上面的静态底图。 */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* 压暗层:文字对比度的保险 —— 背景再亮也不会把面板文字压花。 */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    oklch(0.16 0.022 255 / var(--bg-image-scrim)),
+    oklch(0.12 0.022 255 / calc(var(--bg-image-scrim) + 0.14))
+  );
 }
 
 button,
@@ -466,6 +490,42 @@ textarea {
   cursor: not-allowed;
 }
 
+/* 背景动画开关:ghost 次级按钮。图标本身就是状态(播放中显示暂停键),
+   前景色两态都保持 --fg,靠背景 L 值 +0.07 给悬停反馈。 */
+.bg-toggle {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-2);
+  color: var(--fg);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.bg-toggle:hover {
+  background: oklch(0.32 0.035 250);
+  border-color: oklch(0.44 0.06 205);
+}
+
+.bg-toggle:active {
+  transform: translateY(1px);
+}
+
+.bg-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.bg-toggle svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
 .input-error {
   margin: 10px auto 0;
   max-width: 860px;
@@ -621,5 +681,15 @@ textarea {
 
   .chat-input-wrap {
     padding: 12px 16px 16px;
+  }
+
+  /* 两个背景按钮挤进这一行后,窄屏要把宽度还给输入框:
+     收窄行内间距和发送按钮的内边距,按钮本体保持 40px 触控尺寸不缩水。 */
+  .chat-input {
+    gap: 8px;
+  }
+
+  .send {
+    padding: 0 16px;
   }
 }

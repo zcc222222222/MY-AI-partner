@@ -117,7 +117,25 @@ SSE 事件:
 
 ## 素材
 
-- **全页背景**:`frontend/public/assets/app-background.webp`(2560×1440,带 alpha)。淡浓由 `main.css` 里的 `--bg-image-scrim` 控制:`0` = 原图,`0.9` ≈ 几乎看不见,当前 `0.66`。换图只要覆盖这个文件,或改 `--bg-image` 的路径。
+- **全页背景(两层)**:底层静态图 `frontend/public/assets/app-background.webp`(2560×1440,带 alpha),上层视频 `frontend/public/assets/app-background.mp4`。淡浓由 `main.css` 里的 `--bg-image-scrim` 控制:`0` = 原图原视频,`0.9` ≈ 几乎看不见,当前 `0.6`。绘制顺序是 `body::before`(静态图)→ `.bg-video`(视频)→ `body::after`(压暗层),`.app-shell` 用 `z-index:1` 浮在最上。
+- **视频控制(两个 ghost 按钮)**:输入框右侧依次是「暂停 / 播放」和「声音开关」,逻辑都在 `src/stores/background.ts`。暂停的判定有三个来源:① 用户手动开关;② 标签页切到后台自动暂停、切回自动续播(手动暂停过就不续播);③ 系统开启「减少动态效果」时首次访问默认暂停。素材缺失或解码失败时隐藏视频、露出静态底图,不报错。用户选择存在 `localStorage` 的 `amis.bg-video.paused` 与 `amis.bg-video.sound`。
+- **循环播放**由 `<video loop>` 负责,不需要额外配置。注意:源文件首尾本身若不是无缝衔接,循环点会有一处硬切 —— 那是素材问题,代码改不了。
+- **为什么一开始听不见声音**:这是浏览器的自动播放策略,不是 bug —— **带声音的视频一律不允许免交互自动播放**,只有 `muted` 的才能自动播。所以 `<video>` 初始是静音,音轨其实一直躺在文件里。点一下右侧的喇叭按钮就能开声(这次点击本身就是浏览器要求的那次「用户交互」),选择会被记住。
+  - ⚠️ **单独加一个音频文件解决不了这个问题**:`<audio>` 受同一条策略限制,一样要等用户交互;而且两个媒体元素的时钟会各自漂移,长播放必然不同步。声音就用这条视频自己的音轨。
+  - 音量默认压到 **50%**(`background.ts` 的 `BACKGROUND_VOLUME`),因为素材内容我没听过,不想让它一开场就盖过一切。
+  - 刷新后如果带声播放仍被浏览器拦下(本次加载还没有过交互),会自动退回**静音播放** —— 画面不受影响,按钮同步显示成静音态,不会把背景整个停掉。
+- **背景视频已压缩入库**:原始素材 3840×2160 / 60fps / **48 Mbps** / 133 MB,超过 GitHub 单文件 100 MB 硬上限,直接提交会被拒。已用 `scripts/compress-background-video.ps1` 压成 **1080p / 30fps / 12.06 MB(小了 91%)**,现在随仓库一起走(`public/assets/.gitignore` 里那条 `*.mp4` 已移除)。
+- **压缩结果经 `scripts/probe-mp4.js` 回读容器校验**:1920×1080、H.264 `avc1`、695 帧 @30fps、AAC 音轨保留、`faststart: true`(moov 已在文件头,浏览器不必下完整个文件就能播第一帧)。原始文件是 `faststart: false`,moov 在末尾。
+- **重新压缩**(换了素材,或想更小):脚本会自动挑项目根目录里最大的 `.mp4` 当输入。
+
+  ```powershell
+  # 注意:这台机器没有 pwsh(PowerShell 7),用 powershell -File 或直接 & 调用
+  powershell -ExecutionPolicy Bypass -File .\scripts\compress-background-video.ps1 -DryRun
+  powershell -ExecutionPolicy Bypass -File .\scripts\compress-background-video.ps1
+  ```
+
+  想要更小可以调参:`-Crf 26`(默认 23)、`-Height 720`、`-NoAudio`(去掉音轨,喇叭按钮就没声音了)。压完脚本会自动回读容器校验并对比体积。
+
 - **角色立绘**:`frontend/public/assets/amis-portrait.jpg`(1080×1701)。面板比例已按这个尺寸设为 `1080 / 1701`,所以 `object-fit: contain` 既不裁切也不留黑边;换图若比例不同,记得同步改 `.portrait` 的 `aspect-ratio`。文件缺失时面板显示占位提示,不会报错。
 - 头像:复用旧版 `feixingxuerong.png`(爱弥斯)与 `piaobozhe.jpg`(漂泊者)。
 - 可选:favicon / 应用图标。
