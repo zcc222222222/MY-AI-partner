@@ -2,9 +2,11 @@
 import logging
 import os
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from .api.router import api_router
 from .config import settings
@@ -63,3 +65,26 @@ app.add_middleware(
 )
 
 app.include_router(api_router)
+
+# ---------------------------------------------------------------------------
+# 单命令启动:把前端构建产物挂到根路径,让一个 uvicorn 进程同时提供 API 和页面。
+#
+# 三个容易踩的点:
+#  1. 必须放在所有 include_router **之后** —— 挂在 "/" 会吃掉它之后注册的全部路由,
+#     顺序反了 /api/* 直接 404。
+#  2. FastAPI 自带的 /docs、/openapi.json 在建 app 时就注册好了,不受影响。
+#  3. dist/ 是构建产物、被 .gitignore 排除,新克隆的仓库里没有 —— 那时跳过挂载,
+#     只提供 API(仍可配合 npm run dev 做前后端分离开发),并且明确说清为什么。
+# ---------------------------------------------------------------------------
+FRONTEND_DIST = Path(__file__).resolve().parents[2] / "frontend" / "dist"
+
+if FRONTEND_DIST.is_dir():
+    # html=True:访问 / 时返回目录下的 index.html
+    app.mount("/", StaticFiles(directory=FRONTEND_DIST, html=True), name="spa")
+    logger.info("已挂载前端构建产物,单命令启动就绪: %s", FRONTEND_DIST)
+else:
+    logger.info(
+        "未找到前端构建产物(%s),本次只提供 API。"
+        "要单命令启动,先在 v1/frontend 执行一次 npm run build。",
+        FRONTEND_DIST,
+    )

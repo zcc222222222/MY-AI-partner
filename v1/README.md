@@ -89,6 +89,33 @@ npm run dev
 
 > 关于旧应用冻结:见项目根目录架构文档 §8「迁移策略」;简单说就是给旧 commit 打 tag(如 `v0-streamlit`)并把旧文件归档到 `legacy/`,之后只在新目录改,保留随时回退的能力。
 
+## 单命令启动(前端构建过一次之后)
+
+后端会把 `v1/frontend/dist` 挂到根路径,所以构建过一次之后,**一个进程同时提供 API 和页面**:
+
+```bash
+cd v1/backend
+.venv\Scripts\python.exe -m uvicorn app.main:app --port 8000
+```
+
+打开 **http://localhost:8000** —— 页面和 `/api/v1/*` 同源,不需要 Vite 代理,也不需要跨域配置。
+
+首次准备(只做一次):
+
+```bash
+cd v1/frontend
+npm install
+npm run build
+```
+
+**三个注意点**
+
+- `dist/` 是构建产物、被 `.gitignore` 排除,**新克隆的仓库里没有**。此时后端只会打一条 INFO 说明原因、只提供 API(`/` 返回 404),不会报错 —— 照上面的「前端启动」走前后端分离开发即可。
+- 挂载必须发生在所有 `include_router` **之后**,`main.py` 里用注释标注了:挂在 `/` 会吃掉它之后注册的全部路由,顺序反了 `/api/*` 会一起 404。
+- 想让局域网其他设备访问,现在是给 **uvicorn** 加 `--host 0.0.0.0`(不是给 Vite 加 `--host`),端口用 8000。
+
+> 已知限制:v1 是单页、没有客户端路由,所以没做「未知路径回落到 index.html」。将来加 vue-router 时要补这一步。
+
 ## P0 修复记录(第一批)
 
 按 `P0-FIX-LIST.md` 落地。原则是只改这六条,不动整体框架。
@@ -127,13 +154,14 @@ npm run dev
 | B3 | LLM 客户端显式 `timeout=60` / `max_retries=2`(SDK 默认 600s,一个挂死的请求占线程 10 分钟) | `app/llm.py` |
 | C7 | 补齐 README 引用到的文件 —— 它们此前只存在于设计工作区,仓库里是死链 | `project-architecture.md`、`scripts/` |
 | C12 | 前后端字数上限加了跨文件断言,改一头忘另一头会红 | `scripts/verify-p0.py` |
+| D1 | 后端挂载前端构建产物,一个进程同时提供 API 和页面(见上文「单命令启动」) | `app/main.py`、`scripts/verify-spa-mount.py` |
 
 > **A1 的取舍**:清单给的是「把校验前移到 `config.py` 末尾直接 `raise`」。没采纳 —— 那样连 `import app.config` 都会炸(包括将来的 Alembic 和测试),而且 uvicorn 打出来的是一段 import 回溯,不是一句干净的启动错误。惰性构造从根上解决(别在 import 阶段构造客户端),启动判断仍然只有 lifespan 一处。
 >
 > **A4 的取舍**:清单建议保留 `maxlength`、只把计数改成码点。但 `maxlength` 本身也是 UTF-16 口径,emoji 稍多就会在计数还没到 500 时先把输入拦掉 —— 两个数字自相矛盾。改成 `watch` 里按码点裁剪,硬挡和显示同一个口径。
 
 **本批刻意延后**(不是遗漏,是不适合现在做):
-C1 Alembic、B6 usage 落库(依赖 C1 的迁移能力)、B2 reasoning 透传(要先有 B6 的数据)、B4 `/ready`+request ID、B5 安全头、C2/C3 多角色协议与去硬编码、C4 Markdown 渲染、C5 拆层、C6 测试体系、C8 CSS 拆分、C9–C11、D1–D3(单命令启动 / Docker / favicon)。
+C1 Alembic、B6 usage 落库(依赖 C1 的迁移能力)、B2 reasoning 透传(要先有 B6 的数据)、B4 `/ready`+request ID、B5 安全头、C2/C3 多角色协议与去硬编码、C4 Markdown 渲染、C5 拆层、C6 测试体系、C8 CSS 拆分、C9–C11、D2、D3(Docker / favicon)。
 
 ## 工具脚本
 
@@ -143,6 +171,7 @@ C1 Alembic、B6 usage 落库(依赖 C1 的迁移能力)、B2 reasoning 透传(�
 | `scripts/probe-mp4.js` | 不依赖 ffmpeg 读 MP4 容器:编码、分辨率、帧率、moov 位置 |
 | `scripts/verify-p0.py` | 离线回归检查(不需要外网、不需要真密钥)。`python scripts/verify-p0.py [项目根]` |
 | `scripts/verify-failfast.py` | A1 的验收:空密钥必须抛中文 fail-fast,而不是 SDK 的英文报错 |
+| `scripts/verify-spa-mount.py` | D1 的验收:挂载 `/` 之后 API 与 `/docs` 仍可达、根路径真的吐出 SPA |
 
 ## 下一步怎么接 RAG(等做 P5 时)
 
