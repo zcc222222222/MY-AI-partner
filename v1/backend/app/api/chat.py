@@ -15,6 +15,11 @@ logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/v1/chat", tags=["chat"])
 
 
+def _sse(payload: dict) -> str:
+    """把一个事件包成 SSE 帧。"""
+    return f"data: {json.dumps(payload, ensure_ascii=False)}\n\n"
+
+
 @router.get("/sessions", response_model=list[schemas.SessionOut])
 def list_sessions(db: Session = Depends(get_db)):
     return session_service.list_sessions(db)
@@ -53,14 +58,23 @@ def send_message(session_id: str, body: schemas.MessageCreate):
     def event_stream():
         # 流式期间使用独立会话,避免与请求级依赖的线程/生命周期耦合。
         with SessionLocal() as stream_db:
+            # 取值必须判空、且不能放在 try 之外:此时 200 响应头已经发出去了,
+            # 这里再抛异常连接会被硬切断,前端只会看到「回答是空的、且没有任何报错」,
+            # 这类现象极难排查。所以一律降级成一条 error 事件。
             session = session_service.get_session(stream_db, session_id)
+            if session is None:
+                yield _sse({"type": "error", "detail": "会话不存在,可能已被删除"})
+                return
             character = stream_db.get(models.Character, session.character_id)
+            if character is None:
+                yield _sse({"type": "error", "detail": "角色卡不存在,请检查 characters/ 目录"})
+                return
             try:
                 for payload in chat_service.stream_reply(stream_db, session, character, body.content):
                     yield f"data: {payload}\n\n"
             except Exception as exc:  # noqa: BLE001
                 logger.exception("chat.stream_failed session_id=%s", session_id)
-                yield f"data: {json.dumps({'type': 'error', 'detail': str(exc)}, ensure_ascii=False)}\n\n"
+                yield _sse({"type": "error", "detail": str(exc)})
 
     return StreamingResponse(
         event_stream(),

@@ -1,5 +1,6 @@
 """DeepSeek 客户端封装:统一流式 / 非流式调用入口。"""
 import logging
+from functools import lru_cache
 from typing import Any, Iterator
 
 from openai import OpenAI
@@ -8,12 +9,34 @@ from .config import settings
 
 logger = logging.getLogger(__name__)
 
-_client = OpenAI(api_key=settings.deepseek_api_key, base_url=settings.deepseek_base_url)
+# SDK 默认超时是 600s —— 一个挂死的请求会占住一个线程最长 10 分钟。
+# 这是 httpx 的读超时(两次数据之间的间隔),正常的长回答只要还在吐字就不会触发。
+LLM_TIMEOUT_SECONDS = 60.0
+LLM_MAX_RETRIES = 2
+
+
+@lru_cache(maxsize=1)
+def _get_client() -> OpenAI:
+    """惰性构造客户端。
+
+    不能在模块级构造:openai SDK 把**空字符串**当成「缺凭证」,在 import 阶段
+    就抛 OpenAIError —— 英文、还叫你去设 `OPENAI_API_KEY`,而 main.py lifespan
+    里那句中文 fail-fast 永远执行不到。空密钥恰恰是最常见的场景(没建 .env、
+    或者把密钥那一行注释掉),报错提示却把排查方向带偏到另一个项目上。
+
+    惰性之后,「密钥是否可用」这件事只由 lifespan 一处负责判断。
+    """
+    return OpenAI(
+        api_key=settings.deepseek_api_key,
+        base_url=settings.deepseek_base_url,
+        timeout=LLM_TIMEOUT_SECONDS,
+        max_retries=LLM_MAX_RETRIES,
+    )
 
 
 def chat(messages: list[dict], model: str | None = None) -> str:
     """非流式补全,用于标题生成等短任务。"""
-    response = _client.chat.completions.create(
+    response = _get_client().chat.completions.create(
         model=model or settings.deepseek_model,
         messages=messages,
     )
@@ -48,7 +71,7 @@ def stream_completion(
         kwargs["max_tokens"] = max_tokens
 
     try:
-        response = _client.chat.completions.create(**kwargs)
+        response = _get_client().chat.completions.create(**kwargs)
     except Exception as exc:  # noqa: BLE001
         # 少数兼容端点不认 stream_options。宁可丢用量统计,也不能让聊天整体不可用。
         # 只在这个参数确实被拒绝时重试,避免把鉴权失败也重发一遍。
@@ -57,7 +80,7 @@ def stream_completion(
             raise
         logger.warning("端点不接受 stream_options,退回不带用量的调用: %s", exc)
         kwargs.pop("stream_options")
-        response = _client.chat.completions.create(**kwargs)
+        response = _get_client().chat.completions.create(**kwargs)
 
     tool_calls: dict[int, dict] = {}
     usage: dict | None = None

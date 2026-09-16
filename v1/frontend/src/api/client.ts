@@ -1,17 +1,30 @@
 const BASE = (import.meta.env.VITE_API_BASE as string | undefined) ?? ''
 
+/**
+ * 把后端的错误响应读成一句能给用户看的话。
+ *
+ * 注意 Pydantic 的 422 里 `detail` 是**数组**(元素含 loc / msg / type),不是字符串 ——
+ * 照抄「取字符串」的写法在 422 上什么也拿不到,用户只会看到「请求失败 (422)」,
+ * 完全不知道是字数超了。两个调用口径必须一致,所以抽成一个函数。
+ */
+async function readErrorDetail(res: Response): Promise<string> {
+  let detail = `请求失败 (${res.status})`
+  try {
+    const data = await res.json()
+    if (data && typeof data.detail === 'string') {
+      detail = data.detail
+    } else if (Array.isArray(data?.detail) && data.detail[0]?.msg) {
+      detail = `输入不合法:${data.detail[0].msg}`
+    }
+  } catch {
+    /* 响应体不是 JSON,保留状态码文案 */
+  }
+  return detail
+}
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${BASE}${path}`, init)
-  if (!res.ok) {
-    let detail = `请求失败 (${res.status})`
-    try {
-      const data = await res.json()
-      if (data && typeof data.detail === 'string') detail = data.detail
-    } catch {
-      /* ignore */
-    }
-    throw new Error(detail)
-  }
+  if (!res.ok) throw new Error(await readErrorDetail(res))
   return res.json() as Promise<T>
 }
 
@@ -49,7 +62,8 @@ export async function streamPost(
     body: JSON.stringify(body),
     signal,
   })
-  if (!res.ok) throw new Error(`请求失败 (${res.status})`)
+  // 以前这里直接抛 `请求失败 (${res.status})`,把后端写的 detail 丢了。
+  if (!res.ok) throw new Error(await readErrorDetail(res))
   if (!res.body) throw new Error('浏览器不支持流式响应')
 
   const reader = res.body.getReader()

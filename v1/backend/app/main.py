@@ -19,6 +19,11 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)s [%(name)s] %(message)s",
 )
 
+# 降噪:httpx 每发一次外呼就打一行 INFO,叠加 logger.exception 的几十行堆栈,
+# 会把 chat.completed 那条用量日志彻底淹没 —— 而那条才是加日志的目的。
+for _noisy in ("httpx", "httpcore", "urllib3"):
+    logging.getLogger(_noisy).setLevel(logging.WARNING)
+
 logger = logging.getLogger(__name__)
 
 

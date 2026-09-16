@@ -115,6 +115,35 @@ npm run dev
 > 2. `stream_options`(拿 usage 的前提)加了兜底:端点若不认这个参数,自动去掉它重试一次。宁可丢用量统计,也不让聊天整体不可用。
 > 3. 另外补了一处清单没提但会直接导致 P0-3 失效的坑:`main.py` 里加了 `logging.basicConfig(...)`。uvicorn 只给自己的 logger 配 handler,root 没有 handler,应用里的 `logger.info(...)` 会被静默丢掉,「用量日志」根本打不出来。
 
+## 第二批修复记录(遗留问题清单)
+
+| # | 改动 | 位置 |
+|---|---|---|
+| A1 | LLM 客户端改**惰性构造**:空密钥不再在 import 阶段抛 SDK 的英文 `OpenAIError`(那条报错还叫人去设 `OPENAI_API_KEY`,把排查方向带偏到另一个项目);fail-fast 统一由 lifespan 一处负责 | `app/llm.py` |
+| A2 | 流式生成器里会话/角色取值判空,并降级成 `error` 事件。此前 200 响应头已发出,异常会硬切连接,前端表现为「空回答且没有任何报错」 | `app/api/chat.py` |
+| A3 | 错误详情统一走 `readErrorDetail`,并处理 Pydantic 422 的**数组** `detail`。此前前端只显示「请求失败 (422)」,不知道是字数超了 | `api/client.ts` |
+| A4 | 输入计数与硬挡统一为**码点**口径,与后端 `max_length` 对齐(此前 JS 按 UTF-16 算,一个 emoji 算 2) | `components/ChatInput.vue` |
+| B1 | 压掉 `httpx` / `httpcore` / `urllib3` 的 INFO 日志,用量日志不再被外呼日志淹没 | `app/main.py` |
+| B3 | LLM 客户端显式 `timeout=60` / `max_retries=2`(SDK 默认 600s,一个挂死的请求占线程 10 分钟) | `app/llm.py` |
+| C7 | 补齐 README 引用到的文件 —— 它们此前只存在于设计工作区,仓库里是死链 | `project-architecture.md`、`scripts/` |
+| C12 | 前后端字数上限加了跨文件断言,改一头忘另一头会红 | `scripts/verify-p0.py` |
+
+> **A1 的取舍**:清单给的是「把校验前移到 `config.py` 末尾直接 `raise`」。没采纳 —— 那样连 `import app.config` 都会炸(包括将来的 Alembic 和测试),而且 uvicorn 打出来的是一段 import 回溯,不是一句干净的启动错误。惰性构造从根上解决(别在 import 阶段构造客户端),启动判断仍然只有 lifespan 一处。
+>
+> **A4 的取舍**:清单建议保留 `maxlength`、只把计数改成码点。但 `maxlength` 本身也是 UTF-16 口径,emoji 稍多就会在计数还没到 500 时先把输入拦掉 —— 两个数字自相矛盾。改成 `watch` 里按码点裁剪,硬挡和显示同一个口径。
+
+**本批刻意延后**(不是遗漏,是不适合现在做):
+C1 Alembic、B6 usage 落库(依赖 C1 的迁移能力)、B2 reasoning 透传(要先有 B6 的数据)、B4 `/ready`+request ID、B5 安全头、C2/C3 多角色协议与去硬编码、C4 Markdown 渲染、C5 拆层、C6 测试体系、C8 CSS 拆分、C9–C11、D1–D3(单命令启动 / Docker / favicon)。
+
+## 工具脚本
+
+| 文件 | 用途 |
+|---|---|
+| `scripts/compress-background-video.ps1` | 把背景视频压到 1080p / 30fps / `+faststart` |
+| `scripts/probe-mp4.js` | 不依赖 ffmpeg 读 MP4 容器:编码、分辨率、帧率、moov 位置 |
+| `scripts/verify-p0.py` | 离线回归检查(不需要外网、不需要真密钥)。`python scripts/verify-p0.py [项目根]` |
+| `scripts/verify-failfast.py` | A1 的验收:空密钥必须抛中文 fail-fast,而不是 SDK 的英文报错 |
+
 ## 下一步怎么接 RAG(等做 P5 时)
 
 1. 在 `backend/app/agents/tools.py` 的 `TOOLS` / `_HANDLERS` 里追加 `retrieve_knowledge`、`get_team_build` 等工具。

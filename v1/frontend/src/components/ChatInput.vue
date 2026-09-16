@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useChatStore } from '../stores/chat'
 import { useBackgroundStore } from '../stores/background'
 
-// 必须与后端 schemas.MessageCreate 的 max_length 一致(改一处要同步另一处)。
+// 必须与后端 schemas.MessageCreate 的 max_length 一致。
+// scripts/verify-p0.py 里有一条断言会读这两个常量做比对,改一头忘另一头会红。
 const MAX_CHARS = 500
 // 只在接近上限时才显示计数:常驻的「0 / 500」是噪音。
 const COUNTER_FROM = 400
@@ -12,9 +13,21 @@ const chat = useChatStore()
 const background = useBackgroundStore()
 const text = ref('')
 
+/** 按码点计数,和后端 pydantic 的 max_length 口径对齐。
+    不能直接用 text.length —— JS 的 length 是 UTF-16 码元数,一个 emoji 算 2,
+    而 Python 里算 1,两边会差出一个「我明明没超 500 字」的疑问。 */
+const charCount = computed(() => [...text.value].length)
+const showCounter = computed(() => charCount.value >= COUNTER_FROM)
+
+// 硬挡放在这里而不是 textarea 的 maxlength:maxlength 同样是 UTF-16 口径,
+// emoji 稍多就会在计数还没到 500 时先把输入拦住,和上面那个数字自相矛盾。
+watch(text, (value) => {
+  const chars = [...value]
+  if (chars.length > MAX_CHARS) text.value = chars.slice(0, MAX_CHARS).join('')
+})
+
 const pauseLabel = computed(() => (background.paused ? '播放背景动画' : '暂停背景动画'))
 const soundLabel = computed(() => (background.soundOn ? '关闭背景音' : '打开背景音'))
-const showCounter = computed(() => text.value.length >= COUNTER_FROM)
 
 async function submit() {
   const value = text.value.trim()
@@ -30,7 +43,6 @@ async function submit() {
       <textarea
         v-model="text"
         rows="1"
-        :maxlength="MAX_CHARS"
         placeholder="和爱弥斯说点什么…"
         @keydown.enter.exact.prevent="submit"
       ></textarea>
@@ -114,7 +126,7 @@ async function submit() {
     </div>
 
     <p v-if="showCounter" class="input-counter" data-od-id="input-counter">
-      {{ text.length }} / {{ MAX_CHARS }}
+      {{ charCount }} / {{ MAX_CHARS }}
     </p>
     <p v-if="chat.error" class="input-error">{{ chat.error }}</p>
   </div>
