@@ -61,12 +61,15 @@ uvicorn app.main:app --reload --port 8000
 
 `.env` 关键项:
 
-- `DEEPSEEK_API_KEY`:你的密钥。**注意优先级**:进程环境变量优先于 `.env`(dotenv 默认不覆盖已有变量)。密钥放在系统用户变量里时,从 PyCharm 终端或任意新终端启动都能读到;但若启动它的进程是在你设置变量**之前**启动的(PyCharm 主进程就是这样),它读不到,此时 `.env` 里的占位符会被当成真密钥,聊天会报鉴权失败。最稳的做法是把真密钥写进 `.env`。
-- `DEEPSEEK_MODEL`:实测可用的两个取值:
-  - `deepseek-chat` —— 普通对话模型,首字延迟低,适合角色扮演聊天。
-  - `deepseek-flash` —— **推理模型**:回答前先输出 `reasoning_content`(简单问题也可能思考上千字符),已确认支持 function calling,工具调用链路正常。代价是回答前有几秒静默思考,界面会先显示一个空气泡再逐字出内容。
-  - 当前 `llm.py` 只转发 `delta.content`,推理内容被忽略;想让 UI 显示「思考中…」需要额外把它透传出去。
+- `DEEPSEEK_API_KEY`:你的密钥。**占位值等于没配** —— 后端启动时会自检,密钥为空或仍是 `.env.example` 里的占位值时**直接拒绝启动**并说明原因(fail fast)。这比让你聊天时才收到一个被 SSE 包起来的鉴权错误好排查得多。
+  **优先级提醒**:进程环境变量优先于 `.env`(dotenv 默认不覆盖已有变量),所以把真密钥写进 `.env` 最稳,不受「从哪个终端启动」影响。
+- `DEEPSEEK_MODEL`:默认 `deepseek-flash`。实测两种取值:
+  - `deepseek-flash` —— **推理模型**:回答前先输出 `reasoning_content`(简单问题也可能思考上千字符),已确认支持 function calling,工具调用链路正常。代价是回答前有几秒静默思考,界面会先显示「飞行雪绒正在思考中」再逐字出内容。
+  - `deepseek-chat` —— 普通对话模型,首字延迟低;但它是遗留兼容别名,不建议新环境使用。
+  - 当前 `llm.py` 只转发 `delta.content`,推理内容被忽略(UI 的思考提示正好覆盖这段空窗期)。
+- `LLM_TEMPERATURE` / `LLM_MAX_TOKENS`:生成参数,默认 `0.9` / `2048`。角色扮演建议 0.8~1.0;将来的攻略问答走 0.2~0.3(意图分流见 v2)。
 - `DATABASE_URL`:默认 SQLite(`sqlite:///./data/app.db`),本地无需 MySQL。
+- `LOG_LEVEL`:默认 `INFO`。**保持 INFO 才能看到每轮的 token 用量与缓存命中**,见下文 P0-3。
 
 首次启动会自动建表、把 `characters/amis.json` 写入数据库。改角色卡后,把 `version` 字段 +1 重启即可刷新。
 
@@ -85,6 +88,32 @@ npm run dev
 打开 `http://localhost:5173`。前端通过 Vite 代理把 `/api` 转发到后端 8000 端口。
 
 > 关于旧应用冻结:见项目根目录架构文档 §8「迁移策略」;简单说就是给旧 commit 打 tag(如 `v0-streamlit`)并把旧文件归档到 `legacy/`,之后只在新目录改,保留随时回退的能力。
+
+## P0 修复记录(第一批)
+
+按 `P0-FIX-LIST.md` 落地。原则是只改这六条,不动整体框架。
+
+| # | 改动 | 位置 |
+|---|---|---|
+| P0-1 | 默认模型名 → `deepseek-flash`;启动期自检,密钥为空/占位即拒绝启动 | `app/config.py`、`app/main.py`、`.env.example` |
+| P0-2 | 工具轮次预算耗尽不再空手返回,改为**去掉 tools 收口请求一次**;收口后仍无正文则报错、不落库 | `app/agents/orchestrator.py`、`app/services/chat_service.py` |
+| P0-3 | 采集 `usage`(含 `prompt_cache_hit_tokens`)并逐轮记日志;`temperature`/`max_tokens` 显式化;`build_memory` → `build_context(history, *, budget)` | `app/llm.py`、`app/config.py`、`app/agents/roleplay.py`、`app/services/chat_service.py` |
+| P0-4 | `content` 限制 1..500 字;前端 `maxlength` + 接近上限时显示计数 | `app/schemas.py`、`components/ChatInput.vue` |
+| P0-5 | 可停止生成(`AbortController` + `requestSeq` 防串台);切会话/删会话/卸载都会作废在途请求 | `stores/chat.ts`、`components/ChatInput.vue`、`App.vue` |
+| P0-6 | SQLite 开 WAL + `busy_timeout=5000` + `foreign_keys=ON`;流式接口改用短生命周期探针,不再整段流式占着一条请求级连接 | `app/database.py`、`app/api/chat.py` |
+
+**验收要点**
+
+- 启动日志出现 `LLM 配置就绪 model=deepseek-flash ...`。
+- 每轮回答后日志出现 `chat.completed ... usage=[...]`。**连发两轮后 `prompt_cache_hit_tokens` 应 > 0** —— 一直是 0 说明 system prompt 前缀被破坏,输入成本会高出约 10 倍。这是 v2 做检索前必须先确认的健康指标。
+- 空消息 / 501 字 → HTTP 422。
+- 生成中点「停止」立即停下且不报错;生成中切会话不再串台。
+- `v1/backend/data/` 下出现 `app.db-wal`、`app.db-shm`。
+
+> **与清单的两处偏差(经判断后改动)**
+> 1. 收口提示用 `role: "user"` 而不是 `"system"` —— 它出现在对话中段,`user` 是所有实现都接受的写法,`system` 中置各家容忍度不一,一旦被拒整条工具链就断了。
+> 2. `stream_options`(拿 usage 的前提)加了兜底:端点若不认这个参数,自动去掉它重试一次。宁可丢用量统计,也不让聊天整体不可用。
+> 3. 另外补了一处清单没提但会直接导致 P0-3 失效的坑:`main.py` 里加了 `logging.basicConfig(...)`。uvicorn 只给自己的 logger 配 handler,root 没有 handler,应用里的 `logger.info(...)` 会被静默丢掉,「用量日志」根本打不出来。
 
 ## 下一步怎么接 RAG(等做 P5 时)
 

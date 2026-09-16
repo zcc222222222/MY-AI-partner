@@ -5,7 +5,7 @@
 """
 import os
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, event
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 from .config import settings
@@ -22,6 +22,26 @@ engine = create_engine(
     connect_args={"check_same_thread": False} if _is_sqlite else {},
     future=True,
 )
+
+if _is_sqlite:
+
+    @event.listens_for(engine, "connect")
+    def _set_sqlite_pragma(dbapi_connection, _connection_record):
+        """check_same_thread=False 只是解除线程断言,并没解决锁竞争。
+
+        这三条才是:
+          WAL          —— 读不阻塞写,流式写入期间列表接口仍可读
+          busy_timeout —— 撞锁时最多等 5s,而不是立刻抛 database is locked
+          foreign_keys —— SQLite 默认不强制外键;打开后由 ORM 的
+                          cascade="all, delete-orphan" 保证删会话时子消息先被删掉
+        """
+        cursor = dbapi_connection.cursor()
+        cursor.execute("PRAGMA journal_mode=WAL")
+        cursor.execute("PRAGMA busy_timeout=5000")
+        cursor.execute("PRAGMA foreign_keys=ON")
+        cursor.close()
+
+
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, future=True)
 
 

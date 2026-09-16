@@ -1,7 +1,11 @@
 """请求 / 响应模型(Pydantic)。"""
 from datetime import datetime
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
+
+# 单条用户消息的字符上限。前端 ChatInput.vue 的 maxlength 必须与此一致 ——
+# 改这里时记得同步改那边(将来抽成配置项后只改一处)。
+MAX_MESSAGE_CHARS = 500
 
 
 class CharacterOut(BaseModel):
@@ -39,4 +43,5 @@ class MessageOut(BaseModel):
 
 
 class MessageCreate(BaseModel):
-    content: str
+    # min_length 顺手堵住「空消息也触发一次 LLM 调用」的浪费。
+    content: str = Field(min_length=1, max_length=MAX_MESSAGE_CHARS)

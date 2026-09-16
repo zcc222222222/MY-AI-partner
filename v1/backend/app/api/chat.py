@@ -1,5 +1,6 @@
 """聊天与会话路由。"""
 import json
+import logging
 
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
@@ -8,6 +9,8 @@ from sqlalchemy.orm import Session
 from .. import models, schemas
 from ..database import SessionLocal, get_db
 from ..services import chat_service, session_service
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/v1/chat", tags=["chat"])
 
@@ -40,9 +43,12 @@ def list_messages(session_id: str, db: Session = Depends(get_db)):
 
 
 @router.post("/sessions/{session_id}/messages")
-def send_message(session_id: str, body: schemas.MessageCreate, db: Session = Depends(get_db)):
-    if session_service.get_session(db, session_id) is None:
-        raise HTTPException(status_code=404, detail="会话不存在")
+def send_message(session_id: str, body: schemas.MessageCreate):
+    # 这里刻意不用请求级 Depends(get_db):请求级依赖的连接会活到整段流式响应结束,
+    # 白白占着一条空闲连接。改成短生命周期探针,查完立刻释放。
+    with SessionLocal() as probe:
+        if session_service.get_session(probe, session_id) is None:
+            raise HTTPException(status_code=404, detail="会话不存在")
 
     def event_stream():
         # 流式期间使用独立会话,避免与请求级依赖的线程/生命周期耦合。
@@ -53,6 +59,7 @@ def send_message(session_id: str, body: schemas.MessageCreate, db: Session = Dep
                 for payload in chat_service.stream_reply(stream_db, session, character, body.content):
                     yield f"data: {payload}\n\n"
             except Exception as exc:  # noqa: BLE001
+                logger.exception("chat.stream_failed session_id=%s", session_id)
                 yield f"data: {json.dumps({'type': 'error', 'detail': str(exc)}, ensure_ascii=False)}\n\n"
 
     return StreamingResponse(

@@ -1,14 +1,18 @@
 """聊天服务:组装角色扮演上下文并流式返回回复。"""
 import json
+import logging
 from typing import Iterator
 
 from sqlalchemy.orm import Session
 
 from .. import models
 from ..agents.orchestrator import run_agent
-from ..agents.roleplay import build_memory, build_system_prompt
+from ..agents.roleplay import build_context, build_system_prompt
 from ..agents.tools import TOOLS
+from ..config import settings
 from . import session_service
+
+logger = logging.getLogger(__name__)
 
 
 def stream_reply(
@@ -25,13 +29,39 @@ def stream_reply(
 
     history = session_service.list_messages(db, session.id)
     system_prompt = build_system_prompt(character)
-    messages = [{"role": "system", "content": system_prompt}, *build_memory(history)]
+    messages = [{"role": "system", "content": system_prompt}, *build_context(history)]
 
     full_text = ""
-    for event in run_agent(messages, tools=TOOLS):
+    usages: list[dict] = []
+    for event in run_agent(
+        messages,
+        tools=TOOLS,
+        temperature=settings.llm_temperature,
+        max_tokens=settings.llm_max_tokens,
+    ):
         if event["type"] == "delta":
             full_text += event["content"]
             yield json.dumps({"type": "delta", "content": event["content"]}, ensure_ascii=False)
+        elif event["type"] == "usage":
+            usages.append(event["usage"])
+
+    # 用量埋点。重点看 prompt_cache_hit_tokens:连发两轮后它应 > 0,
+    # 一直是 0 说明 system prompt 前缀被破坏,输入成本会高出约 10 倍。
+    logger.info(
+        "chat.completed session_id=%s model=%s usage=%s",
+        session.id,
+        settings.deepseek_model,
+        usages,
+    )
+
+    if not full_text.strip():
+        # 收口之后仍然没有正文 —— 宁可让用户重试,也不要写一条空消息进库:
+        # 那会变成一条每次进会话都重现的空气泡。
+        yield json.dumps(
+            {"type": "error", "detail": "模型这次没有生成出内容,请重试"},
+            ensure_ascii=False,
+        )
+        return
 
     assistant = session_service.append_message(db, session.id, "assistant", full_text)
 

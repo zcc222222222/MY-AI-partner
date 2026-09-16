@@ -21,7 +21,11 @@ onMounted(() => {
   })
 })
 
-onBeforeUnmount(() => background.dispose())
+onBeforeUnmount(() => {
+  // 卸载时掐断在途流,避免 HMR / 路由切换留下悬挂请求继续改状态。
+  chat.stop()
+  background.dispose()
+})
 </script>
 
 <template>

@@ -526,6 +526,17 @@ textarea {
   height: 16px;
 }
 
+/* 输入长度计数:只在接近上限时才出现,右对齐贴在输入框下方。
+   上限本身由 textarea 的 maxlength 硬挡,这行是解释「为什么打不进去了」。 */
+.input-counter {
+  margin: 8px auto 0;
+  max-width: 860px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
 .input-error {
   margin: 10px auto 0;
   max-width: 860px;
