@@ -1,11 +1,13 @@
 """FastAPI 入口。"""
 import logging
 import os
+import re
 from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
 
 from .api.router import api_router
@@ -78,9 +80,40 @@ app.include_router(api_router)
 # ---------------------------------------------------------------------------
 FRONTEND_DIST = Path(__file__).resolve().parents[2] / "frontend" / "dist"
 
+# ---------------------------------------------------------------------------
+# 静态产物的缓存策略。
+#
+# 默认的 StaticFiles 只发 ETag / Last-Modified,**不发 Cache-Control** —— 浏览器
+# 于是按「启发式缓存」自己算新鲜度(通常取「距今时间的 10%」),这段时间内连条件
+# 请求都不发。后果很具体:重新构建后浏览器还在用旧的 index.html,而旧外壳里没有
+# 的东西(例如 favicon 的 <link>)它就永远看不到 —— 「换了图标页签上一直没有」
+# 和「重新 build 了页面还是旧的」是同一个病。
+#
+# 带内容哈希的构建产物文件名不会变,可以放心长期缓存;其余一律 no-cache,
+# 语义是「可以缓存,但每次都要回源校验」—— 命中就是 304,代价极小,
+# 却保证替换素材(图标、立绘、背景视频)之后一定能生效。
+# ---------------------------------------------------------------------------
+_HASHED_ASSET = re.compile(r"^assets/.+-[A-Za-z0-9_-]{8}\.(?:js|css)$")
+
+
+class SpaStaticFiles(StaticFiles):
+    async def get_response(self, path: str, scope) -> Response:
+        response = await super().get_response(path, scope)
+        if "cache-control" not in response.headers:
+            # Starlette 在 Windows 上会先把路径规范化成反斜杠(os.path.normpath),
+            # 只按 "/" 写正则的话这里会静默走成 no-cache —— 不算坏,但不是本意。
+            normalized = path.replace("\\", "/")
+            response.headers["cache-control"] = (
+                "public, max-age=31536000, immutable"
+                if _HASHED_ASSET.match(normalized)
+                else "no-cache"
+            )
+        return response
+
+
 if FRONTEND_DIST.is_dir():
     # html=True:访问 / 时返回目录下的 index.html
-    app.mount("/", StaticFiles(directory=FRONTEND_DIST, html=True), name="spa")
+    app.mount("/", SpaStaticFiles(directory=FRONTEND_DIST, html=True), name="spa")
     logger.info("已挂载前端构建产物,单命令启动就绪: %s", FRONTEND_DIST)
 else:
     logger.info(
