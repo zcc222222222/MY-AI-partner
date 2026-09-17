@@ -161,7 +161,7 @@ npm run build
 > **A4 的取舍**:清单建议保留 `maxlength`、只把计数改成码点。但 `maxlength` 本身也是 UTF-16 口径,emoji 稍多就会在计数还没到 500 时先把输入拦掉 —— 两个数字自相矛盾。改成 `watch` 里按码点裁剪,硬挡和显示同一个口径。
 
 **本批刻意延后**(不是遗漏,是不适合现在做):
-C1 Alembic、B6 usage 落库(依赖 C1 的迁移能力)、B2 reasoning 透传(要先有 B6 的数据)、B4 `/ready`+request ID、B5 安全头、C2/C3 多角色协议与去硬编码、C4 Markdown 渲染、C5 拆层、C6 测试体系、C8 CSS 拆分、C9–C11、D2、D3(Docker / favicon)。
+C1 Alembic、B6 usage 落库(依赖 C1 的迁移能力)、B2 reasoning 透传(要先有 B6 的数据)、B4 `/ready`+request ID、B5 安全头、C2/C3 多角色协议与去硬编码、C4 Markdown 渲染、C5 拆层、C6 测试体系、C8 CSS 拆分、C9–C11、D2、D3 里的 Docker 部分(favicon 已完成,见「素材」)。
 
 ## 工具脚本
 
@@ -172,6 +172,10 @@ C1 Alembic、B6 usage 落库(依赖 C1 的迁移能力)、B2 reasoning 透传(�
 | `scripts/verify-p0.py` | 离线回归检查(不需要外网、不需要真密钥)。`python scripts/verify-p0.py [项目根]` |
 | `scripts/verify-failfast.py` | A1 的验收:空密钥必须抛中文 fail-fast,而不是 SDK 的英文报错 |
 | `scripts/verify-spa-mount.py` | D1 的验收:挂载 `/` 之后 API 与 `/docs` 仍可达、根路径真的吐出 SPA |
+| `v1/scripts/make-favicon.py` | 从立绘生成多尺寸 `favicon.ico` + `apple-touch-icon.png` |
+| `v1/scripts/check-bg-contrast.py` | 实测文字在**真实背景视频**上的对比度:解码视频帧 → 按 `main.css:77-87` 的规则合成 scrim 渐变 → 算 WCAG 比值。`--region` 可以只看某一条带(比如页脚输入区)。用来回答"这个 scrim 到底够不够",而不是靠估 |
+
+> 这两个脚本放在 `v1/scripts/` 而不是仓库根的 `scripts/`,因为它们是 v1 自己的素材/视觉工具,跟着 v1 一起版本化。
 
 ## 下一步怎么接 RAG(等做 P5 时)
 
@@ -225,6 +229,17 @@ SSE 事件:
 
 - **角色立绘**:`frontend/public/assets/amis-portrait.jpg`(1080×1701)。面板比例已按这个尺寸设为 `1080 / 1701`,所以 `object-fit: contain` 既不裁切也不留黑边;换图若比例不同,记得同步改 `.portrait` 的 `aspect-ratio`。文件缺失时面板显示占位提示,不会报错。
 - 头像:复用旧版 `feixingxuerong.png`(爱弥斯)与 `piaobozhe.jpg`(漂泊者)。
-- 可选:favicon / 应用图标。
+- **站点图标**:`frontend/public/favicon.ico`(16/32/48/64 四个尺寸,17611 字节)与 `frontend/public/apple-touch-icon.png`(180×180)。由 `v1/scripts/make-favicon.py` 从 `feixingxuerong.png` 生成,`frontend/index.html` 里两行 `<link rel="icon">` / `<link rel="apple-touch-icon">` 引用。
+  - 裁切参数是 `--crop 1160:1160:157:60`,**不是**随手取的正方形:源图 1467×1479 里头部大约占 x=157..1317 / y=60..1220,护目镜在那条横带 y=654..848 上。只截「眼睛附近」会得到一大片额头,16px 下完全看不出是谁 —— 所以裁的是**整个头**,让粉色头发 + 深色护目镜这个组合在小尺寸下仍然立得住。
+  - 源图是**不透明**的(全幅像素画,没有 alpha),所以图标本身也是实底,不需要额外垫底色。
+  - 换图或换裁切后重新生成(ffmpeg 是前置条件,和压视频那个脚本一样):
+
+    ```powershell
+    python .\v1\scripts\make-favicon.py .\v1\frontend\public\assets\feixingxuerong.png `
+      .\v1\frontend\public\favicon.ico --crop 1160:1160:157:60 --sizes 16,32,48,64 `
+      --apple-touch .\v1\frontend\public\apple-touch-icon.png
+    ```
+
+    脚本写完会**回读** ICO 目录自校验(条目数、每条的 PNG 魔数、偏移不越界),容器坏掉不会静默出厂。`--crop` 必须是正方形,否则直接报错退出 —— 非正方形的裁切会被拉伸变形。
 
 > 素材版权提示:使用《鸣潮》官方公开素材(官方 Wiki 立绘、官方公告图)并标注来源,不要用仿绘替代。
