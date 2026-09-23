@@ -131,3 +131,8 @@ cython_debug/
 
 # Project specific
 sessions/
+
+# 内部文档:本地保留,不随仓库公开(需要改动时直接改文件,它们仍在磁盘上)
+/project-architecture.md
+/v1/README.md
+/v1/V1-CODE-REVIEW.md
