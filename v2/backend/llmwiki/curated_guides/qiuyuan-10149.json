@@ -1,0 +1,36 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1411/10149",
+  "source_revision": 1,
+  "source_sha256": "a5c6dd76881b1ed9066816a58a27df3097fa70c3815f1530a1a0bd7eaa4fe3f6",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1411/10149/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "source-method",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "核心输出流程"
+      ],
+      "blocks": [
+        {
+          "phase": "核心输出流程",
+          "lines": [
+            "3. 核心输出流程：变奏入场→进入【竹照】状态（获得声骸技能伤害加成）→打出普攻答剑・质黑相青第三、四段→攒满回路条进入【淋漓醉墨】状态（获得固有天赋伤害加成）→释放三次强化重击（可穿插大招释放，也可大招收尾）。同时，共鸣技能建议在共鸣解放前释放，声骸技能需与队友合轴，且要在变奏前释放与尔同销万古愁天赋以保证攻击力加成覆盖全程。"
+          ]
+        }
+      ]
+    }
+  ]
+}

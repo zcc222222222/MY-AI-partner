@@ -1,0 +1,18 @@
+{
+  "page_id": "demo/resource",
+  "game_version": "demo",
+  "locale": "zh",
+  "title": "更新骨架演示",
+  "body": "# 更新骨架演示\n\n这是虚构样例，不是游戏攻略。\n演示资源上限为200。 [source:demo/source@1]",
+  "entities": ["demo:resource"],
+  "topics": ["demo"],
+  "sources": [{"source_id": "demo/source", "revision": 1}],
+  "pages": [],
+  "claims": [{
+    "claim_id": "resource_cap",
+    "text": "演示资源上限为200。",
+    "citations": [{"source_id": "demo/source", "revision": 1, "quote": "演示资源上限为200。"}]
+  }],
+  "open_questions": [],
+  "unresolved_conflicts": []
+}

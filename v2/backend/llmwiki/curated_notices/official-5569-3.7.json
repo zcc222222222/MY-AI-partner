@@ -1,0 +1,204 @@
+{
+  "schema": "notice-impacts-v1",
+  "page_id": "document/official/news/5569/part-2",
+  "source_id": "official/news/5569",
+  "source_revision": 2,
+  "source_sha256": "3413d9a4086d8591f58fc6f5dbb44659836936bcc8a97c2a67b9ce77a06c2e30",
+  "game_version": "3.7",
+  "coverage": "reviewed_spans_only",
+  "entries": [
+    {
+      "id": "qingxiao-model",
+      "kind": "character_presentation",
+      "subject": "清宵",
+      "start": 7270,
+      "quote": "- 修复了共鸣者「清宵」在处于【昙体仙身】状态时，特定场景下会出现部分角色模型表现异常的问题。",
+      "entities": [
+        {
+          "type": "character",
+          "id": "1413",
+          "name": "清宵"
+        }
+      ]
+    },
+    {
+      "id": "qingxiao-button",
+      "kind": "character_presentation",
+      "subject": "清宵",
+      "start": 7318,
+      "quote": "- 修复了共鸣者「清宵」在处于【御剑飞行】状态时，部分技能按钮会出现异常显示可使用次数的问题。",
+      "entities": [
+        {
+          "type": "character",
+          "id": "1413",
+          "name": "清宵"
+        }
+      ]
+    },
+    {
+      "id": "qingxiao-movement",
+      "kind": "character_mechanics",
+      "subject": "清宵",
+      "start": 7366,
+      "quote": "- 修复了共鸣者「清宵」在部分场景下施放【清绝剑遁】时会异常行动至地图外的问题。",
+      "entities": [
+        {
+          "type": "character",
+          "id": "1413",
+          "name": "清宵"
+        }
+      ]
+    },
+    {
+      "id": "qingxiao-clipping",
+      "kind": "character_presentation",
+      "subject": "清宵",
+      "start": 7407,
+      "quote": "- 修复了共鸣者「清宵」在【共鸣者】界面内部分角色模型穿模的问题。",
+      "entities": [
+        {
+          "type": "character",
+          "id": "1413",
+          "name": "清宵"
+        }
+      ]
+    },
+    {
+      "id": "suisui-timing",
+      "kind": "character_mechanics",
+      "subject": "穗穗",
+      "start": 7441,
+      "quote": "- 修复了共鸣者「穗穗」在处于【仙游碧落】状态时，特定情况下有概率出现【翾舞】触发时机异常的问题。",
+      "entities": [
+        {
+          "type": "character",
+          "id": "1110",
+          "name": "穗穗"
+        }
+      ]
+    },
+    {
+      "id": "qianxiao-model",
+      "kind": "character_presentation",
+      "subject": "千咲",
+      "start": 7491,
+      "quote": "- 修复了共鸣者「千咲」在穿戴角色服饰【蜜桃冰】时，部分移动端设备会出现特定动作下角色模型表现异常的问题。",
+      "entities": [
+        {
+          "type": "character",
+          "id": "1508",
+          "name": "千咲"
+        }
+      ]
+    },
+    {
+      "id": "katixiya-water",
+      "kind": "character_presentation",
+      "subject": "卡提希娅",
+      "start": 7545,
+      "quote": "- 修复了共鸣者「卡提希娅」在化身「芙露德莉斯」在水面行走时，特定情况下会出现动作表现异常的问题。",
+      "entities": [
+        {
+          "type": "character",
+          "id": "1409",
+          "name": "卡提希娅"
+        }
+      ]
+    },
+    {
+      "id": "rover-interaction",
+      "kind": "interaction_fix",
+      "subject": "漂泊者・导电",
+      "start": 7595,
+      "quote": "- 修复了共鸣者「漂泊者・导电」在【罗伊冰原】-【冰原地表】区域内无法与「哺熊」交互的问题。",
+      "entities": [
+        {
+          "type": "character",
+          "id": "1309",
+          "name": "漂泊者・导电"
+        },
+        {
+          "type": "character",
+          "id": "1310",
+          "name": "漂泊者・导电"
+        }
+      ]
+    },
+    {
+      "id": "qixia-effect",
+      "kind": "weapon_effect",
+      "subject": "栖霞饮露",
+      "start": 7642,
+      "quote": "- 修复了在特定切换编队及武器的操作下，会出现武器【栖霞饮露】的【附近队伍中所有角色攻击提升】效果未正常生效的问题。",
+      "entities": [
+        {
+          "type": "weapon",
+          "id": "21050096",
+          "name": "栖霞饮露"
+        }
+      ]
+    },
+    {
+      "id": "qiankui-trigger",
+      "kind": "echo_effect",
+      "subject": "千傀重楼",
+      "start": 7708,
+      "quote": "- 修复了在使用声骸技能【千傀重楼】后，装配该声骸的角色为目标附加【虚湮效应】时有概率出现每1秒可多次触发消耗【千忆剑声】效果的问题。",
+      "entities": [
+        {
+          "type": "echo",
+          "id": "6000218",
+          "name": "千傀重楼"
+        }
+      ]
+    },
+    {
+      "id": "echo-recommend-ui",
+      "kind": "system_change",
+      "subject": "声骸推荐",
+      "start": 3674,
+      "quote": "●声骸推荐\n优化调整【声骸推荐】界面显示\n- 在【声骸推荐】界面中，针对部分拥有双模态的共鸣者角色，默认推荐中将标注【合鸣效果】适配的【共鸣模态】。在高使用率推荐中，如出现与默认推荐中相同的搭配，将同步标注【合鸣效果】适配的【共鸣模态】。\n- 标注的【合鸣效果】与【共鸣模态】适配信息将会同步至声骸装配界面的【推荐筛选】中。",
+      "entities": []
+    },
+    {
+      "id": "tower-recommend",
+      "kind": "system_change",
+      "subject": "逆境深塔",
+      "start": 5293,
+      "quote": "- 优化调整【逆境深塔】玩法中【阵容推荐】的推荐逻辑。",
+      "entities": []
+    },
+    {
+      "id": "endgame-controller",
+      "kind": "interaction_fix",
+      "subject": "冥歌海墟",
+      "start": 8711,
+      "quote": "- 修复了在使用手柄控制器时，[冥歌海墟]活动中特定操作会导致当前界面无响应的问题。",
+      "entities": []
+    },
+    {
+      "id": "tiangong-schedule",
+      "kind": "event_schedule",
+      "subject": "天工寻物",
+      "start": 2026,
+      "quote": "[天工寻物]限时战斗活动\n天工匠见习生离纱，向你报到！\n✦活动时间：2026年10月8日04:00 ~ 2026年10月26日03:59（服务器时间）",
+      "entities": []
+    },
+    {
+      "id": "wuyin-schedule",
+      "kind": "event_schedule",
+      "subject": "无音消除",
+      "start": 2102,
+      "quote": "[无音消除]休闲活动\n第二索拉最新出品的旗舰项目，快来体验手指点点消除声骸棋子的乐趣吧！\n✦活动时间：2026年10月22日10:00 ~ 2026年11月9日03:59（服务器时间）",
+      "entities": []
+    },
+    {
+      "id": "party-management",
+      "kind": "system_change",
+      "subject": "编队",
+      "start": 3837,
+      "quote": "●编队\n新增【编队管理】功能\n- 在编队管理界面内可通过拖动队伍调整其排列顺序。\n- 队伍可进行自定义命名，命名后的队伍名称将在编队界面左上角显示。\n- 扩充最大编队数量至20组。",
+      "entities": []
+    }
+  ]
+}

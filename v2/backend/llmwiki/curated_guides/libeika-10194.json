@@ -1,0 +1,38 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1308/10194",
+  "source_revision": 1,
+  "source_sha256": "ed5ce621aa970917e67e4e12d2c222760812a51ae0be74c05a4c188c95e912fd",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1308/10194/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "source-method",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "而在流程中我们需要做的就是在获取【小孩子才做选择】buff后（即变奏），再打出一次强化重击吃满固有一的增伤，最后开大打满伤害即可。"
+      ],
+      "phases": [
+        "输出手法"
+      ],
+      "blocks": [
+        {
+          "phase": "输出手法",
+          "lines": [
+            "综上，输出手法为：变奏入场（获取buff）→E→AAAA→Z（打出强化重击）→RAAAAA（开大开枪）→延奏下场。"
+          ]
+        }
+      ]
+    }
+  ]
+}

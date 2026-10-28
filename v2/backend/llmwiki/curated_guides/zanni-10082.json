@@ -1,0 +1,37 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1507/10082",
+  "source_revision": 1,
+  "source_sha256": "c2fa02064919ee2e39fe971c605b78d22354f500d3ac3bd04b2b68bd816b60c2",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1507/10082/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "personal",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "1.操作建议"
+      ],
+      "blocks": [
+        {
+          "phase": "1.操作建议",
+          "prose": true,
+          "lines": [
+            "1.操作建议：变奏入场，打满回路放强化技能。之后开大招，连点普攻清空回路，二段大招收尾"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    }
+  ]
+}

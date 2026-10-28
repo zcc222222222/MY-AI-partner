@@ -1,0 +1,146 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1402/10211",
+  "source_revision": 1,
+  "source_sha256": "1fa0ad3a7479e3f5659b49d379befdc56c7006ea44e657f21af7c83ac619690b",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1402/10211/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "team",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "作为提供加深BUFF的辅助，以珂莱塔队伍为例：珂莱塔重击+两段共鸣技能->秧秧共鸣解放->共鸣技能->重击->普通攻击（重击派生）->切到治疗角色打满协奏能量->变奏入场->空中按下平A->落地满协奏释放声骸技能->延奏技能离场->珂莱塔一套输出。"
+          ],
+          "sequence_anchors": [
+            "珂莱塔重击+两段共鸣技能",
+            "切到治疗角色打满协奏能量",
+            "落地满协奏释放声骸技能",
+            "珂莱塔一套输出"
+          ]
+        }
+      ],
+      "playstyle": {
+        "label": "珂莱塔",
+        "quote": "作为提供加深BUFF的辅助，以珂莱塔队伍为例：珂莱塔重击+两段共鸣技能->秧秧共鸣解放->共鸣技能->重击->普通攻击（重击派生）->切到治疗角色打满协奏能量->变奏入场->空中按下平A->落地满协奏释放声骸技能->延奏技能离场->珂莱塔一套输出。",
+        "selectors": [
+          "珂莱塔"
+        ]
+      }
+    },
+    {
+      "id": "no-intro",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "说明：秧秧分为两段输出抗压能力比一套更强，队伍出现失误时可以用一套进阶手法，不吃变奏情况下秧秧打满协奏能量：其他角色地面切秧秧->AA(直接从第三段开始)->REZA->跳A->Q->延奏离场。"
+          ],
+          "sequence_anchors": [
+            "不吃变奏情况下",
+            "其他角色地面切秧秧",
+            "AA(直接从第三段开始)",
+            "延奏离场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "不吃变奏",
+        "quote": "说明：秧秧分为两段输出抗压能力比一套更强，队伍出现失误时可以用一套进阶手法，不吃变奏情况下秧秧打满协奏能量：其他角色地面切秧秧->AA(直接从第三段开始)->REZA->跳A->Q->延奏离场。",
+        "selectors": [
+          "不吃变奏"
+        ]
+      }
+    },
+    {
+      "id": "basic-0",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "基础连招"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ],
+      "blocks": [
+        {
+          "phase": "基础连招",
+          "prose": false,
+          "lines": [
+            "基础连招：变奏入场 → 普攻 → 共鸣技能 → 重击 → 强化重击 → 共鸣解放"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "基础连招",
+        "quote": "基础连招：变奏入场 → 普攻 → 共鸣技能 → 重击 → 强化重击 → 共鸣解放",
+        "selectors": [
+          "基础连招"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

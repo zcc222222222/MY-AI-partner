@@ -1,0 +1,47 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1110/10213",
+  "source_revision": 1,
+  "source_sha256": "c617d50c344da3164e136ad785c2a6a348c512296b26da1e9d4a3eb9bf54392b",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1110/10213/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "source-method",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "★角色满协奏流程"
+      ],
+      "phases": [
+        "热启动",
+        "冷启动"
+      ],
+      "blocks": [
+        {
+          "phase": "热启动",
+          "lines": [
+            "热启动：",
+            "变奏入场→释放共鸣技能→打4下普攻→共鸣解放→满协奏切人"
+          ]
+        },
+        {
+          "phase": "冷启动",
+          "lines": [
+            "冷启动",
+            "普攻3下→释放共鸣技能[醒春潮]→再次释放共鸣技能→普攻4下→共鸣解放→满协奏切人"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1209/10165",
+  "source_revision": 1,
+  "source_sha256": "f6535b1af3c4c0b30ea858a5e49030d7f7e25b43085df7127a4112d864fcdae8",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1209/10165/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "personal",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "coverage_scope": "local_moves",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "1.点按普攻*3，长按普攻，点按e技能，长按普攻至特殊动画，点按大招+声骸，切人。这就是站场时的完整操作。循环轴中变奏入场，可以将aaaz省略，ezrq直接启动。"
+          ],
+          "sequence_anchors": [
+            "点按普攻*3",
+            "点按e技能",
+            "点按大招+声骸",
+            "切人"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1102/10112",
+  "source_revision": 1,
+  "source_sha256": "55b3b449f93bd0adf3016f6435081615c8c941df238e0d3eef49442a19d4d30a",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1102/10112/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "personal",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "散华的操作较为简单，通过重击（特殊为止时）引爆（共鸣技能、变奏技能、共鸣解放）留下的冰痕而进行爆发输出，在变奏入场和释放共鸣技能和共鸣解放后即可预输入（提前长按攻击）重击退场，虽然操作简单，但切入时机和重击松开的手感方面，则依赖于各位玩家的熟练度。 作为副c可穿戴凝夜白霜，增加队伍整体的输出能力，多数情况下可以佩戴轻云出月套，满协奏能量时使用声骸技能退场，可以总共给全队带来攻击力提升10%，下一名接力角色伤害提升12%，和攻击力提升22.5%的增幅，简单实用。在作为延奏发射器的情况下（配合椿），则可以将3c其中一个换成共鸣效率（高练可不换），满足共鸣效率140%的情况下多触发椿的变奏技能，使每次椿的输出循环都完美衔接。"
+          ],
+          "sequence_anchors": [
+            "通过重击",
+            "在变奏入场和释放共鸣技能和共鸣解放后",
+            "满协奏能量时使用声骸技能退场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "通过重击",
+        "quote": "散华的操作较为简单，通过重击（特殊为止时）引爆（共鸣技能、变奏技能、共鸣解放）留下的冰痕而进行爆发输出，在变奏入场和释放共鸣技能和共鸣解放后即可预输入（提前长按攻击）重击退场，虽然操作简单，但切入时机和重击松开的手感方面，则依赖于各位玩家的熟练度。 作为副c可穿戴凝夜白霜，增加队伍整体的输出能力，多数情况下可以佩戴轻云出月套，满协奏能量时使用声骸技能退场，可以总共给全队带来攻击力提升10%，下一名接力角色伤害提升12%，和攻击力提升22.5%的增幅，简单实用。在作为延奏发射器的情况下（配合椿），则可以将3c其中一个换成共鸣效率（高练可不换），满足共鸣效率140%的情况下多触发椿的变奏技能，使每次椿的输出循环都完美衔接。",
+        "selectors": [
+          "通过重击"
+        ]
+      }
+    },
+    {
+      "id": "basic-0",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "基础连招"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ],
+      "blocks": [
+        {
+          "phase": "基础连招",
+          "prose": false,
+          "lines": [
+            "基础连招：普攻*2 → 共鸣技能 → 长按普攻蓄力 → 共鸣解放 → 声骸技能 → 延奏离场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "基础连招",
+        "quote": "基础连招：普攻*2 → 共鸣技能 → 长按普攻蓄力 → 共鸣解放 → 声骸技能 → 延奏离场",
+        "selectors": [
+          "基础连招"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

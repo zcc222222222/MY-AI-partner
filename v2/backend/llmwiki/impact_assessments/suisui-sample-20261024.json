@@ -1,0 +1,170 @@
+[
+  {
+    "schema": "impact-assessment-v1",
+    "notice": {
+      "source_id": "official/news/5569",
+      "game_version": "3.7",
+      "change_id": "suisui-timing",
+      "change_sha256": "ab0c6c1630c142c977320a435e0fceee0cff26cf5d96d29f977ef59dc5c8f806",
+      "page": {
+        "page_id": "document/official/news/5569/part-2",
+        "namespace": "documents-v1",
+        "revision": 2,
+        "sha256": "7778d8bfc6996cc1791be39ff86831d9660767f65a408f4200e5bc5966b81382",
+        "sources": [
+          {
+            "source_id": "official/news/5569",
+            "revision": 2,
+            "sha256": "3413d9a4086d8591f58fc6f5dbb44659836936bcc8a97c2a67b9ce77a06c2e30"
+          }
+        ]
+      }
+    },
+    "target": {
+      "page_id": "document/mcguide/1110/10213/part-1",
+      "namespace": "documents-v1",
+      "revision": 2,
+      "sha256": "c5f7486af4a8569c895d005a8ebb13d49572cedab22eec1bb0149cf47b056cd9",
+      "sources": [
+        {
+          "source_id": "mcguide/1110/10213",
+          "revision": 1,
+          "sha256": "c617d50c344da3164e136ad785c2a6a348c512296b26da1e9d4a3eb9bf54392b"
+        }
+      ]
+    },
+    "coverage": "listed_claims_only",
+    "checks": [
+      {
+        "claim_id": "claim-010",
+        "claim_sha256": "e4973cab1b0546c893fe1cc830828e0e3cdebf74b26b855addf81bd240102ddf",
+        "outcome": "insufficient_evidence",
+        "note": "公告仅说明特定情况下翾舞触发时机异常已修复，未给出修复后的具体时序；无法据此验证这条流程/增益衔接在新版的实战表现。"
+      },
+      {
+        "claim_id": "claim-011",
+        "claim_sha256": "8e0d2541de8f68543d262eadd55cb916e7342348bea37e9f2d1b758c2dbc74c5",
+        "outcome": "insufficient_evidence",
+        "note": "公告仅说明特定情况下翾舞触发时机异常已修复，未给出修复后的具体时序；无法据此验证这条流程/增益衔接在新版的实战表现。"
+      }
+    ],
+    "summary": "已核对翾舞次数说明及烟岚衔接条目；新版具体时序证据不足，暂不改写原文，也不认定整篇失效。",
+    "kind": "assessment"
+  },
+  {
+    "schema": "impact-assessment-v1",
+    "notice": {
+      "source_id": "official/news/5569",
+      "game_version": "3.7",
+      "change_id": "suisui-timing",
+      "change_sha256": "ab0c6c1630c142c977320a435e0fceee0cff26cf5d96d29f977ef59dc5c8f806",
+      "page": {
+        "page_id": "document/official/news/5569/part-2",
+        "namespace": "documents-v1",
+        "revision": 2,
+        "sha256": "7778d8bfc6996cc1791be39ff86831d9660767f65a408f4200e5bc5966b81382",
+        "sources": [
+          {
+            "source_id": "official/news/5569",
+            "revision": 2,
+            "sha256": "3413d9a4086d8591f58fc6f5dbb44659836936bcc8a97c2a67b9ce77a06c2e30"
+          }
+        ]
+      }
+    },
+    "target": {
+      "page_id": "character/1110/mechanics",
+      "namespace": "3.7",
+      "revision": 1,
+      "sha256": "aad692d69767318ec5bff2dde9fafc4961a78b6e8bcbf8794e6d631f2120d008",
+      "sources": [
+        {
+          "source_id": "nanoka/character/1110",
+          "revision": 1,
+          "sha256": "3d157b8d32dd9e48c52eb7450053f3e855d5d1b84355eda0a57c2da4ba40d32d"
+        }
+      ]
+    },
+    "coverage": "listed_claims_only",
+    "checks": [
+      {
+        "claim_id": "claim-037",
+        "claim_sha256": "2a21f37c6562524fa5ffadff19ba649f00e283abed4762046fff64579f6ce415",
+        "outcome": "insufficient_evidence",
+        "note": "旧机制文本描述特定资源档位与翾舞触发，公告未给出修复后的准确时点，不能凭这一条补写秒数或验证实际间隔。"
+      },
+      {
+        "claim_id": "claim-038",
+        "claim_sha256": "34fe9057676e52534a2b881e42677116b6e3eecfce7922fcd438ad59e1ade537",
+        "outcome": "insufficient_evidence",
+        "note": "旧机制文本描述特定资源档位与翾舞触发，公告未给出修复后的准确时点，不能凭这一条补写秒数或验证实际间隔。"
+      },
+      {
+        "claim_id": "claim-039",
+        "claim_sha256": "1a11cfc787f03ebd7ab30bc33400d9a9cf7cc752f800a6d7cd85da26a696cefa",
+        "outcome": "insufficient_evidence",
+        "note": "旧机制文本描述特定资源档位与翾舞触发，公告未给出修复后的准确时点，不能凭这一条补写秒数或验证实际间隔。"
+      },
+      {
+        "claim_id": "claim-040",
+        "claim_sha256": "09291dc579fea4684ed6cb181c46add2f8090d98f22ffa59d5336cb7c4c8d796",
+        "outcome": "insufficient_evidence",
+        "note": "旧机制文本描述特定资源档位与翾舞触发，公告未给出修复后的准确时点，不能凭这一条补写秒数或验证实际间隔。"
+      }
+    ],
+    "summary": "已对照仙游碧落与翾舞触发说明；公告不足以复核具体时点及实战间隔，保留待补证。",
+    "kind": "assessment"
+  },
+  {
+    "schema": "impact-assessment-v1",
+    "notice": {
+      "source_id": "official/news/5569",
+      "game_version": "3.7",
+      "change_id": "qixia-effect",
+      "change_sha256": "b2a586d24083c155cd7e03c5c95b6a91889fa93f54b1c7f1963806a11feb2ca0",
+      "page": {
+        "page_id": "document/official/news/5569/part-2",
+        "namespace": "documents-v1",
+        "revision": 2,
+        "sha256": "7778d8bfc6996cc1791be39ff86831d9660767f65a408f4200e5bc5966b81382",
+        "sources": [
+          {
+            "source_id": "official/news/5569",
+            "revision": 2,
+            "sha256": "3413d9a4086d8591f58fc6f5dbb44659836936bcc8a97c2a67b9ce77a06c2e30"
+          }
+        ]
+      }
+    },
+    "target": {
+      "page_id": "document/mcguide/1110/10213/part-1",
+      "namespace": "documents-v1",
+      "revision": 2,
+      "sha256": "c5f7486af4a8569c895d005a8ebb13d49572cedab22eec1bb0149cf47b056cd9",
+      "sources": [
+        {
+          "source_id": "mcguide/1110/10213",
+          "revision": 1,
+          "sha256": "c617d50c344da3164e136ad785c2a6a348c512296b26da1e9d4a3eb9bf54392b"
+        }
+      ]
+    },
+    "coverage": "listed_claims_only",
+    "checks": [
+      {
+        "claim_id": "claim-031",
+        "claim_sha256": "e6925b8a95a5bb15a36bdc4b8c0e170aece2da5e0fcdb3d50b48f4dc78be4bf8",
+        "outcome": "insufficient_evidence",
+        "note": "攻略给出20%攻击加成及推荐理由；公告只修复特定切换编队/武器时效果未生效，没有重述数值或重算推荐排序，无法据此验证加成及优先级。"
+      },
+      {
+        "claim_id": "claim-034",
+        "claim_sha256": "4b2dd1897b21e15d9214eb44723c363c3f708e811a6186071510594a603c506b",
+        "outcome": "no_text_change",
+        "note": "这一条只列武器候选名称；公告没有提供撤销该候选或更名的依据，本轮不修改候选文字；未核实实际推荐与20%表现。"
+      }
+    ],
+    "summary": "候选武器名称这条无需文本修订；20%加成、充能及推荐理由仍缺乏新版验证，不能将局部核对当作整篇适用性确认。",
+    "kind": "assessment"
+  }
+]

@@ -1,0 +1,36 @@
+services:
+  app:
+    image: my-aipartner:local
+    build:
+      context: .
+      target: runtime
+    init: true
+    restart: unless-stopped
+    env_file:
+      - ${APP_ENV_FILE:-./v2/backend/.env}
+    environment:
+      DATABASE_URL: sqlite:////app/data/app.db
+      KB_DATA_DIR: /app/data
+      WIKI_UPSTREAM_DB_PATH: /app/data/knowledge.db
+    ports:
+      - "${APP_BIND_ADDRESS:-127.0.0.1}:${APP_PORT:-8000}:8000"
+    volumes:
+      - type: bind
+        source: ${APP_DATA_DIR:-./v2/backend/data}
+        target: /app/data
+        bind:
+          create_host_path: false
+    read_only: true
+    tmpfs:
+      - /tmp:mode=1777
+    shm_size: 1gb
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    stop_grace_period: 90s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

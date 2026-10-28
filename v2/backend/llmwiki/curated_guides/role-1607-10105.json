@@ -1,0 +1,108 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1607/10105",
+  "source_revision": 1,
+  "source_sha256": "21c2ba568cc332b0c95dab694a19afe41e4b99bc8c829bfd13cc0db3cc9f42df",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1607/10105/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "team",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "坎特蕾拉AAAE 切散华ERZ 切守岸人AAAZ RE协奏满后Q 切散华A满协奏Q 切坎特蕾拉AZ (Q闪) AAE RAAA 切守岸人"
+          ],
+          "sequence_anchors": [
+            "坎特蕾拉AAAE",
+            "切散华ERZ",
+            "切守岸人AAAZ RE协奏满后Q",
+            "切散华A满协奏Q",
+            "切坎特蕾拉AZ (Q闪) AAE RAAA"
+          ]
+        }
+      ],
+      "playstyle": {
+        "label": "坎特蕾拉AAAE",
+        "quote": "坎特蕾拉AAAE 切散华ERZ 切守岸人AAAZ RE协奏满后Q 切散华A满协奏Q 切坎特蕾拉AZ (Q闪) AAE RAAA 切守岸人",
+        "selectors": [
+          "坎特蕾拉AAAE"
+        ]
+      }
+    },
+    {
+      "id": "basic-0",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "基础连招"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ],
+      "blocks": [
+        {
+          "phase": "基础连招",
+          "prose": false,
+          "lines": [
+            "基础连招：变奏入场 → 共鸣技能 → 共鸣解放 → 重击 → 共鸣技能 → 声骸技能 → 普攻*3 → 共鸣技能 → 延奏离场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "基础连招",
+        "quote": "基础连招：变奏入场 → 共鸣技能 → 共鸣解放 → 重击 → 共鸣技能 → 声骸技能 → 普攻*3 → 共鸣技能 → 延奏离场",
+        "selectors": [
+          "基础连招"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

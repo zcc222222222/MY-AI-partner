@@ -82,6 +82,9 @@ ipython_config.py
 
 # Environments
 .env
+.env.*
+!.env.example
+!.env.*.example
 .envrc
 .venv
 env/
@@ -131,8 +134,28 @@ cython_debug/
 
 # Project specific
 sessions/
+/data/
+.playwright-mcp/
+playwright-report/
+test-results/
 
-# 内部文档:本地保留,不随仓库公开(需要改动时直接改文件,它们仍在磁盘上)
-/project-architecture.md
-/v1/README.md
-/v1/V1-CODE-REVIEW.md
+# Local databases (including SQLite WAL/SHM sidecars)
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+
+# Private certificate/key material
+*.key
+*.pem
+*.p12
+*.pfx
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# 原始会话记录仅在本地保留；当前项目文档随代码发布。
+/SESSION-LOG-*.md

@@ -1,0 +1,39 @@
+{
+  "schema": "guide-followup-v1",
+  "page_id": "document/mcguide/1304/10109/part-1",
+  "source_id": "mcguide/1304/10109",
+  "source_revision": 1,
+  "source_sha256": "970237e57feed7a573f70e49106b8f57854427a35b698b4c40c0bbbd46af7670",
+  "checked_at": "2026-10-24T08:17:02.160993+00:00",
+  "status": "open",
+  "original_issue_resolved": false,
+  "checks": [
+    {
+      "kind": "source_unchanged",
+      "content_sha256": "e0cf6b5792a3517e33d7d9abe7ed9de8188fd460e098864decca23a95f50b915",
+      "note": "本次限频刷新成功，目录仍选原篇，正文与本地已保存内容一致；原问题未由作者修订。"
+    },
+    {
+      "kind": "local_crosscheck",
+      "source_path": [
+        "content",
+        "roleResonance",
+        "items",
+        2,
+        "texts",
+        0,
+        "description"
+      ],
+      "quote": "今汐施放变奏技能蟠龙清辉后，获得一层谪仙效果，每层使攻击提升25%，可叠加2层，效果持续20秒。",
+      "note": "三链技能效果只说明变奏后的增益，不能证明作者三链以上/以下两套轴哪套覆盖三链；边界仍待作者说明。"
+    },
+    {
+      "kind": "external_reference",
+      "url": "https://wiki.biligame.com/wutheringwaves/共鸣者/今汐",
+      "title": "鸣潮BWIKI：今汐（页面贡献者）",
+      "scope": "mechanism_crosscheck_only",
+      "note": "技能与链数资料不能反推出该作者的轴划分，未据此改写为四链以上或二链以下。"
+    }
+  ],
+  "historical_pages": []
+}

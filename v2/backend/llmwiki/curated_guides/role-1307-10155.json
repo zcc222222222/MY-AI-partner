@@ -1,0 +1,101 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1307/10155",
+  "source_revision": 1,
+  "source_sha256": "4c6f2002f4a7506699a6eb59a58816fac05317ec44241bc8b15e7344f94df144",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1307/10155/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "entry",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "入场操作"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      "blocks": [
+        {
+          "phase": "入场操作",
+          "prose": false,
+          "lines": [
+            "入场操作：A→A→跳→A→Z→E→A→Z→R"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    },
+    {
+      "id": "basic-0",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "基础连招"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ],
+      "blocks": [
+        {
+          "phase": "基础连招",
+          "prose": false,
+          "lines": [
+            "基础连招：变奏入场 → 普攻*4 → 长按-普攻 → 共鸣技能 → 普攻 → 长按-普攻 → 共鸣解放"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "基础连招",
+        "quote": "基础连招：变奏入场 → 普攻*4 → 长按-普攻 → 共鸣技能 → 普攻 → 长按-普攻 → 共鸣解放",
+        "selectors": [
+          "基础连招"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

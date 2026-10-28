@@ -1,0 +1,22 @@
+{
+  "schema": "conversation-questions-v1",
+  "sources": {"mcguide/1210/10204": 2, "mcguide/1305/10108": 1, "mcguide/1603/10100": 1, "supplement/taptap/719276523214865858": 1},
+  "scenarios": [
+    {"id": "history-to-current", "turns": [
+      {"question": "请查已入库的椿历史双变奏手法，只说首次入场叠层注意事项，说明作者自述版本和日期。不需要图片。", "entity": "character:1603", "image_mode": "none", "game_version": null, "required_source": "supplement/taptap/719276523214865858", "allowed_sources": ["supplement/taptap/719276523214865858", "mcguide/1603/10100"], "answer_need": [["2.2"], ["2025-09-22", "2025年9月22"]]},
+      {"question": "那第二次变奏入场之后按原文怎么打？沿用刚才那份资料，简短说明，不要切换来源。", "entity": "character:1603", "image_mode": "none", "game_version": null, "required_source": "supplement/taptap/719276523214865858", "allowed_sources": ["supplement/taptap/719276523214865858", "mcguide/1603/10100"], "answer_need": [["一日花"], ["协奏"]]},
+      {"question": "现在改查3.7的椿完整手法；2.2旧稿不能拿来替代，查不到就直接说无法确认。", "entity": "character:1603", "image_mode": "none", "game_version": "3.7", "empty": true, "answer_need": [["无法确认", "没有", "未找到", "未收录", "查不到"]]}
+    ]},
+    {"id": "role-and-chain-switch", "turns": [
+      {"question": "按已收录攻略说爱弥斯首选武器和过渡武器，简短回答，后面都不要图。", "entity": "character:1210", "image_mode": "none", "game_version": null, "required_source": "mcguide/1210/10204", "allowed_sources": ["mcguide/1210/10204"], "answer_need": [["永远的启明星"], ["千古洑流"]]},
+      {"question": "换成相里要，按收录攻略只给循环轴，保留能量前提，不要推定链数。", "entity": "character:1305", "image_mode": "none", "game_version": null, "required_source": "mcguide/1305/10108", "allowed_sources": ["mcguide/1305/10108"], "answer_need": [["协奏"], ["未标", "未注", "没有标", "没有注", "未明确", "不明"]]},
+      {"question": "那刚才那套能当成来源明确注明零链的完整循环吗？只核对刚才这个角色，没明示就说无法确认，不要自行套用链数。", "entity": "character:1305", "image_mode": "none", "game_version": null, "required_source": "mcguide/1305/10108", "allowed_sources": ["mcguide/1305/10108"], "answer_need": [["无法确认", "不能确认", "未注明", "未标明", "没有注明", "没有标明"]], "uncovered_chain": true},
+      {"question": "恢复自动配图，再按攻略看他的推荐武器，简短回答。", "entity": "character:1305", "image_mode": "auto", "game_version": null, "required_source": "mcguide/1305/10108", "allowed_sources": ["mcguide/1305/10108"]}
+    ]},
+    {"id": "version-cancel-and-date", "turns": [
+      {"question": "只查3.8版本的爱弥斯配队，没有明确对应版本的资料就说无法确认，不能用未知版本替代。不用图片。", "entity": "character:1210", "image_mode": "none", "game_version": "3.8", "empty": true, "answer_need": [["无法确认", "没有", "未找到", "未收录", "查不到"]]},
+      {"question": "现在取消版本限制，只按现有已保存攻略说她的首选和过渡武器，简短回答，继续不要图。", "entity": "character:1210", "image_mode": "none", "game_version": null, "required_source": "mcguide/1210/10204", "allowed_sources": ["mcguide/1210/10204"], "answer_need": [["永远的启明星"], ["千古洑流"]]},
+      {"question": "刚才那个攻略来源是哪天更新的？我是在问出处日期，不是要求日期过滤，继续不要图。", "entity": "character:1210", "image_mode": "none", "game_version": null, "required_source": "mcguide/1210/10204", "allowed_sources": ["mcguide/1210/10204"], "answer_need": [["2026-07-09", "2026年7月9"]], "no_date_filter": true, "allow_source_reuse": true}
+    ]}
+  ]
+}

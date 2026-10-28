@@ -1,0 +1,440 @@
+{
+  "schema": "prose-review-v1",
+  "sources": [
+    {
+      "source_id": "mcguide/1102/10112",
+      "source_revision": 1,
+      "source_sha256": "55b3b449f93bd0adf3016f6435081615c8c941df238e0d3eef49442a19d4d30a",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "local_action_candidate",
+      "note": "散华文字爆发与退场条件可整理，但不是整队完整轴。"
+    },
+    {
+      "source_id": "mcguide/1106/10146",
+      "source_revision": 1,
+      "source_sha256": "e807e23c9688c376e86ffaf5e8c9c4112be69a31a99cda7dbc9d6c8ce099453e",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "flow_candidate",
+      "note": "釉瑚单行流程无箭头，保留四个吉祥物和循环引用条件后另行整理。"
+    },
+    {
+      "source_id": "mcguide/1202/10062",
+      "source_revision": 1,
+      "source_sha256": "4076301fc2f32adbbac9c8477cbe6f637cbba1ab8f268312334d25a9b8d9fe89",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "needs_condition_review",
+      "note": "炽霞动作明确标有4链；不能推成零链或忽略链数。"
+    },
+    {
+      "source_id": "mcguide/1203/10114",
+      "source_revision": 1,
+      "source_sha256": "11dfe7f8f7da09817fcf60c9efc1777f1275b93b006b0180048ee72de2977d6b",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "curated_this_batch",
+      "note": "已逐行整理安散队原文和键位，不自补独立启动/循环。"
+    },
+    {
+      "source_id": "mcguide/1204/10130",
+      "source_revision": 1,
+      "source_sha256": "9bc763d835e36e561a51876c402e2d3a247529d50247f906ec4c19ca55cc1be0",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "local_action_candidate",
+      "note": "莫特斐有蹭出场普攻及双变奏两种说明，须分别保存条件与延后大招要求。"
+    },
+    {
+      "source_id": "mcguide/1207/10091",
+      "source_revision": 1,
+      "source_sha256": "2fd1a56762ac14299dca40eb8af0b3c6f6591428eb73070561c4796ba65ca240",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "flow_candidate",
+      "note": "露帕用短横线和文字说明流程，主干和三火两套不可串成两轮；字母大小写按原定义。"
+    },
+    {
+      "source_id": "mcguide/1208/10142",
+      "source_revision": 1,
+      "source_sha256": "a908bcf2f215aeb1c0964fae96290dc06326f7ce45c29506a5674f09018a1826",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "partial_flow_needs_review",
+      "note": "嘉贝莉娜两队逐行流程，第一队循环有省略号，不能标为已展开的完整循环。"
+    },
+    {
+      "source_id": "mcguide/1209/10165",
+      "source_revision": 1,
+      "source_sha256": "f6535b1af3c4c0b30ea858a5e49030d7f7e25b43085df7127a4112d864fcdae8",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "flow_candidate",
+      "note": "莫宁有完整站场文字操作及变奏省略aaaz条件，不应默认两者是一套同起手。"
+    },
+    {
+      "source_id": "mcguide/1211/10186",
+      "source_revision": 1,
+      "source_sha256": "50a173fea19e76f4f82cfed5aab29a5be040c07b83e9293817e3aee34ad19bcb",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "no_complete_action_text",
+      "note": "达妮娅本字段主要为配队、配装、链数建议和声骸退场提醒，未看到完整顺序轴。"
+    },
+    {
+      "source_id": "mcguide/1301/10065",
+      "source_revision": 1,
+      "source_sha256": "3d4c3ef9dce736446cff979ea4eb9495b02c2180c07a9ce9de5a9a347dfba97d",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "mechanism_overview",
+      "note": "卡卡罗说明合轴方向，没有完整逐步轴。"
+    },
+    {
+      "source_id": "mcguide/1304/10109",
+      "source_revision": 1,
+      "source_sha256": "970237e57feed7a573f70e49106b8f57854427a35b698b4c40c0bbbd46af7670",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "needs_condition_review",
+      "note": "今汐三链以上/以下两段可能重叠，需核对三链边界，不直接设数字范围。"
+    },
+    {
+      "source_id": "mcguide/1306/10128",
+      "source_revision": 1,
+      "source_sha256": "de0793a8ebb399019a595795bbcf16b812baa7783286017911d6efa1e36c68a3",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "flow_candidate",
+      "note": "奥古斯塔三队逐行流程，有开始循环提示；须核对循环复用位置与每队起手。"
+    },
+    {
+      "source_id": "mcguide/1311/10232",
+      "source_revision": 3,
+      "source_sha256": "df7c90eb74f896997f0cb298fe4711431322e724264f18ed90052ab6a92c871f",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "no_complete_action_text",
+      "note": "心月狐本字段为配队、配装和抽取建议，没有完整动作顺序。"
+    },
+    {
+      "source_id": "mcguide/1402/10211",
+      "source_revision": 1,
+      "source_sha256": "1fa0ad3a7479e3f5659b49d379befdc56c7006ea44e657f21af7c83ac619690b",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "flow_candidate",
+      "note": "原始秧秧有ASCII箭头和变奏/不吃变奏两种流程，旧箭头规则漏检。"
+    },
+    {
+      "source_id": "mcguide/1405/10042",
+      "source_revision": 1,
+      "source_sha256": "f536ec64ecdd270db9635161634bf60a25952127b805dbfc0c45aea64de054bb",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "flow_candidate",
+      "note": "鉴心用切人串联单行流程，不能自赋循环阶段。"
+    },
+    {
+      "source_id": "mcguide/1408/10127",
+      "source_revision": 2,
+      "source_sha256": "5dbf89530ff75b14a79028f9b5a764462456e404a4c35ed35df312bb4c4c5ce5",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "local_action_candidate",
+      "note": "气动漂泊者用全角加号描述单次满协奏流程，保留核心、变奏和大招前提，不扩写整队轴。"
+    },
+    {
+      "source_id": "mcguide/1410/10137",
+      "source_revision": 1,
+      "source_sha256": "4d547de909dc8d6f2e540bb2ab6bb4e6f789a6984ecf56167410e0afe84a9206",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "no_complete_action_text",
+      "note": "尤诺本字段为机制概括与配队推荐，无完整步骤轴。"
+    },
+    {
+      "source_id": "mcguide/1412/10174",
+      "source_revision": 1,
+      "source_sha256": "de7dd66b1bc4d778585e780c5e9b720e090a176a6cb249b666a8779d93f08ac8",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "mechanism_overview",
+      "note": "西格莉卡用另一种箭头描述符文获取与组合效果，主要是机制分支而非整队轴。"
+    },
+    {
+      "source_id": "mcguide/1502/10113",
+      "source_revision": 1,
+      "source_sha256": "637b192e358e2c6e05d21682c6907a8ed54196da20bb3ee003517152fd4be68b",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "local_action_candidate",
+      "note": "衍射漂泊者描述叠10层光噪的局部操作，不等于完整队伍轴。"
+    },
+    {
+      "source_id": "mcguide/1503/10053",
+      "source_revision": 1,
+      "source_sha256": "1f9e766d30996d00923bc149700a99e77bfd62f8a2e4eab53e219c3ef16a2fcb",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "no_complete_action_text",
+      "note": "维里奈本字段仅定位评价，未提供操作步骤；不推断图片等其他内容不存在。"
+    },
+    {
+      "source_id": "mcguide/1505/10075",
+      "source_revision": 1,
+      "source_sha256": "006450f0cceeec6f246f08c6d783d26433bfafcb2e4fc8264e831da52c8bfb36",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "partial_flow_needs_review",
+      "note": "守岸人有后续循环一样的引用，需要核对引用范围，不照抄起手作为循环。"
+    },
+    {
+      "source_id": "mcguide/1506/10104",
+      "source_revision": 1,
+      "source_sha256": "4bbbfeb3fb8ecf53a516a5288746d02e360371b25aed64c7107204c5e041a038",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "flow_candidate",
+      "note": "菲比有衍射队单行操作流程，保留满协奏与打4次等条件。"
+    },
+    {
+      "source_id": "mcguide/1507/10082",
+      "source_revision": 1,
+      "source_sha256": "c2fa02064919ee2e39fe971c605b78d22354f500d3ac3bd04b2b68bd816b60c2",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "curated_this_batch",
+      "note": "赞妮原文1.操作建议已整理为局部个人操作，不标整队完整轴。"
+    },
+    {
+      "source_id": "mcguide/1508/10154",
+      "source_revision": 1,
+      "source_sha256": "7dcd64bd2dc4dd6662f305a7b09dde665914eaae2aace5b4a39dbd2214114380",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "flow_candidate",
+      "note": "千咲有卡提希娅/夏空队逐行流程和开始循环提示，不自行展开省略循环。"
+    },
+    {
+      "source_id": "mcguide/1509/10203",
+      "source_revision": 1,
+      "source_sha256": "75507b4a1fe11a5754fb4932989159ba601e000fdcb8a1dae4149d01c3546cf8",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "flow_candidate",
+      "note": "琳奈用大于号分隔动作，须保留动画预输入、三段跳和本色条件。"
+    },
+    {
+      "source_id": "mcguide/1511/10191",
+      "source_revision": 1,
+      "source_sha256": "d983b4bf5bc38bef788b0809cc824dafb1e62ee214cf5cda35bde2d2cb7b847e",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "mechanism_overview",
+      "note": "露西有两次回路、强化重击与程序选择说明；没有逐项程序表，不补齐未给出的选择和总轴。"
+    },
+    {
+      "source_id": "mcguide/1603/10100",
+      "source_revision": 1,
+      "source_sha256": "18751a232602bb0f34b2e596acc7522878e0d047e22e77b372b54b304048a992",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "no_complete_action_text",
+      "note": "椿本字段只有星级、属性与定位描述，没有操作顺序。"
+    },
+    {
+      "source_id": "mcguide/1607/10105",
+      "source_revision": 1,
+      "source_sha256": "21c2ba568cc332b0c95dab694a19afe41e4b99bc8c829bfd13cc0db3cc9f42df",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "flow_candidate",
+      "note": "坎特蕾拉单行文字流程，保留协奏条件及Q闪，不擅自扩写循环。"
+    },
+    {
+      "source_id": "mcguide/1608/10064",
+      "source_revision": 1,
+      "source_sha256": "ee2dad4e33fd957cb6157c3bc0e58283f6288798372c5733522a7d1554e80a94",
+      "reviewed_paths": [
+        [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ]
+      ],
+      "decision": "mechanism_overview",
+      "note": "弗洛洛介绍谱曲、特殊能量与指挥状态条件，没有完整实战流程。"
+    }
+  ]
+}

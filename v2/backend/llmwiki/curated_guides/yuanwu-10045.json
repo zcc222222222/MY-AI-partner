@@ -1,0 +1,41 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1303/10045",
+  "source_revision": 1,
+  "source_sha256": "bde93dfa81f74aafd0915d2b317b9c8c5aa6d4939e9824d8eb96ea4b476a7a50",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1303/10045/part-1",
+  "review_basis": "逐行核对已保存中文原文，保留键位说明、条件、全部箭头与退场/能量动作。未注明链数，未推断零链；不推断泛称或缩写对应角色。",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "source-team",
+      "format": "exact-lines",
+      "mode": "原文配队",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "（e：共鸣技能；r：共鸣解放：z：长按普攻；q：声骇）"
+      ],
+      "phases": [
+        "配队手法",
+        "循环轴"
+      ],
+      "lines": [
+        {
+          "phase": "配队手法",
+          "line": "配队手法：开局渊武e→今汐打出龙喷，同奏给到渊武→渊武变奏入场e→维里奈打满协奏能量接声骇→今汐变奏入场放龙喷→循环轴"
+        },
+        {
+          "phase": "循环轴",
+          "line": "循环轴：今汐退场→渊武e→维里奈打满协奏能量接声骇→今汐变奏入场放龙喷"
+        }
+      ]
+    }
+  ]
+}

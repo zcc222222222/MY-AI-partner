@@ -1,0 +1,43 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1403/10145",
+  "source_revision": 1,
+  "source_sha256": "45c41d8ac284d204dce3a83d84dfeb74cbdd283b2376237ef872c227ac4be57e",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1403/10145/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [
+    "奶妈"
+  ],
+  "rotations": [
+    {
+      "id": "source-team",
+      "format": "exact-lines",
+      "mode": "原文配队",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "（e：共鸣技能；r：共鸣解放：z：长按普攻；q：声骇）"
+      ],
+      "phases": [
+        "配队手法",
+        "循环轴"
+      ],
+      "lines": [
+        {
+          "phase": "配队手法",
+          "line": "配队手法：开局散华erz→秋水q→奶妈打满协奏能量→散华eq→秋水变奏入场re空中攻击→（循环轴）"
+        },
+        {
+          "phase": "循环轴",
+          "line": "循环轴：秋水退场→守岸人(洞悉)/散华变奏进场erz→秋水q→奶妈打满协奏能量→散华eq→秋水变奏入场re空中攻击"
+        }
+      ]
+    }
+  ]
+}

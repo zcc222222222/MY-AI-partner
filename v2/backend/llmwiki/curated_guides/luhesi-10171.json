@@ -1,0 +1,38 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1510/10171",
+  "source_revision": 1,
+  "source_sha256": "a57b7afd154539dd6b8ef5ee8bf3aadfa546586badea8c90d8e8ce1809fd1fb9",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1510/10171/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "source-method",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "组陆琳莫队伍时，我们的处决需要留给陆·赫斯来释放保证吃满莫宁八秒的buff效果。具体释放处决时间点我推荐是在解锁了E2时，处决后马上接E2继续流程，保证8秒的输出buff可以覆盖到输出轴末尾倍率最高的E3，强化A3与大招。"
+      ],
+      "phases": [
+        "原文流程"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "lines": [
+            "变奏入场→AAE→AAAAFE→AAAAE→A→RQ→延奏下场"
+          ]
+        }
+      ]
+    }
+  ]
+}

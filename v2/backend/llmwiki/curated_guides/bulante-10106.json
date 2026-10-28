@@ -1,0 +1,36 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1206/10106",
+  "source_revision": 1,
+  "source_sha256": "04e8711c6c6a2903ff9b8e6e678a49852877d7943017b903f75e151db0f2fead",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1206/10106/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "source-method",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "lines": [
+            "布兰特EA→Z→A→E闪避A Q切守岸人AAAZ 切散华ERZ 切守岸人(AAAZ)REQ 切散华Q 切布兰特AAAE R AAAE"
+          ]
+        }
+      ]
+    }
+  ]
+}

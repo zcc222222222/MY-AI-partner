@@ -1,0 +1,379 @@
+[
+  {
+    "id": "all_sanhua",
+    "entity": "1102",
+    "primary_source": "mcguide/1102/10112",
+    "query": "基础连招 手法",
+    "question": "只按收录的散华攻略给基础连招字段里的原文动作，不拼进正文的配装、预输入说明，不当整队循环。",
+    "answer_phases": [],
+    "local_scope": true,
+    "mode": "原文手法",
+    "phases": [
+      "基础连招"
+    ]
+  },
+  {
+    "id": "all_chixia_four",
+    "entity": "1202",
+    "primary_source": "mcguide/1202/10062",
+    "query": "4链 手法",
+    "question": "按炽霞攻略正文给作者明确写有4链炽霞的那段手法，保留两次长按技能，不扩大为4链以上，不与基础连招拼接。",
+    "answer_phases": [],
+    "local_scope": true,
+    "chain_scope": "4链",
+    "mode": "原文手法",
+    "phases": [
+      "原文流程"
+    ],
+    "required_text": [
+      "有4链的炽霞",
+      "再来两次长按技能"
+    ]
+  },
+  {
+    "id": "all_mortefi",
+    "entity": "1204",
+    "primary_source": "mcguide/1204/10130",
+    "query": "双变奏 手法",
+    "question": "只给莫特斐攻略中吃双变奏的完整原段，保留忌炎、维里奈切换和满协奏条件，不混非变奏蹭出场A的另一方案。",
+    "answer_phases": [],
+    "local_scope": true,
+    "paragraph": true,
+    "mode": "原文手法",
+    "phases": [
+      "原文流程"
+    ],
+    "required_text": [
+      "切到维里奈打满协奏再次变奏莫特斐",
+      "大招尽量后放"
+    ]
+  },
+  {
+    "id": "all_cabrina_lupa",
+    "entity": "1208",
+    "primary_source": "mcguide/1208/10142",
+    "query": "露帕 循环轴",
+    "question": "只给嘉贝莉娜攻略里露帕、守岸人那队明确列出的循环轴，保留协奏满、能量条满和A至能量空，不混尤诺队的省略段。",
+    "answer_phases": [],
+    "mode": "原文手法",
+    "phases": [
+      "循环轴"
+    ],
+    "required_text": [
+      "守岸人AAAZ REQ 协奏满 切露帕",
+      "嘉AAEZ 能量条满 QER A至能量空 切 守岸人"
+    ]
+  },
+  {
+    "id": "all_cabrina_partial",
+    "entity": "1208",
+    "primary_source": "mcguide/1208/10142",
+    "query": "尤诺 完整循环轴",
+    "question": "嘉贝莉娜攻略中尤诺、守岸人队的循环段带省略号，能当作完整循环轴吗？只核对原文限制，别补省略的后续动作。",
+    "answer_phases": [],
+    "phase_uncovered": true,
+    "cycle_unexpanded": true
+  },
+  {
+    "id": "all_dania",
+    "entity": "1211",
+    "primary_source": "mcguide/1211/10186",
+    "query": "完整手法",
+    "question": "按达妮娅攻略摘要列出输出流程，长段说明和基础简写是同一套，不接成两轮。保留攒满机制条、两段强化E、四下平A、普通E与二段大收尾。",
+    "answer_phases": [],
+    "local_scope": true,
+    "paragraph": true,
+    "mode": "原文手法",
+    "phases": [
+      "原文流程"
+    ],
+    "required_text": [
+      "释放大招模式的两段强化E技能",
+      "基础手法：变奏入场"
+    ]
+  },
+  {
+    "id": "all_calcharo",
+    "entity": "1301",
+    "primary_source": "mcguide/1301/10065",
+    "query": "1.操作建议 手法",
+    "question": "按卡卡罗攻略摘要原样给含AAAZ（重复）的操作建议，保留开大前后三层/五层被动，不猜重复几次，也不与基础连招字段合并。",
+    "answer_phases": [],
+    "local_scope": true,
+    "mode": "原文手法",
+    "phases": [
+      "1.操作建议"
+    ],
+    "required_text": [
+      "AAAZ（重复）"
+    ],
+    "allow_context_phases": true,
+    "target_claim_prefix": "curation-rotation-synopsis-"
+  },
+  {
+    "id": "all_jinhsi_boundary",
+    "entity": "1304",
+    "primary_source": "mcguide/1304/10109",
+    "query": "3链 完整手法",
+    "question": "今汐攻略写三链以上和三链以下，两段在三链处重叠。能明确确认三链该用哪套完整轴吗？不能确认就说明边界待核对，不自行改为四链以上或二链以下。",
+    "answer_phases": [],
+    "coverage_status": "ambiguous_chain_boundary",
+    "coverage_uncovered": true
+  },
+  {
+    "id": "all_buling",
+    "entity": "1307",
+    "primary_source": "mcguide/1307/10155",
+    "query": "入场操作 手法",
+    "question": "只按卜灵攻略摘要给入场操作的原文键位，不混基础连招字段，不把局部入场操作称为整队循环或零链特化轴。",
+    "answer_phases": [],
+    "local_scope": true,
+    "mode": "原文手法",
+    "phases": [
+      "入场操作"
+    ],
+    "required_text": [
+      "入场操作：A→A→跳→A→Z→E→A→Z→R"
+    ],
+    "forbidden_answer": [
+      "该来源目前为待核对状态",
+      "本篇目前待核对",
+      "本篇被标为待核对"
+    ],
+    "allow_context_phases": true,
+    "target_claim_prefix": "curation-rotation-entry-"
+  },
+  {
+    "id": "all_heart_electro",
+    "entity": "1311",
+    "primary_source": "mcguide/1311/10232",
+    "query": "电磁 手法",
+    "question": "按角色心月狐的攻略摘要，只给电磁模态流程，保留机制条和砸楼形态、四下平A、二段大与退场条件；简写和说明是同一套，不混同奏模式。",
+    "answer_phases": [],
+    "local_scope": true,
+    "paragraph": true,
+    "mode": "原文手法",
+    "phases": [
+      "原文流程"
+    ],
+    "required_text": [
+      "心月狐（电磁）：变奏入场+A"
+    ]
+  },
+  {
+    "id": "all_heart_unison",
+    "entity": "1311",
+    "primary_source": "mcguide/1311/10232",
+    "query": "同奏 手法",
+    "question": "按心月狐攻略摘要只给同奏模态手法，保留先切队友、再变奏入场从砸楼形态起手的两段，不混电磁那套，也不猜链数。",
+    "answer_phases": [],
+    "local_scope": true,
+    "paragraph": true,
+    "mode": "原文手法",
+    "phases": [
+      "原文流程"
+    ],
+    "required_text": [
+      "然后等队友再切心月狐变奏入场后",
+      "同奏入场+AA"
+    ],
+    "forbidden_answer": [
+      "队友先获得同奏 → 先切队友",
+      "队友获得同奏 → 先切队友"
+    ]
+  },
+  {
+    "id": "all_yangyang",
+    "entity": "1402",
+    "primary_source": "mcguide/1402/10211",
+    "query": "不吃变奏 手法",
+    "question": "只按原始秧秧攻略给不吃变奏的满协奏方案，保留AA直接从第三段开始和ASCII箭头，不混珂莱塔分两段的方案，不查秧秧玄翎。",
+    "answer_phases": [],
+    "local_scope": true,
+    "paragraph": true,
+    "mode": "原文手法",
+    "phases": [
+      "原文流程"
+    ],
+    "required_text": [
+      "AA(直接从第三段开始)->REZA->跳A->Q->延奏离场"
+    ],
+    "allow_context_phases": true,
+    "target_claim_prefix": "curation-rotation-no-intro-"
+  },
+  {
+    "id": "all_jianxin",
+    "entity": "1405",
+    "primary_source": "mcguide/1405/10042",
+    "query": "开局相里要E 手法",
+    "question": "按鉴心攻略正文给相里要、鉴心、维里奈这段原文流程，不混基础连招，不猜Q的含义和重复次数，不改称独立循环轴。",
+    "answer_phases": [],
+    "paragraph": true,
+    "mode": "原文手法",
+    "phases": [
+      "原文流程"
+    ],
+    "required_text": [
+      "EQQQQQQZE R"
+    ],
+    "allow_context_phases": true,
+    "target_claim_prefix": "curation-rotation-team-",
+    "forbidden_answer": [
+      "只标了「原文流程」",
+      "作者标了原文流程"
+    ]
+  },
+  {
+    "id": "all_younuo",
+    "entity": "1410",
+    "primary_source": "mcguide/1410/10137",
+    "query": "1.操作建议 手法",
+    "question": "按尤诺攻略摘要只解释弦月充能、新月输出的局部操作建议，保留三种状态的区别，不把形态逻辑虚构成完整动作轴。",
+    "answer_phases": [],
+    "local_scope": true,
+    "mode": "原文手法",
+    "phases": [
+      "1.操作建议"
+    ],
+    "required_text": [
+      "实战中推荐入场后直接战技"
+    ]
+  },
+  {
+    "id": "all_siglica",
+    "entity": "1412",
+    "primary_source": "mcguide/1412/10174",
+    "query": "2.基础手法",
+    "question": "按西格莉卡攻略摘要给基础手法和对应操作两种原文写法，分别保留而非连续做两遍；保留两次2日灵与解锁终结技能条件，不自行算每次动作收益。",
+    "answer_phases": [],
+    "local_scope": true,
+    "mode": "原文手法",
+    "phases": [
+      "2.基础手法"
+    ],
+    "required_text": [
+      "对应操作：变奏-普攻*4-重击-大招-普攻*5-重击-长按技能"
+    ]
+  },
+  {
+    "id": "all_rover_spectro",
+    "entity": "1502",
+    "primary_source": "mcguide/1502/10113",
+    "query": "完整手法",
+    "question": "只按衍射漂泊者作者攻略说明与菲比、任意奶妈队里的局部叠光噪操作，保留一次共鸣解放、两次共鸣技能与10层的原文条件，不混其他形态，也不补整队轴。",
+    "answer_phases": [],
+    "local_scope": true,
+    "paragraph": true,
+    "mode": "原文手法",
+    "phases": [
+      "原文流程"
+    ],
+    "required_text": [
+      "释放1次共鸣解放，2次共鸣技能"
+    ]
+  },
+  {
+    "id": "all_verina",
+    "entity": "1503",
+    "primary_source": "mcguide/1503/10053",
+    "query": "基础连招 手法",
+    "question": "按维里奈攻略只给基础连招字段原文，保留跳跃和普攻次数，不与摘要的EQR（有大开大）拼成一轮，也不称整队循环。",
+    "answer_phases": [],
+    "local_scope": true,
+    "mode": "原文手法",
+    "phases": [
+      "基础连招"
+    ],
+    "required_text": [
+      "普攻 *3"
+    ]
+  },
+  {
+    "id": "all_shorekeeper_repeat",
+    "entity": "1505",
+    "primary_source": "mcguide/1505/10075",
+    "query": "完整循环轴",
+    "question": "守岸人攻略正文写了椿、散华队，末尾只有后续循环一样。能明确给出从哪步重复的完整循环轴吗？不要重跑整个开局，不猜复用起点。",
+    "answer_phases": [],
+    "phase_uncovered": true,
+    "cycle_unexpanded": true
+  },
+  {
+    "id": "all_phoebe_basic",
+    "entity": "1506",
+    "primary_source": "mcguide/1506/10104",
+    "query": "输出 基础连招 手法",
+    "question": "只按菲比攻略基础连招字段给输出方案，不给辅助方案和正文队伍流程，保留四组普攻重击及退场，不合并为另一套轴。",
+    "answer_phases": [],
+    "local_scope": true,
+    "mode": "原文手法",
+    "phases": [
+      "输出"
+    ],
+    "required_text": [
+      "输出：长按普攻"
+    ],
+    "allow_context_phases": true,
+    "target_claim_prefix": "curation-rotation-basic-2-"
+  },
+  {
+    "id": "all_lucy_basic",
+    "entity": "1511",
+    "primary_source": "mcguide/1511/10191",
+    "query": "基础连招 手法",
+    "question": "只按露西攻略基础连招字段给完整原文，保留强化重击乘2与普攻乘4，不与摘要RAAAAA的写法统一次数，不补完整队伍循环。",
+    "answer_phases": [],
+    "local_scope": true,
+    "mode": "原文手法",
+    "phases": [
+      "基础连招"
+    ],
+    "required_text": [
+      "强化重击*2"
+    ]
+  },
+  {
+    "id": "all_camellya_missing",
+    "entity": "1603",
+    "primary_source": "mcguide/1603/10100",
+    "query": "完整手法",
+    "question": "只核对椿本篇攻略已审核文字有没有可直接整理的完整动作顺序。没有就说这份文字未覆盖，不拿守岸人那篇椿队流程冒充本篇，也不推断原站图视频没有。",
+    "answer_phases": [],
+    "coverage_status": "no_action_sequence",
+    "coverage_uncovered": true
+  },
+  {
+    "id": "all_cantarella",
+    "entity": "1607",
+    "primary_source": "mcguide/1607/10105",
+    "query": "坎特蕾拉AAAE 手法",
+    "question": "按坎特蕾拉攻略正文给散华、守岸人队流程，保留Q闪、满协奏和所有切人，不猜Q闪的具体操作，也不拼基础连招。",
+    "answer_phases": [],
+    "paragraph": true,
+    "mode": "原文手法",
+    "phases": [
+      "原文流程"
+    ],
+    "required_text": [
+      "(Q闪) AAE RAAA"
+    ],
+    "allow_context_phases": true,
+    "target_claim_prefix": "curation-rotation-team-"
+  },
+  {
+    "id": "all_phrolova",
+    "entity": "1608",
+    "primary_source": "mcguide/1608/10064",
+    "query": "1.操作建议 手法",
+    "question": "按弗洛洛攻略摘要只给从特殊能量到强化重击解锁大招、指挥状态切后台的局部操作建议，保留不依赖共鸣能量，不虚构固定次数或完整队伍轴。",
+    "answer_phases": [],
+    "local_scope": true,
+    "mode": "原文手法",
+    "phases": [
+      "1.操作建议"
+    ],
+    "required_text": [
+      "注意这个大招不依赖共鸣能量"
+    ]
+  }
+]

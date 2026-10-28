@@ -1,0 +1,37 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1509/10203",
+  "source_revision": 1,
+  "source_sha256": "75507b4a1fe11a5754fb4932989159ba601e000fdcb8a1dae4149d01c3546cf8",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1509/10203/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "personal",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "coverage_scope": "local_moves",
+      "context": [],
+      "phases": [
+        "输出手法"
+      ],
+      "blocks": [
+        {
+          "phase": "输出手法",
+          "prose": true,
+          "lines": [
+            "输出手法：变奏入场 附加光致变染>共鸣技能 E>声骸技能 Q >共鸣解放 R 大招 会播小段动画 动画期间 可以 预先长按重击>长按重击>三段幻光折跃 跳-跳-跳 获得3点本色 附加光致变染>消耗3点本色 下砸派生>延奏退场"
+          ]
+        }
+      ]
+    }
+  ]
+}

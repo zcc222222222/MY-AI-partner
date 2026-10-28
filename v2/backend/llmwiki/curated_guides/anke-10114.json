@@ -1,0 +1,47 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1203/10114",
+  "source_revision": 1,
+  "source_sha256": "11dfe7f8f7da09817fcf60c9efc1777f1275b93b006b0180048ee72de2977d6b",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1203/10114/part-1",
+  "terms": [],
+  "unresolved_terms": [
+    "维"
+  ],
+  "rotations": [
+    {
+      "id": "team",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "输出手法：主要输出集中在共鸣解放中，在此之前做好安可的暖机内容，积攒共鸣能量与延奏buff"
+      ],
+      "phases": [
+        "安散队轮椅流程"
+      ],
+      "blocks": [
+        {
+          "phase": "安散队轮椅流程",
+          "prose": true,
+          "lines": [
+            "安散队轮椅流程",
+            "E-共鸣技能 R-共鸣解放 Z-长按普攻重击 A-普攻 Q声骸技能",
+            "安可E 切散华",
+            "散华REZ 切维里奈",
+            "维aaaeqr跳aa 延奏安可",
+            "延奏安可E1,QQQ 切散华",
+            "散华EQ 延奏安可",
+            "安可REAAAAE闪AAAEAAAA Z"
+          ]
+        }
+      ]
+    }
+  ]
+}

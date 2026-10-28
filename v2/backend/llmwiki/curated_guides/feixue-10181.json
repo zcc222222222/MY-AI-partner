@@ -1,0 +1,51 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1108/10181",
+  "source_revision": 1,
+  "source_sha256": "36fe40e69e672d42dcf616f59cf2e6f4e568dabf479067ff6b82ad13f9c1a601",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1108/10181/part-1",
+  "terms": [],
+  "unresolved_terms": [
+    "莫"
+  ],
+  "rotations": [
+    {
+      "id": "team",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "A：普攻；E：共鸣技能；R：共鸣解放：Z：长按普攻（重击）；Q：声骇；F：谐度破坏",
+        "绯雪 & 琳奈 & 莫宁 轮椅轴手法"
+      ],
+      "phases": [
+        "原文流程"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "lines": [
+            "绯雪E(4链) 切莫AAAZ R EZQ→琳奈E ZQ R 空格*3 A →绯雪ZR AAAAA FE E(长按) AAA Z R(长按)"
+          ],
+          "action_chain_annotations": [
+            {
+              "action": "绯雪E",
+              "quote": "绯雪E(4链)",
+              "chain": 4,
+              "name": "绯雪",
+              "target_ids": [
+                "1108"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

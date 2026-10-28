@@ -1,0 +1,112 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1505/10075",
+  "source_revision": 1,
+  "source_sha256": "006450f0cceeec6f246f08c6d783d26433bfafcb2e4fc8264e831da52c8bfb36",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1505/10075/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "team",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "椿E 切守岸人 切散华ERZ切椿 切守岸人AAAZ ERQ A至叠满协奏 切椿E A一套 Q 切散华EQ 切椿E (后续循环一样)"
+          ],
+          "sequence_anchors": [
+            "椿E 切守岸人",
+            "切散华ERZ切椿",
+            "切守岸人AAAZ ERQ A至叠满协奏",
+            "切椿E A一套 Q",
+            "切散华EQ"
+          ],
+          "cycle_reference": {
+            "kind": "unspecified_reuse",
+            "quote": "(后续循环一样)"
+          }
+        }
+      ],
+      "playstyle": {
+        "label": "椿E 切守岸人",
+        "quote": "椿E 切守岸人 切散华ERZ切椿 切守岸人AAAZ ERQ A至叠满协奏 切椿E A一套 Q 切散华EQ 切椿E (后续循环一样)",
+        "selectors": [
+          "椿E 切守岸人"
+        ]
+      }
+    },
+    {
+      "id": "basic-0",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "基础连招"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ],
+      "blocks": [
+        {
+          "phase": "基础连招",
+          "prose": false,
+          "lines": [
+            "基础连招：普通攻击*5 → 重击 → 共鸣技能 → 声骸技能 → 普通攻击*5 → 重击 → 共鸣解放 → 延奏离场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "基础连招",
+        "quote": "基础连招：普通攻击*5 → 重击 → 共鸣技能 → 声骸技能 → 普通攻击*5 → 重击 → 共鸣解放 → 延奏离场",
+        "selectors": [
+          "基础连招"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

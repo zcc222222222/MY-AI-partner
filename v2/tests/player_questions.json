@@ -1,0 +1,411 @@
+{
+  "schema": "player-questions-v1",
+  "note": "自行构造措辞，受官方攻略站和论坛问题主题启发；外站搜索不作为本库答案证据。金标准绑定已有来源修订，来源更新后需人工重审。",
+  "inspiration": [
+    "https://wuwaguide.kurogames.com/zh-Hans/?role_id=1210&strategy_id=10168",
+    "https://forum.gamer.com.tw/C.php?bsn=74934&snA=18078&tnum=1"
+  ],
+  "cases": [
+    {
+      "id": "weapon_primary",
+      "question": "爱弥斯推荐什么武器？先说首选，再说没有专武的过渡选择，并注明攻略日期。",
+      "entity": "爱弥斯",
+      "query": "爱弥斯 推荐武器",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "永远的启明星",
+        "千古洑流",
+        "主推",
+        "下位替代"
+      ],
+      "live": true,
+      "answer_need": [
+        [
+          "永远的启明星"
+        ],
+        [
+          "千古洑流"
+        ],
+        [
+          "替代",
+          "过渡",
+          "下位"
+        ],
+        [
+          "2026-07-09",
+          "2026年7月9"
+        ]
+      ]
+    },
+    {
+      "id": "weapon_alternative",
+      "question": "按爱弥斯现有攻略，千古洑流能用吗？它是首选还是过渡？",
+      "entity": "爱弥斯",
+      "query": "千古洑流能用吗 武器",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "永远的启明星",
+        "下位替代"
+      ],
+      "live": true,
+      "answer_need": [
+        [
+          "千古洑流"
+        ],
+        [
+          "过渡",
+          "下位",
+          "替代"
+        ]
+      ]
+    },
+    {
+      "id": "weapon_named",
+      "question": "爱弥斯用千古洑流怎么样？",
+      "entity": "爱弥斯",
+      "query": "千古洑流能用吗",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "主推永远的启明星",
+        "下位替代千古洑流"
+      ]
+    },
+    {
+      "id": "echo_set",
+      "question": "爱弥斯声骸套装和首位怎么选？",
+      "entity": "爱弥斯",
+      "query": "声骸套装 首位",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "长路启航之星",
+        "辛吉勒姆"
+      ]
+    },
+    {
+      "id": "echo_crit",
+      "question": "爱弥斯有专武，声骸主词条选暴击还是爆伤？只按收录攻略回答。",
+      "entity": "爱弥斯",
+      "query": "带专武声骸主词条 暴击 暴击伤害",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "带专武",
+        "暴击伤害"
+      ],
+      "live": true,
+      "answer_need": [
+        [
+          "暴击伤害",
+          "爆伤"
+        ],
+        [
+          "专武"
+        ]
+      ]
+    },
+    {
+      "id": "echo_energy",
+      "question": "这篇爱弥斯攻略建议多少共鸣效率？有什么条件？",
+      "entity": "爱弥斯",
+      "query": "声骸 共鸣效率",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "115%-120%",
+        "两个声骸"
+      ]
+    },
+    {
+      "id": "team_both",
+      "question": "爱弥斯震谐和聚爆两种体系分别怎么配？不要混成一队。",
+      "entity": "爱弥斯",
+      "query": "配队 震谐 聚爆",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "震谐",
+        "聚爆",
+        "爱、琳、莫",
+        "爱、娅、千/穗"
+      ],
+      "live": true,
+      "answer_need": [
+        [
+          "震谐"
+        ],
+        [
+          "聚爆"
+        ],
+        [
+          "琳奈"
+        ],
+        [
+          "莫宁"
+        ]
+      ],
+      "answer_not_need": [
+        "卡池也不重叠",
+        "成员不重叠",
+        "角色不重叠"
+      ]
+    },
+    {
+      "id": "team_missing",
+      "question": "我没有琳奈，按目前收录的作者攻略，还推荐我玩爱弥斯震谐队吗？",
+      "entity": "爱弥斯",
+      "query": "配队 震谐 没有琳奈",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "不推荐没有琳奈"
+      ],
+      "not_need": [
+        "聚爆"
+      ],
+      "live": true,
+      "answer_need": [
+        [
+          "不推荐",
+          "不建议"
+        ],
+        [
+          "琳奈"
+        ],
+        [
+          "震谐"
+        ]
+      ]
+    },
+    {
+      "id": "team_slot",
+      "question": "爱弥斯攻略里的队友候选，是同槽位替换还是能任意组合？",
+      "entity": "爱弥斯",
+      "query": "配队 队友 槽位 候选",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "同槽位",
+        "主选"
+      ]
+    },
+    {
+      "id": "rotation",
+      "question": "只依据当前收录的爱弥斯攻略说震谐零链输出轴，摘录不全就说不全，不要补写步骤。",
+      "entity": "爱弥斯",
+      "query": "震谐 手法 启动轴 循环轴",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "0链",
+        "启动轴",
+        "循环轴"
+      ],
+      "live": true
+    },
+    {
+      "id": "broad_build",
+      "question": "爱弥斯怎么养成？武器、声骸和配队各说一个要点。",
+      "entity": "爱弥斯",
+      "query": "养成",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "永远的启明星",
+        "声骸",
+        "配队"
+      ]
+    },
+    {
+      "id": "sanhua_role",
+      "question": "散华只是副C，作者推荐我用什么武器？主C的推荐是否一样？",
+      "entity": "散华",
+      "query": "武器 主c 副c",
+      "source": "mcguide/1102/10112",
+      "revision": 1,
+      "need": [
+        "千古洑流",
+        "赫奕流明",
+        "主c",
+        "副c"
+      ],
+      "live": true,
+      "answer_need": [
+        [
+          "千古洑流",
+          "千古"
+        ],
+        [
+          "赫奕流明"
+        ],
+        [
+          "主C",
+          "主c"
+        ],
+        [
+          "副C",
+          "副c",
+          "辅助"
+        ]
+      ]
+    },
+    {
+      "id": "baizhi_order",
+      "question": "白芷这篇攻略的武器推荐顺序是什么？",
+      "entity": "白芷",
+      "query": "武器 推荐 顺序",
+      "source": "mcguide/1103/10147",
+      "revision": 1,
+      "need": [
+        "星序协响",
+        "奇幻变奏",
+        "渊海回声"
+      ]
+    },
+    {
+      "id": "camellya_order",
+      "question": "椿的武器首选和替代项分别是什么？",
+      "entity": "椿",
+      "query": "武器 推荐 顺序",
+      "source": "mcguide/1603/10100",
+      "revision": 1,
+      "need": [
+        "裁春",
+        "千古洑流",
+        "赫奕流明"
+      ]
+    },
+    {
+      "id": "rover_electro",
+      "question": "漂泊者·导电有哪些推荐武器？不要用气动形态的攻略。",
+      "entity": "漂泊者·导电",
+      "query": "武器 推荐",
+      "source": "mcguide/1309/10209",
+      "revision": 1,
+      "need": [
+        "赫奕流明",
+        "千古洑流",
+        "血誓盟约"
+      ],
+      "live": true,
+      "answer_need": [
+        [
+          "赫奕流明"
+        ],
+        [
+          "千古洑流"
+        ]
+      ]
+    },
+    {
+      "id": "rover_aero",
+      "question": "气动漂泊者必须抽输出武器吗？攻略怎么建议？",
+      "entity": "漂泊者·气动",
+      "query": "武器 输出",
+      "source": "mcguide/1408/10127",
+      "revision": 2,
+      "need": [
+        "赠送五星武器",
+        "不推荐"
+      ],
+      "live": true,
+      "answer_need": [
+        [
+          "赠送",
+          "送的"
+        ],
+        [
+          "不推荐",
+          "不建议"
+        ]
+      ]
+    },
+    {
+      "id": "rover_spectro",
+      "question": "衍射漂泊者的作者攻略怎么选择武器属性？",
+      "entity": "漂泊者·衍射",
+      "query": "武器 属性",
+      "source": "mcguide/1502/10113",
+      "revision": 1,
+      "need": [
+        "暴击或暴伤"
+      ]
+    },
+    {
+      "id": "rover_havoc",
+      "question": "湮灭漂泊者攻略里推荐什么声骸套装和首位？",
+      "entity": "漂泊者·湮灭",
+      "query": "声骸 套装 首位",
+      "source": "mcguide/1604/10078",
+      "revision": 1,
+      "need": [
+        "沉日劫明",
+        "无妄者"
+      ]
+    },
+    {
+      "id": "no_images_followup",
+      "question": "武器呢？只要文字，不要图。",
+      "history": [
+        {
+          "role": "user",
+          "content": "我想讨论爱弥斯的养成。"
+        },
+        {
+          "role": "assistant",
+          "content": "可以分别讨论武器、声骸和配队。"
+        }
+      ],
+      "entity": "爱弥斯",
+      "query": "武器",
+      "source": "mcguide/1210/10204",
+      "revision": 2,
+      "need": [
+        "永远的启明星",
+        "下位替代"
+      ],
+      "live": true,
+      "images": "none",
+      "answer_need": [
+        [
+          "永远的启明星"
+        ],
+        [
+          "千古洑流"
+        ]
+      ]
+    },
+    {
+      "id": "missing_patch",
+      "question": "只依据3.8版本资料推荐爱弥斯配队；没有对应资料就直说，别拿旧攻略补。",
+      "entity": "爱弥斯",
+      "query": "配队",
+      "game_version": "3.8",
+      "empty": true,
+      "live": true,
+      "answer_not_need": [
+        "第一个告诉你",
+        "我会主动通知"
+      ]
+    },
+    {
+      "id": "wrong_author",
+      "question": "只依据不存在的作者的爱弥斯攻略推荐武器。",
+      "entity": "爱弥斯",
+      "query": "武器",
+      "author": "不存在的作者",
+      "empty": true
+    },
+    {
+      "id": "wrong_date",
+      "question": "只查平台更新于2026年7月8日的爱弥斯攻略。",
+      "entity": "爱弥斯",
+      "query": "武器",
+      "updated_on": "2026-07-08",
+      "empty": true
+    }
+  ]
+}

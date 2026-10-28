@@ -1,0 +1,48 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1304/10109",
+  "source_revision": 1,
+  "source_sha256": "970237e57feed7a573f70e49106b8f57854427a35b698b4c40c0bbbd46af7670",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1304/10109/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [],
+  "coverage_review": {
+    "status": "ambiguous_chain_boundary",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ]
+    ],
+    "note": "原文同时写三链以上和三链以下，三链处重叠且两段后半不同；未核对边界前不按任何链数输出这些队伍轴，不自行改为四链以上或二链以下。",
+    "blockers": [
+      {
+        "source_path": [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ],
+        "quote": "三链以上：起手今汐，AAA然后点共鸣技能，同时点声骸和大招。然后切到守岸人，平A一套后施放大招，切到折枝施放共鸣技能和大招。切回"
+      },
+      {
+        "source_path": [
+          "content",
+          "baseTexts",
+          0,
+          "introductionDetail"
+        ],
+        "quote": "三链以下：起手今汐，AAA然后点共鸣技能，同时点声骸和大招。然后切到守岸人，平A一套后施放大招，切到折枝施放共鸣技能和大招。切回"
+      }
+    ]
+  }
+}

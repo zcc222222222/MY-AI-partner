@@ -1,0 +1,45 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1408/10127",
+  "source_revision": 2,
+  "source_sha256": "5dbf89530ff75b14a79028f9b5a764462456e404a4c35ed35df312bb4c4c5ce5",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1408/10127/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "personal",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "coverage_scope": "local_moves",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "角色配队及养成推荐已说明，未来定数不一，目前学会角色手法即可。 1.最推荐最快，一套打满协奏，吃大招吃变奏：",
+            "变奏入场（20核心）＋2次空中攻击（50核心）＋大招（快速回到地面，不用打慢吞吞的下落攻击）＋地面e技能（飞到空中接空中攻击）＋2次空中攻击（50核心）＋下落攻击＋强化e技能 ＋延奏走人"
+          ],
+          "sequence_anchors": [
+            "变奏入场（20核心）",
+            "大招（快速回到地面，不用打慢吞吞的下落攻击）",
+            "地面e技能（飞到空中接空中攻击）",
+            "下落攻击＋强化e技能",
+            "延奏走人"
+          ]
+        }
+      ]
+    }
+  ]
+}

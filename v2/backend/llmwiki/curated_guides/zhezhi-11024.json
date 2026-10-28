@@ -1,0 +1,36 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1105/11024",
+  "source_revision": 1,
+  "source_sha256": "a8221a56a68f291d479e6d4109423675265daaafa3fadd8c63bbe223009c344a",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1105/11024/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "source-team",
+      "format": "exact-lines",
+      "mode": "原文配队",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "（e：共鸣技能；r：共鸣解放：z：长按普攻；q：声骇）"
+      ],
+      "phases": [
+        "配队手法"
+      ],
+      "lines": [
+        {
+          "phase": "配队手法",
+          "line": "配队手法：开局珂莱塔重击接双e，切折枝3a放声骇，切守岸人3a共鸣解放3a重击共鸣技能3a重击接声骇，切折枝eare跳e跳e，切珂莱塔双e重击接共鸣解放，即：珂莱塔z双e→折枝3aq→守岸人3ar3aze3azq→折枝ear,e跳e跳e→珂莱塔双ezraaaaa双eq"
+        }
+      ]
+    }
+  ]
+}

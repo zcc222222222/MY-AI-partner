@@ -1,0 +1,83 @@
+[
+  {
+    "id": "gap_taoqi_open",
+    "entity": "1601",
+    "primary_source": "mcguide/1601/10103",
+    "question": "桃祈这篇攻略做过补证后，是否已解除质量挂起？只说明核对结果，不转述原文有疑点的队伍轴、数值或键位作为建议。",
+    "query": "攻略",
+    "quality_hold": true,
+    "followup_open": true
+  },
+  {
+    "id": "gap_jinhsi_open",
+    "entity": "1304",
+    "primary_source": "mcguide/1304/10109",
+    "question": "今汐三链以上和三链以下的重叠，现在补证已经确定三链用哪套轴了吗？技能三链效果能不能直接决定作者怎么划分？不能确认就说明未解决。",
+    "query": "3链 完整手法",
+    "coverage_uncovered": true,
+    "coverage_status": "ambiguous_chain_boundary",
+    "followup_open": true
+  },
+  {
+    "id": "gap_camellya_primary",
+    "entity": "1603",
+    "primary_source": "mcguide/1603/10100",
+    "question": "一戈这篇椿攻略现在已经补全当前版本完整动作轴了吗？发现别的作者历史资料，不等于一戈原篇已经修好。只核对状态，不展开旧版动作。",
+    "query": "完整手法",
+    "coverage_uncovered": true,
+    "coverage_status": "no_action_sequence",
+    "followup_open": true
+  },
+  {
+    "id": "gap_camellya_history",
+    "entity": "1603",
+    "primary_source": "supplement/taptap/719276523214865858",
+    "question": "只按黑棉花悟能标题自称v2.2的椿历史资料，给双变奏原文手法。保留敌人距离导致无需叠满、第一次不要满协奏再切副C、第二次变奏和收尾条件。不把奶妈副C指定成某个人，不宣称当前适用。",
+    "query": "双变奏 完整手法",
+    "game_version": "2.2",
+    "mode": "原文手法",
+    "phases": [
+      "原文流程"
+    ],
+    "answer_phases": [],
+    "paragraph": true,
+    "historical_supplement": true,
+    "required_text": [
+      "如果怪物离角色较远无法快速叠层则无需叠满",
+      "不要让椿的协奏值满",
+      "随后切副c打满协奏椿再次变奏入场"
+    ]
+  },
+  {
+    "id": "gap_camellya_history_optin",
+    "entity": "1603",
+    "primary_source": "supplement/taptap/719276523214865858",
+    "question": "可以给我椿的历史双变奏手法参考吗？要交代作者、来源自述版本和文章展示日期，不据此声称一戈原篇已补全或当前版本适用。",
+    "query": "历史 双变奏 手法",
+    "mode": "原文手法",
+    "phases": [
+      "原文流程"
+    ],
+    "answer_phases": [],
+    "paragraph": true,
+    "historical_supplement": true
+  },
+  {
+    "id": "gap_history_version_followup",
+    "entity": "1603",
+    "question": "现在换成3.7，只查有明确3.7依据的椿完整手法。刚才的2.2旧稿不能用来顶替，没找到就说无法确认。",
+    "history": [
+      {
+        "role": "user",
+        "content": "只看2.2的椿历史双变奏手法。"
+      },
+      {
+        "role": "assistant",
+        "content": "已按黑棉花悟能的历史稿说明，未验证其他版本适用。"
+      }
+    ],
+    "query": "完整手法",
+    "game_version": "3.7",
+    "empty": true
+  }
+]

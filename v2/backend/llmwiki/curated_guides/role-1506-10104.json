@@ -1,0 +1,141 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1506/10104",
+  "source_revision": 1,
+  "source_sha256": "4bbbfeb3fb8ecf53a516a5288746d02e360371b25aed64c7107204c5e041a038",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1506/10104/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "team",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "菲比E 切守岸人 切漂泊者(衍射)ZAA E 切守岸人AAAZ RE满协奏Q 切漂泊者 REAA 满协奏Q 切菲比ZRE AAAZ(打4次)E 切守岸人。"
+          ],
+          "sequence_anchors": [
+            "菲比E 切守岸人",
+            "切漂泊者(衍射)ZAA E",
+            "切漂泊者 REAA 满协奏Q",
+            "切菲比ZRE AAAZ(打4次)E",
+            "切守岸人。"
+          ]
+        }
+      ],
+      "playstyle": {
+        "label": "菲比E 切守岸人",
+        "quote": "菲比E 切守岸人 切漂泊者(衍射)ZAA E 切守岸人AAAZ RE满协奏Q 切漂泊者 REAA 满协奏Q 切菲比ZRE AAAZ(打4次)E 切守岸人。",
+        "selectors": [
+          "菲比E 切守岸人"
+        ]
+      }
+    },
+    {
+      "id": "basic-1",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "辅助"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ],
+      "blocks": [
+        {
+          "phase": "辅助",
+          "prose": false,
+          "lines": [
+            "辅助：长按共鸣技能 → 普攻*3 → 重击 → 普攻*3 → 重击 → 共鸣解放 → 声骸技能 → 延奏离场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "辅助",
+        "quote": "辅助：长按共鸣技能 → 普攻*3 → 重击 → 普攻*3 → 重击 → 共鸣解放 → 声骸技能 → 延奏离场",
+        "selectors": [
+          "辅助"
+        ]
+      }
+    },
+    {
+      "id": "basic-2",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "输出"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ],
+      "blocks": [
+        {
+          "phase": "输出",
+          "prose": false,
+          "lines": [
+            "输出：长按普攻 → 普攻*3 → 重击 → 普攻*3 → 重击 → 普攻*3 → 重击 → 普攻*3 → 重击 → 共鸣解放 → 声骸技能 → 延奏离场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "输出",
+        "quote": "输出：长按普攻 → 普攻*3 → 重击 → 普攻*3 → 重击 → 普攻*3 → 重击 → 普攻*3 → 重击 → 共鸣解放 → 声骸技能 → 延奏离场",
+        "selectors": [
+          "输出"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1508/10154",
+  "source_revision": 1,
+  "source_sha256": "7dcd64bd2dc4dd6662f305a7b09dde665914eaae2aace5b4a39dbd2214114380",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1508/10154/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "team-1",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "A：普攻；E：共鸣技能；R：共鸣解放：Z：长按普攻（重击）；Q：声骇"
+      ],
+      "team_variant": {
+        "label": "【卡提希娅 & 夏空 & 千咲】",
+        "quote": "【卡提希娅 & 夏空 & 千咲】",
+        "selectors": [
+          "【卡提希娅 & 夏空 & 千咲】"
+        ],
+        "members": [
+          "卡提希娅",
+          "夏空",
+          "千咲"
+        ]
+      },
+      "phases": [
+        "【卡提希娅 & 夏空 & 千咲】"
+      ],
+      "blocks": [
+        {
+          "phase": "【卡提希娅 & 夏空 & 千咲】",
+          "prose": true,
+          "lines": [
+            "【卡提希娅 & 夏空 & 千咲】",
+            "卡E 切夏AEQ 切千咲",
+            "千咲EAAAAQ REZ消耗完 切夏空",
+            "夏AA EZR 切卡",
+            "卡AAAEA R 大卡形态",
+            "大卡ZA AAA EE AAA R",
+            "开始进入循环状态"
+          ],
+          "cycle_reference": {
+            "kind": "start_condition_only",
+            "quote": "开始进入循环状态"
+          }
+        }
+      ]
+    }
+  ]
+}

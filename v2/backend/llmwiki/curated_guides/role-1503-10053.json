@@ -1,0 +1,101 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1503/10053",
+  "source_revision": 1,
+  "source_sha256": "1f9e766d30996d00923bc149700a99e77bfd62f8a2e4eab53e219c3ef16a2fcb",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1503/10053/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "personal",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "1.操作手法"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      "blocks": [
+        {
+          "phase": "1.操作手法",
+          "prose": true,
+          "lines": [
+            "1.操作手法：变奏入场后释放EQR（有大开大）接着跳跃普攻消耗【光合能量】快速打满协奏能量后切人。2.队伍选择：维里奈可以进任何需要3号位的队伍。3，声骸套装：只推荐隐世回光套装，首位声骸推荐鸣钟之龟。"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    },
+    {
+      "id": "basic-0",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "基础连招"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ],
+      "blocks": [
+        {
+          "phase": "基础连招",
+          "prose": false,
+          "lines": [
+            "基础连招：普攻*5 → 共鸣技能 → 跳跃 → 普攻 *3 → 声骸技能 → 共鸣解放 → 延奏离场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "基础连招",
+        "quote": "基础连招：普攻*5 → 共鸣技能 → 跳跃 → 普攻 *3 → 声骸技能 → 共鸣解放 → 延奏离场",
+        "selectors": [
+          "基础连招"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

@@ -1,0 +1,236 @@
+[
+  {
+    "schema": "impact-assessment-v1",
+    "notice": {
+      "source_id": "official/news/5569",
+      "game_version": "3.7",
+      "change_id": "qingxiao-movement",
+      "change_sha256": "d674e6414776bb6ecbd997fcecfa0cfe386f7ae7fdebaf104eb02b550faadf91",
+      "page": {
+        "page_id": "document/official/news/5569/part-2",
+        "namespace": "documents-v1",
+        "revision": 2,
+        "sha256": "7778d8bfc6996cc1791be39ff86831d9660767f65a408f4200e5bc5966b81382",
+        "sources": [
+          {
+            "source_id": "official/news/5569",
+            "revision": 2,
+            "sha256": "3413d9a4086d8591f58fc6f5dbb44659836936bcc8a97c2a67b9ce77a06c2e30"
+          }
+        ]
+      }
+    },
+    "target": {
+      "page_id": "character/1413/mechanics",
+      "namespace": "3.7",
+      "revision": 1,
+      "sha256": "d1d5671180eee46bdda16bd1289476d8e0f5b5c8cf6c57d6be6cc0fd168c8bde",
+      "sources": [
+        {
+          "source_id": "nanoka/character/1413",
+          "revision": 1,
+          "sha256": "792322fd12d29a824222a4e928a3baa47a9a060225568b0dde310a062a1c2b13"
+        }
+      ]
+    },
+    "coverage": "listed_claims_only",
+    "checks": [
+      {
+        "claim_id": "claim-035",
+        "claim_sha256": "8b85d8ce7695a143fb62ef6c6b180b3e83db82e57a871f14650ca6155f9260cc",
+        "outcome": "no_text_change",
+        "note": "此条描述正常的跳跃突进方式与御剑飞行期间使用次数，不把地图外移动当作功能。公告本条未声明正常动作或次数变更，本轮无需文本修改，不等于验证所有场景实际位移。"
+      }
+    ],
+    "summary": "已核对清绝剑遁正常突进与次数这一条；当前没有需据公告替换的文本，未确认修复后的具体位移或整页实战适用性。",
+    "kind": "assessment"
+  },
+  {
+    "schema": "impact-assessment-v1",
+    "notice": {
+      "source_id": "official/news/5569",
+      "game_version": "3.7",
+      "change_id": "qingxiao-movement",
+      "change_sha256": "d674e6414776bb6ecbd997fcecfa0cfe386f7ae7fdebaf104eb02b550faadf91",
+      "page": {
+        "page_id": "document/official/news/5569/part-2",
+        "namespace": "documents-v1",
+        "revision": 2,
+        "sha256": "7778d8bfc6996cc1791be39ff86831d9660767f65a408f4200e5bc5966b81382",
+        "sources": [
+          {
+            "source_id": "official/news/5569",
+            "revision": 2,
+            "sha256": "3413d9a4086d8591f58fc6f5dbb44659836936bcc8a97c2a67b9ce77a06c2e30"
+          }
+        ]
+      }
+    },
+    "target": {
+      "page_id": "document/mcguide/1413/10222/part-1",
+      "namespace": "documents-v1",
+      "revision": 3,
+      "sha256": "77ba663c639a2dc12ab2cfe120d0c6f3c7d7d97278c29d80bef1a85c80ef71ea",
+      "sources": [
+        {
+          "source_id": "mcguide/1413/10222",
+          "revision": 1,
+          "sha256": "d6fb4c7081203c2da4a2154b12c1761601f837a4a16e1e642f2e007559448163"
+        }
+      ]
+    },
+    "coverage": "listed_claims_only",
+    "checks": [
+      {
+        "claim_id": "claim-005",
+        "claim_sha256": "18f353d491fe28a82d2c94fe4c293b996b00d41e235a020af59b061ea0f3fd36",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "claim-006",
+        "claim_sha256": "dd9d97ce6b1529a0547946d4888355d2d847e0ea4279c9f4b75cfdba1c9643a1",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "claim-012",
+        "claim_sha256": "50a60fd0d198799bdbf6e8a1f6132818f07af4dfbfcd524d31d713d33459e71a",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "claim-013",
+        "claim_sha256": "b9d7b5304de4401f458b7377d7fdecbefb0b59b4826798d6277d7fbe619a71d3",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "claim-014",
+        "claim_sha256": "994a0e780d8c4f8ca401e17dbcf44544799589ea681413dd83f9355e7e8629de",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "claim-015",
+        "claim_sha256": "c3da1412ba357974d25e3624f39ab439edb8c3e439878a419dc32f268e871555",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "claim-016",
+        "claim_sha256": "35e55ccb3821ba11101a346f483690927ac1bb9dd160087d4254f933ad0342cf",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "claim-017",
+        "claim_sha256": "63bdbc031c21d3d1d4f2f1ded66cb08d9ed233a3d22b300fd2734eeaa7973f7a",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "claim-018",
+        "claim_sha256": "fd68273254064726dec06341bb7fd729c15a2c4ee9698cd6da41d023e8be3414",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "claim-019",
+        "claim_sha256": "99c8a1d7349be479c4e228e65478a3ef0106f6a3456220e8a2484a7044d49eb2",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "claim-020",
+        "claim_sha256": "4d7173f585a4c7c6d049cb0b1802f0a3e1b81ad070e3e1784c7de271d0a70832",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "curation-rotation-duo-0",
+        "claim_sha256": "9cd64564bcfb5ce3d299c25d6aa1c34f33e80993a3e09e4ee23a6bd55721296c",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "curation-rotation-duo-1",
+        "claim_sha256": "ad60b6e1dbbf2b2e1dda5acd34bc39e387bf3a07a9405d5ce0e7896b80df4a4a",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "curation-rotation-trio-0",
+        "claim_sha256": "1ce7854c996d957792164b77ed919bd47b54b8a3eeeb432f5687feec488acad9",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      },
+      {
+        "claim_id": "curation-rotation-trio-1",
+        "claim_sha256": "df6f97a4d75d6364aba37b4fc85793349e3b3fc8b2e050633a82ba8f6ef149cd",
+        "outcome": "no_text_change",
+        "note": "所列内容为作者当时的输出招式、回路或衔接说明，没有把清绝剑遁的地图外异常移动作为流程前提。公告本条没有提供可据以替换这些动作的描述，本轮无需文本修改；未验证新版时序、配队优先级或实战表现。"
+      }
+    ],
+    "summary": "已核对所列输出与衔接段落，它们不依赖越界行为；本轮没有需替换的文本，不代表未知版本攻略已验证适用3.7。",
+    "kind": "assessment"
+  },
+  {
+    "schema": "impact-assessment-v1",
+    "notice": {
+      "source_id": "official/news/5569",
+      "game_version": "3.7",
+      "change_id": "qiankui-trigger",
+      "change_sha256": "febae514f119a0e0aa83742001d7644072c39dbf06fa21d70f8f99083e1d1546",
+      "page": {
+        "page_id": "document/official/news/5569/part-2",
+        "namespace": "documents-v1",
+        "revision": 2,
+        "sha256": "7778d8bfc6996cc1791be39ff86831d9660767f65a408f4200e5bc5966b81382",
+        "sources": [
+          {
+            "source_id": "official/news/5569",
+            "revision": 2,
+            "sha256": "3413d9a4086d8591f58fc6f5dbb44659836936bcc8a97c2a67b9ce77a06c2e30"
+          }
+        ]
+      }
+    },
+    "target": {
+      "page_id": "document/mcguide/1610/10210/part-1",
+      "namespace": "documents-v1",
+      "revision": 2,
+      "sha256": "d3e3f7c4c746c69aded81c83051d4d3f6f91e7c9a5b4953aba25b0cbef37190e",
+      "sources": [
+        {
+          "source_id": "mcguide/1610/10210",
+          "revision": 1,
+          "sha256": "f16445f8f161f65ab328ae7d0cd825d55c099893232679a61f466d9c14152665"
+        }
+      ]
+    },
+    "coverage": "listed_claims_only",
+    "checks": [
+      {
+        "claim_id": "claim-028",
+        "claim_sha256": "19d2a879ae3fd1dc239707c68c74a67bdf277e44125d88c38f2d431064cc77ed",
+        "outcome": "no_text_change",
+        "note": "该项记录声骸名称、获取方式及作者当时的刷取建议，没有把异常的每秒多次消耗作为前提。公告没有给出可据以修正这些文字的依据；刷取效率未验证为当前最优。"
+      },
+      {
+        "claim_id": "claim-029",
+        "claim_sha256": "005447c687e45973394f9dca12598400729f0b5b24a102d98bda795bc1f1c845",
+        "outcome": "insufficient_evidence",
+        "note": "主音词条选择是作者推荐。公告修复特定情况下每秒多次触发消耗的异常，未提供修复后的伤害对比，无法确认词条优先级与实战表现。"
+      },
+      {
+        "claim_id": "claim-034",
+        "claim_sha256": "af1326bc12181347a7fef9169ef5e705a8a01b8f52769555e365a8bde0443102",
+        "outcome": "no_text_change",
+        "note": "这条仅列首位声骸和合鸣名称，不包含异常触发频率，公告没有宣布更名或移除，故本轮不修改这项文字。"
+      }
+    ],
+    "summary": "首位与合鸣名称条目无需文本修改；暴击伤害词条推荐仍缺少修复后的比较证据，不能确认整套配装的新版适用性。",
+    "kind": "assessment"
+  }
+]

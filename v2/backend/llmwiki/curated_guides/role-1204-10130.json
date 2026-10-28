@@ -1,0 +1,111 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1204/10130",
+  "source_revision": 1,
+  "source_sha256": "9bc763d835e36e561a51876c402e2d3a247529d50247f906ec4c19ca55cc1be0",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1204/10130/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "0",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "注意莫特斐和忌炎组队时，大招尽量后放，让忌炎的大招能稳定触发莫特斐协同，也能够打出高额伤害。"
+      ],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "莫特斐非变奏情况下切人会自动打出第四段普攻，因此在切人过程中有意识的多切一轮莫特斐不仅能积攒大量核心能量，还不会因此浪费时间，比如忌炎切奶妈时改变手法为忌炎切莫特斐切奶妈，操作步骤仅从“1-3”变为了“1-2-3”就能够让莫特斐蹭一轮出场a，两轮出场a加一个e技能就能打出满核心的强化技能。"
+          ],
+          "sequence_anchors": [
+            "非变奏情况下切人",
+            "比如忌炎切奶妈时",
+            "两轮出场a加一个e技能"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "非变奏",
+        "quote": "莫特斐非变奏情况下切人会自动打出第四段普攻，因此在切人过程中有意识的多切一轮莫特斐不仅能积攒大量核心能量，还不会因此浪费时间，比如忌炎切奶妈时改变手法为忌炎切莫特斐切奶妈，操作步骤仅从“1-3”变为了“1-2-3”就能够让莫特斐蹭一轮出场a，两轮出场a加一个e技能就能打出满核心的强化技能。",
+        "selectors": [
+          "非变奏"
+        ]
+      }
+    },
+    {
+      "id": "1",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "注意莫特斐和忌炎组队时，大招尽量后放，让忌炎的大招能稳定触发莫特斐协同，也能够打出高额伤害。"
+      ],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "如果不想操作太复杂，也可以让莫特斐吃双变奏，忌炎打完后变奏莫特斐，入场ee触发核心，切到维里奈打满协奏再次变奏莫特斐，随后a满协奏触发被动开大和声骸切人下场。"
+          ],
+          "sequence_anchors": [
+            "忌炎打完后变奏莫特斐",
+            "入场ee触发核心",
+            "切到维里奈打满协奏再次变奏莫特斐",
+            "随后a满协奏触发被动开大和声骸切人下场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "双变奏",
+        "quote": "如果不想操作太复杂，也可以让莫特斐吃双变奏，忌炎打完后变奏莫特斐，入场ee触发核心，切到维里奈打满协奏再次变奏莫特斐，随后a满协奏触发被动开大和声骸切人下场。",
+        "selectors": [
+          "双变奏"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "guide-followup-v1",
+  "page_id": "document/mcguide/1603/10100/part-1",
+  "source_id": "mcguide/1603/10100",
+  "source_revision": 1,
+  "source_sha256": "18751a232602bb0f34b2e596acc7522878e0d047e22e77b372b54b304048a992",
+  "checked_at": "2026-10-24T08:17:02.160993+00:00",
+  "status": "open",
+  "original_issue_resolved": false,
+  "checks": [
+    {
+      "kind": "source_refresh_failed",
+      "note": "首轮正文刷新遇到TLS连接错误，已保存失败记录；随后按限频策略重试成功。"
+    },
+    {
+      "kind": "source_unchanged",
+      "content_sha256": "89642883106be0e17efa0a70ccd84bda45a597c392d5caac996e2510e583c54a",
+      "note": "限频重试已成功，正文与已保存内容一致；本篇仍未提供可整理的动作顺序，未据此断言原站图片或视频没有。"
+    },
+    {
+      "kind": "external_reference",
+      "url": "https://www.taptap.cn/moment/719276523214865858",
+      "title": "黑棉花悟能：鸣潮v2.2椿攻略讲解",
+      "scope": "historical_candidate",
+      "note": "原作者的历史双变奏流程已独立入库；版本来自标题自述，文章显示2025-09-22，未验证当前适用，也未修复一戈本篇文字覆盖缺口。"
+    }
+  ],
+  "historical_pages": [
+    {
+      "page_id": "document/supplement/taptap/719276523214865858/part-1",
+      "revision": 1,
+      "url": "https://www.taptap.cn/moment/719276523214865858",
+      "author": "黑棉花悟能",
+      "game_version": "2.2",
+      "title": "鸣潮v2.2椿攻略讲解（历史补充）"
+    }
+  ]
+}

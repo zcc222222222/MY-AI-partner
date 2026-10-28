@@ -1,0 +1,38 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1604/10078",
+  "source_revision": 1,
+  "source_sha256": "301235f468bcda195d43970ea1bb9aff06d1276221cfd048fa71918aa30544c5",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1604/10078/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "source-method",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "1.一般以普通共鸣技能起手，在打满共鸣回路后长按进入“暗涌”状态，后释放强化共鸣技能， 可通过长按普通攻击来直接衔接第3段攻击，加快输出速度。"
+      ],
+      "phases": [
+        "输出手法"
+      ],
+      "blocks": [
+        {
+          "phase": "输出手法",
+          "lines": [
+            "输出手法为： 变奏入场→共鸣技能→打满共鸣回路后长按普攻进入暗涌状态→释放强化共鸣技能→共鸣解放→声骸技能→退场"
+          ]
+        }
+      ]
+    }
+  ]
+}

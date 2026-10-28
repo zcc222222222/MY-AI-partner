@@ -1,0 +1,92 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1207/10091",
+  "source_revision": 1,
+  "source_sha256": "2fd1a56762ac14299dca40eb8af0b3c6f6591428eb73070561c4796ba65ca240",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1207/10091/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "main",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "3.基本手法：",
+        "（e-共鸣技能，z重击，a-普攻，R-大招，E-强化共鸣技能）"
+      ],
+      "phases": [
+        "主干流程"
+      ],
+      "blocks": [
+        {
+          "phase": "主干流程",
+          "prose": true,
+          "lines": [
+            "主干流程",
+            "”变奏-R-AAAAA-E“",
+            "露帕变奏入场，开大，点按普攻释放破敌，空中俩段普攻打满回路，第三段叠一层狼魂，落地在点按普攻叠第二层狼魂，此时共鸣技能高亮，点按共鸣技能，满协奏切走。"
+          ]
+        }
+      ],
+      "notation": {
+        "quote": "（e-共鸣技能，z重击，a-普攻，R-大招，E-强化共鸣技能）",
+        "case_sensitive": true
+      },
+      "playstyle": {
+        "label": "主干流程",
+        "quote": "主干流程",
+        "selectors": [
+          "主干"
+        ]
+      },
+      "coverage_scope": "local_moves"
+    },
+    {
+      "id": "team",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "3.基本手法：",
+        "（e-共鸣技能，z重击，a-普攻，R-大招，E-强化共鸣技能）"
+      ],
+      "phases": [
+        "三火轮椅轴"
+      ],
+      "blocks": [
+        {
+          "phase": "三火轮椅轴",
+          "prose": true,
+          "lines": [
+            "三火轮椅轴",
+            "”露帕ee-R-AAAAA-E-变奏船长-R-AAA-eE-变奏长离A-Z-aaA-EAEA-ZRZ-强化变奏露帕“",
+            "三火轮椅轴只需要按照’露帕延奏船长延奏长离延奏露帕‘的顺序循环即可，进阶可在露帕主干部分合轴长离的前置离火，进行缩轴。"
+          ],
+          "cycle_reference": {
+            "kind": "order_only",
+            "quote": "三火轮椅轴只需要按照’露帕延奏船长延奏长离延奏露帕‘的顺序循环即可"
+          }
+        }
+      ],
+      "notation": {
+        "quote": "（e-共鸣技能，z重击，a-普攻，R-大招，E-强化共鸣技能）",
+        "case_sensitive": true
+      },
+      "playstyle": {
+        "label": "三火轮椅轴",
+        "quote": "三火轮椅轴",
+        "selectors": [
+          "三火"
+        ]
+      }
+    }
+  ]
+}

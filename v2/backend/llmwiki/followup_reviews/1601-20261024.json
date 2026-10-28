@@ -1,0 +1,39 @@
+{
+  "schema": "guide-followup-v1",
+  "page_id": "document/mcguide/1601/10103/part-1",
+  "source_id": "mcguide/1601/10103",
+  "source_revision": 1,
+  "source_sha256": "b1b4eaa6a0e7e540b142d28fc8952702c3a3a0229f66f4d27f2cd3e9584a4f8d",
+  "checked_at": "2026-10-24T08:17:02.160993+00:00",
+  "status": "open",
+  "original_issue_resolved": false,
+  "checks": [
+    {
+      "kind": "source_unchanged",
+      "content_sha256": "c3ef0f62faa978a09e4b8e3e00d6b75c922a079bd05c52806b3ab30f867ec163",
+      "note": "本次限频刷新成功，目录仍选原篇，正文与本地已保存内容一致；原问题未由作者修订。"
+    },
+    {
+      "kind": "local_crosscheck",
+      "source_path": [
+        "content",
+        "roleResonance",
+        "items",
+        2,
+        "texts",
+        0,
+        "description"
+      ],
+      "quote": "共鸣技能磐岩护壁的持续时间延长至30秒。",
+      "note": "同篇面板写的是磐岩护壁持续时间；不能据此把原文的任意护盾持续时间或整队循环判为正确。"
+    },
+    {
+      "kind": "external_reference",
+      "url": "https://wiki.biligame.com/wutheringwaves/共鸣者/桃祈",
+      "title": "鸣潮BWIKI：桃祈（页面贡献者）",
+      "scope": "mechanism_crosscheck_only",
+      "note": "角色页可对照技能归属、回路和链数描述。对照不等于已修复原作者的队伍轴、键位或增益条件，继续保留原篇质量挂起。"
+    }
+  ],
+  "historical_pages": []
+}

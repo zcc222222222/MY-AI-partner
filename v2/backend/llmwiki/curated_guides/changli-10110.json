@@ -1,0 +1,43 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1205/10110",
+  "source_revision": 1,
+  "source_sha256": "4ee17a276a865bd16fe18da984e0ac1792ed22e76c5cf2dd0a0f57a4ae436ed1",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1205/10110/part-1",
+  "review_basis": "逐行核对已保存中文原文，保留键位说明、条件、全部箭头与退场/能量动作。未注明链数，未推断零链；不推断泛称或缩写对应角色。",
+  "terms": [],
+  "unresolved_terms": [
+    "奶妈"
+  ],
+  "rotations": [
+    {
+      "id": "source-team",
+      "format": "exact-lines",
+      "mode": "原文配队",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "（e：共鸣技能；r：共鸣解放：z：长按普攻；q：声骇）"
+      ],
+      "phases": [
+        "开局攻击轴",
+        "循环轴"
+      ],
+      "lines": [
+        {
+          "phase": "开局攻击轴",
+          "line": "开局攻击轴：长离erz→散华erz冰爆→长离aea→奶妈打满协奏能量→长离变奏入场a落地q打完→散华eq→长离变奏入场azrz→（循环轴）"
+        },
+        {
+          "phase": "循环轴",
+          "line": "循环轴：长离e→散华erz冰爆→长离aea→奶妈打满协奏能量→长离变奏入场a落地q打完→散华eq→长离变奏入场azrz"
+        }
+      ]
+    }
+  ]
+}

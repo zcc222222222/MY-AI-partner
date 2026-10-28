@@ -1,0 +1,46 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1409/10088",
+  "source_revision": 1,
+  "source_sha256": "7a40bbf66d669873b3dfc5154eea9fb12b1fad8c481cb602614cced6905aaefe",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1409/10088/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [
+    "卡",
+    "小卡",
+    "大卡",
+    "风主"
+  ],
+  "rotations": [
+    {
+      "id": "source-team",
+      "format": "exact-lines",
+      "mode": "原文配队",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "（a：普攻e：共鸣技能；r：共鸣解放：z：长按普攻；q：声骇）"
+      ],
+      "phases": [
+        "启动轴",
+        "循环轴"
+      ],
+      "lines": [
+        {
+          "phase": "启动轴",
+          "line": "启动轴：卡E →夏空AE→风主EAA→夏空AQ→风主EAARQEE→夏空ZER→小卡AAA 跳AAAAZEQAR(大卡形态)Z5AEAAEAAA R"
+        },
+        {
+          "phase": "循环轴",
+          "line": "循环轴：卡延奏退场→夏空变奏入场AE→风主EAA→夏空AQ→风主EAARQEE→夏空ZER→小卡AAA 跳AAAAZEQAR(大卡形态)Z5AEAAEAAAR"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1202/10062",
+  "source_revision": 1,
+  "source_sha256": "4076301fc2f32adbbac9c8477cbe6f637cbba1ab8f268312334d25a9b8d9fe89",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1202/10062/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "four",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "4链",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "炽霞作为四星热熔主C，伤害不俗，长按技能每消耗30发子弹拥有一次强力攻击，同时短按技能也拥有脱手机制，和长离组成的热熔双C队上限非常高，加上自身核心伤害为共鸣技能伤害，低配版搭桃祈也有一战之力，手法也非常简单，有4链的炽霞，变奏进场后直接大招，再来两次长按技能，伤害直接拉满。"
+          ],
+          "sequence_anchors": [
+            "有4链的炽霞",
+            "变奏进场后直接大招",
+            "再来两次长按技能"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "owner_chain_scope": {
+        "kind": "exact",
+        "min": 4,
+        "max": 4,
+        "quote": "有4链的炽霞",
+        "owner_id": "1202",
+        "name": "炽霞",
+        "source_name": "炽霞"
+      },
+      "playstyle": {
+        "label": "有4链的炽霞",
+        "quote": "炽霞作为四星热熔主C，伤害不俗，长按技能每消耗30发子弹拥有一次强力攻击，同时短按技能也拥有脱手机制，和长离组成的热熔双C队上限非常高，加上自身核心伤害为共鸣技能伤害，低配版搭桃祈也有一战之力，手法也非常简单，有4链的炽霞，变奏进场后直接大招，再来两次长按技能，伤害直接拉满。",
+        "selectors": [
+          "有4链的炽霞"
+        ]
+      }
+    },
+    {
+      "id": "synopsis",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "1.操作建议"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      "blocks": [
+        {
+          "phase": "1.操作建议",
+          "prose": true,
+          "lines": [
+            "1.操作建议：普攻和短按技能快速叠子弹，长按技能消耗子弹并打出强力一击【轰轰】，基础手法变奏入场→E（短按）E（长按）RE（长按）→延奏退场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    },
+    {
+      "id": "basic-0",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "基础连招"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ],
+      "blocks": [
+        {
+          "phase": "基础连招",
+          "prose": false,
+          "lines": [
+            "基础连招：变奏入场 → 共鸣技能 → 长按-共鸣技能 → 普攻 → 普攻*8 → 长按-共鸣技能 → 普攻 → 共鸣解放 → 延奏离场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "基础连招",
+        "quote": "基础连招：变奏入场 → 共鸣技能 → 长按-共鸣技能 → 普攻 → 普攻*8 → 长按-共鸣技能 → 普攻 → 共鸣解放 → 延奏离场",
+        "selectors": [
+          "基础连招"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

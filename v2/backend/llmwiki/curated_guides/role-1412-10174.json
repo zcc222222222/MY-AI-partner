@@ -1,0 +1,63 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1412/10174",
+  "source_revision": 1,
+  "source_sha256": "de7dd66b1bc4d778585e780c5e9b720e090a176a6cb249b666a8779d93f08ac8",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1412/10174/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "personal",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "2.基础手法"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      "blocks": [
+        {
+          "phase": "2.基础手法",
+          "prose": true,
+          "lines": [
+            "2.基础手法：变奏入场→一套普攻+强化普攻→强化重击（获得2日灵）→大招→一套普攻+强化普攻→强化重击（获得2日灵，解锁终结共鸣技能）→终结技能",
+            "对应操作：变奏-普攻*4-重击-大招-普攻*5-重击-长按技能"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

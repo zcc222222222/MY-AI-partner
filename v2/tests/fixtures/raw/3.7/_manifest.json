@@ -1,0 +1,108 @@
+{
+  "game_version": "3.7",
+  "locale": "zh",
+  "files": {
+    "character.json": {
+      "kind": "roster",
+      "doc_id": "character.json",
+      "url": "https://static.nanoka.cc/ww/3.7/character.json",
+      "etag": "",
+      "last_modified": "",
+      "sha256": "",
+      "bytes": 1201,
+      "fetched_at": "fixture"
+    },
+    "zh/character/1210.json": {
+      "kind": "character",
+      "doc_id": "1210",
+      "url": "https://static.nanoka.cc/ww/3.7/zh/character/1210.json",
+      "etag": "",
+      "last_modified": "",
+      "sha256": "",
+      "bytes": 61723,
+      "fetched_at": "fixture"
+    },
+    "zh/character/1102.json": {
+      "kind": "character",
+      "doc_id": "1102",
+      "url": "https://static.nanoka.cc/ww/3.7/zh/character/1102.json",
+      "etag": "",
+      "last_modified": "",
+      "sha256": "",
+      "bytes": 26705,
+      "fetched_at": "fixture"
+    },
+    "zh/weapon/21020015.json": {
+      "kind": "weapon_detail",
+      "doc_id": "21020015",
+      "url": "https://static.nanoka.cc/ww/3.7/zh/weapon/21020015.json",
+      "etag": "",
+      "last_modified": "",
+      "sha256": "",
+      "bytes": 1885,
+      "fetched_at": "fixture"
+    },
+    "zh/weapon/21010011.json": {
+      "kind": "weapon_detail",
+      "doc_id": "21010011",
+      "url": "https://static.nanoka.cc/ww/3.7/zh/weapon/21010011.json",
+      "etag": "",
+      "last_modified": "",
+      "sha256": "",
+      "bytes": 1495,
+      "fetched_at": "fixture"
+    },
+    "weapon.json": {
+      "kind": "weapon",
+      "doc_id": "weapon.json",
+      "url": "https://static.nanoka.cc/ww/3.7/weapon.json",
+      "etag": "",
+      "last_modified": "",
+      "sha256": "",
+      "bytes": 805,
+      "fetched_at": "fixture"
+    },
+    "zh/echo/390070051.json": {
+      "kind": "echo_detail",
+      "doc_id": "390070051",
+      "url": "https://static.nanoka.cc/ww/3.7/zh/echo/390070051.json",
+      "etag": "",
+      "last_modified": "",
+      "sha256": "",
+      "bytes": 2013,
+      "fetched_at": "fixture"
+    },
+    "echo.json": {
+      "kind": "echo",
+      "doc_id": "echo.json",
+      "url": "https://static.nanoka.cc/ww/3.7/echo.json",
+      "etag": "",
+      "last_modified": "",
+      "sha256": "",
+      "bytes": 277,
+      "fetched_at": "fixture"
+    },
+    "zh/hyperlink.json": {
+      "kind": "hyperlink",
+      "doc_id": "hyperlink.json",
+      "url": "https://static.nanoka.cc/ww/3.7/zh/hyperlink.json",
+      "etag": "",
+      "last_modified": "",
+      "sha256": "",
+      "bytes": 10949,
+      "fetched_at": "fixture"
+    },
+    "zh/item.json": {
+      "kind": "item",
+      "doc_id": "item.json",
+      "url": "https://static.nanoka.cc/ww/3.7/zh/item.json",
+      "etag": "",
+      "last_modified": "",
+      "sha256": "",
+      "bytes": 6329,
+      "fetched_at": "fixture"
+    }
+  },
+  "updated_at": "fixture",
+  "note": "由 scripts/make-fixtures.py 裁剪生成"
+}

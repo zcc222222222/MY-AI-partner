@@ -1,0 +1,13 @@
+{
+  "_note": "element 整数 -> 名称。源数据里没有映射文件(已探测,全部 404),这张表是从 character.json 的取值分布 + 角色归属推导出来的。element=5 那组含『漂泊者·衍射』,是数据自身的字面确认。请对照 ww.nanoka.cc 页面上的显示名抽查一遍再正式使用。",
+  "_verified": false,
+  "_source": "derived from https://static.nanoka.cc/ww/3.7/character.json",
+  "map": {
+    "1": { "name": "冷凝", "en": "Glacio" },
+    "2": { "name": "热熔", "en": "Fusion" },
+    "3": { "name": "导电", "en": "Electro" },
+    "4": { "name": "气动", "en": "Aero" },
+    "5": { "name": "衍射", "en": "Spectro" },
+    "6": { "name": "湮灭", "en": "Havoc" }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1504/10063",
+  "source_revision": 1,
+  "source_sha256": "e79c4475932f54a0c0967a67d3703e863bb0f956f7fe3de87e46d8c2b4368916",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1504/10063/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "source-method",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "基础循环流程"
+      ],
+      "blocks": [
+        {
+          "phase": "基础循环流程",
+          "lines": [
+            "3. 基础循环流程：变奏入场→E→R→AAAA→E→A→闪避进入黄灯疾奔→E→Q→延奏退场（注意使用E切换攻击模式时【黄灯/红灯光能】必须是满的）。简单点说：红灯满了切黄灯，黄灯满了切红灯。"
+          ]
+        }
+      ]
+    }
+  ]
+}

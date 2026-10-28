@@ -1,0 +1,55 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1602/10115",
+  "source_revision": 1,
+  "source_sha256": "a4f4580fd06d791146ef7bfe16624bfeed3a545aa20897ef1d00e227303e70fa",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1602/10115/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [
+    "暗主"
+  ],
+  "rotations": [
+    {
+      "id": "source-method",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "（e：共鸣技能；r：共鸣解放：z：长按普攻；q：声骇）",
+        "注：暗主吃双变奏为了加快叠满【暗流】,快速进入【暗涌】状态"
+      ],
+      "phases": [
+        "单人手法",
+        "配队手法",
+        "循环轴"
+      ],
+      "blocks": [
+        {
+          "phase": "单人手法",
+          "lines": [
+            "单人手法：开局先给目标挂上标记提升伤害，再开始进行输出，即aaee(挂上标记)→aaaeee(循环到能量条大于等于60%后)rz；"
+          ]
+        },
+        {
+          "phase": "配队手法",
+          "lines": [
+            "配队手法：暗主e(脱手)→丹瑾2a2e→守岸人延奏打满→暗主(变奏进场直接切走)→丹瑾3a3erzq→暗主ezreaaa→(循环轴)"
+          ]
+        },
+        {
+          "phase": "循环轴",
+          "lines": [
+            "循环轴：暗主协奏能量打满→守岸人(洞悉)3ar3az→暗主e→丹瑾2a2e→守岸人延奏打满→暗主(变奏进场直接切走)→丹瑾3a3erzq→暗主ezreaaa"
+          ]
+        }
+      ]
+    }
+  ]
+}

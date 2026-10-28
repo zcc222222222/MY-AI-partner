@@ -1,0 +1,44 @@
+# Docker builds use the repository root as their context.
+# Only application sources, frontend build inputs and maintenance scripts enter it.
+**
+!v2/
+!v2/backend/
+!v2/backend/**
+!v2/frontend/
+!v2/frontend/**
+!v2/scripts/
+!v2/scripts/**
+!Dockerfile
+!Dockerfile.*
+!compose.yaml
+!compose.yml
+
+# These exclusions also apply inside the allowed source directories.
+**/.env
+**/.env.*
+**/.envrc
+**/.venv
+**/venv
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/node_modules
+**/dist
+**/*.tsbuildinfo
+**/*.log
+**/.cache
+**/.pytest_cache
+**/.playwright-mcp
+**/playwright-report
+**/test-results
+**/*.db
+**/*.db-*
+**/*.sqlite
+**/*.sqlite-*
+**/*.sqlite3
+**/*.sqlite3-*
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+v2/backend/data

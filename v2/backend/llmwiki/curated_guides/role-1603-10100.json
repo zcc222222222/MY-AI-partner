@@ -1,0 +1,41 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1603/10100",
+  "source_revision": 1,
+  "source_sha256": "18751a232602bb0f34b2e596acc7522878e0d047e22e77b372b54b304048a992",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1603/10100/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [],
+  "coverage_review": {
+    "status": "no_action_sequence",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ]
+    ],
+    "note": "本次锁定的正文、摘要及基础连招字段未提供可整理的动作顺序（基础连招仅为占位值1）；现有配队和配装仍可检索。不能拿守岸人攻略中的椿队轴冒充本篇原文，也不推断原站图片或视频没有手法。",
+    "blockers": []
+  }
+}

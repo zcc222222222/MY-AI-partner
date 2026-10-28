@@ -1,0 +1,119 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1311/10232",
+  "source_revision": 3,
+  "source_sha256": "df7c90eb74f896997f0cb298fe4711431322e724264f18ed90052ab6a92c871f",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1311/10232/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "electro",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "我们先看到电磁模态的输出流程。",
+            "首先心月狐变奏入场后直接接一下平A攒满机制条。此时平A按钮会高亮，我们长按平A释放强化重击解锁一段大。开启一段大后我们进入大招形态，在这个形态下A一下召唤方块，然后衔接E技能打爆方块攒满强化机制条。此时E技能按钮会高亮，我们即可释放超级E技能进入砸楼形态。在该形态下我们连续平A四下解锁机制条中全部的方块。此时平A按钮会高亮展示，我们长按平A释放超级重击，最后衔接二段大收尾，攒满延奏条后切人下场。",
+            "心月狐（电磁）：变奏入场+A → Z → R → A+E → E → AAAA → Z → R"
+          ],
+          "sequence_anchors": [
+            "首先心月狐变奏入场后",
+            "开启一段大后我们进入大招形态",
+            "连续平A四下",
+            "最后衔接二段大收尾"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "电磁模态",
+        "quote": "我们先看到电磁模态的输出流程。",
+        "selectors": [
+          "电磁"
+        ]
+      }
+    },
+    {
+      "id": "unison",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "然后我们看到同奏模态的输出流程。",
+            "首先队友获得同奏后，我们切心月狐同奏入场，再来衔接两下平A攒满机制条，此时平A按钮会高亮，我们长按平A释放强化重击解锁一段大。开启一段大后我们进入大招形态，此时我们就可以直接获得同奏，此时队友头像高亮闪烁，可以切队友下场。",
+            "然后等队友再切心月狐变奏入场后，我们就会直接从砸楼形态开始起手，在该形态下我们连续平A四下解锁机制条中全部的方块。此时平A按钮会高亮展示，我们长按平A释放超级重击，最后衔接二段大收尾，攒满延奏条后切人下场。",
+            "心月狐：同奏入场+AA → Z → R → 切人→变奏入场 → AAAA → Z → R"
+          ],
+          "sequence_anchors": [
+            "首先队友获得同奏后",
+            "切队友下场",
+            "然后等队友再切心月狐变奏入场后",
+            "最后衔接二段大收尾"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "同奏模态",
+        "quote": "然后我们看到同奏模态的输出流程。",
+        "selectors": [
+          "同奏"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

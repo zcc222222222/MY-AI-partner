@@ -1,0 +1,63 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1608/10064",
+  "source_revision": 1,
+  "source_sha256": "ee2dad4e33fd957cb6157c3bc0e58283f6288798372c5733522a7d1554e80a94",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1608/10064/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "personal",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "1.操作建议"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      "blocks": [
+        {
+          "phase": "1.操作建议",
+          "prose": true,
+          "lines": [
+            "1.操作建议：",
+            "先通过释放强化普攻或者强化共鸣技能来获取共鸣回路的特殊能量，当回路上的乐谱谱满的时候，则可以释放强化重击来解锁大招（注意这个大招不依赖共鸣能量），之后既可以进入指挥状态，并切入到后台进入一种替身攻击形态。"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

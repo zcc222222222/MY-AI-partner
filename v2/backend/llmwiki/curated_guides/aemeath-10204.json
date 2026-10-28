@@ -1,0 +1,21 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1210/10204",
+  "source_revision": 2,
+  "source_sha256": "70a61713b5df798cd59471d0c31fb5fd1001218eeda3d8f0cdd6b562a3ebffc2",
+  "source_path": ["content", "baseTexts", 0, "introductionDetail"],
+  "page_id": "document/mcguide/1210/10204/part-1",
+  "review_basis": "逐段核对作者的配队结论、同段全名和爱琳莫/爱娅千轮椅轴中的实际切人名称。仅核对四项有原文上下文支持的映射，不用单字前缀猜其他角色。",
+  "terms": [
+    {"aliases": ["爱", "小爱"], "name": "爱弥斯", "target_ids": ["1210"], "support": ["★爱弥斯基础合轴点：", "【爱琳莫】轮椅轴：爱A3→切琳奈ER→切小爱A4"]},
+    {"aliases": ["琳"], "name": "琳奈", "target_ids": ["1509"], "support": ["配队分析：首选 - 爱、琳、莫", "【爱琳莫】轮椅轴：爱A3→切琳奈ER"]},
+    {"aliases": ["莫"], "name": "莫宁", "target_ids": ["1209"], "support": ["结论：莫宁的快速处决的能力配合上琳奈", "切莫宁A4"]},
+    {"aliases": ["千"], "name": "千咲", "target_ids": ["1508"], "support": ["【爱娅千】轮椅轴：", "切千咲EQRA"]}
+  ],
+  "unresolved_terms": ["娅", "娅娅", "维", "守", "穗", "离", "露"],
+  "rotations": [
+    {"id": "shock-zero", "mode": "震谐", "chain_scope": "默认为0链", "heading": "★【震谐】体系(默认为0链)轮椅轴", "prefix": "【爱琳莫】轮椅轴：", "phases": ["启动轴", "循环轴"]},
+    {"id": "fusion-zero", "mode": "聚爆", "chain_scope": "默认为0链", "heading": "★【聚爆】体系(默认为0链)轮椅轴", "prefix": "【爱娅千】轮椅轴：", "phases": ["启动轴", "循环轴"]}
+  ],
+  "not_promoted": "5R、14光翼进阶轴存在连续箭头且未单独标明链数，本轮不归入已整理的完整零链轴，不补写连续箭头间的动作。"
+}

@@ -1,0 +1,106 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1309/10209",
+  "source_revision": 1,
+  "source_sha256": "382f9c1c9da8077ba9a299765c61f20b73007839c19ebf2a52db266eb361dc4d",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1309/10209/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "parry",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "格挡：长按【普攻】进入【格挡】状态，期间获得减伤效果，松开【普攻】发动【格挡反击】，根据不同情况会衔接如下技能。",
+        "-【格挡】期间点按【方向键】可进行位移。"
+      ],
+      "phases": [
+        "格挡"
+      ],
+      "blocks": [
+        {
+          "phase": "格挡",
+          "lines": [
+            "①【格挡】→【格挡反击】→过程中被攻击→【强化反击】。",
+            "②【格挡】→【格挡反击】→未被攻击→【普攻第二段】。"
+          ],
+          "selectors": [
+            "被攻击"
+          ],
+          "branches": [
+            {
+              "line": "①【格挡】→【格挡反击】→过程中被攻击→【强化反击】。",
+              "condition": "过程中被攻击",
+              "outcome": "【强化反击】"
+            },
+            {
+              "line": "②【格挡】→【格挡反击】→未被攻击→【普攻第二段】。",
+              "condition": "未被攻击",
+              "outcome": "【普攻第二段】"
+            }
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    },
+    {
+      "id": "air-ground",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "★输出形态【共鸣技能】",
+        "1.招式连段"
+      ],
+      "phases": [
+        "空中"
+      ],
+      "blocks": [
+        {
+          "phase": "空中",
+          "lines": [
+            "地面-共7段：1-3段【衍射·共鸣技能】、4-6段【湮灭·共鸣技能】、第7段【气动·共鸣技能】。",
+            "空中-共6段：1-3段【湮灭·共鸣技能】、4-5段【气动·共鸣技能】、第6段【气动·共鸣技能】下落。",
+            "——空中【共鸣技能】第6段→可衔接→地面【共鸣技能】第7段。",
+            "——空中时：长按【共鸣技能】可以直接进行第6段下落。"
+          ],
+          "selectors": [
+            "下落"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    },
+    {
+      "id": "links",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "★输出形态【共鸣技能】"
+      ],
+      "phases": [
+        "招式衔接"
+      ],
+      "blocks": [
+        {
+          "phase": "招式衔接",
+          "lines": [
+            "3.招式衔接",
+            "【普攻】1/2/3/4→地面【共鸣技能】2/3/4/6",
+            "地面【共鸣技能】1-2/3/4/5→【普攻】1/2/3/4"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    }
+  ]
+}

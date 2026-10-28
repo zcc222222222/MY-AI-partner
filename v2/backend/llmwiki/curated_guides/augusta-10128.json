@@ -1,0 +1,150 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1306/10128",
+  "source_revision": 1,
+  "source_sha256": "de0793a8ebb399019a595795bbcf16b812baa7783286017911d6efa1e36c68a3",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1306/10128/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "team-1",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "A：普攻；E：共鸣技能；R：共鸣解放：Z：长按普攻；Q：声骇"
+      ],
+      "team_variant": {
+        "label": "【奥古斯塔 & 尤诺 & 守岸人】",
+        "quote": "【奥古斯塔 & 尤诺 & 守岸人】",
+        "selectors": [
+          "【奥古斯塔 & 尤诺 & 守岸人】"
+        ],
+        "members": [
+          "奥古斯塔",
+          "尤诺",
+          "守岸人"
+        ]
+      },
+      "phases": [
+        "【奥古斯塔 & 尤诺 & 守岸人】"
+      ],
+      "blocks": [
+        {
+          "phase": "【奥古斯塔 & 尤诺 & 守岸人】",
+          "prose": true,
+          "lines": [
+            "【奥古斯塔 & 尤诺 & 守岸人】",
+            "奥EQR 切 尤诺",
+            "尤E 切 守岸人",
+            "守AAAZ 切 奥古斯塔",
+            "奥Q 切 守岸人",
+            "守AAAZ R EQ 切 尤诺",
+            "尤ER 空格Q AAA EEZ 切 奥古斯塔",
+            "奥ZEEEQR 长按R 终结技后 QAAAZA 切 守岸人",
+            "守进场直到协奏满 开始循环"
+          ],
+          "cycle_reference": {
+            "kind": "start_condition_only",
+            "quote": "守进场直到协奏满 开始循环"
+          }
+        }
+      ]
+    },
+    {
+      "id": "team-2",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "A：普攻；E：共鸣技能；R：共鸣解放：Z：长按普攻；Q：声骇"
+      ],
+      "team_variant": {
+        "label": "【奥古斯塔 & 莫特斐 & 守岸人】",
+        "quote": "【奥古斯塔 & 莫特斐 & 守岸人】",
+        "selectors": [
+          "【奥古斯塔 & 莫特斐 & 守岸人】"
+        ],
+        "members": [
+          "奥古斯塔",
+          "莫特斐",
+          "守岸人"
+        ]
+      },
+      "phases": [
+        "【奥古斯塔 & 莫特斐 & 守岸人】"
+      ],
+      "blocks": [
+        {
+          "phase": "【奥古斯塔 & 莫特斐 & 守岸人】",
+          "prose": true,
+          "lines": [
+            "【奥古斯塔 & 莫特斐 & 守岸人】",
+            "奥EQR 切 莫特斐",
+            "莫AEAA 切 守岸人",
+            "守AAAZ 切 莫特斐",
+            "莫E 切 守岸人",
+            "守AAAZ R EQ 切 莫特斐",
+            "莫REQ 切 奥古斯塔",
+            "奥ZEEEQR 长按R 终结技后 QAAAZA 切守岸人",
+            "守进场直到协奏满 在切人 开始循环"
+          ],
+          "cycle_reference": {
+            "kind": "start_condition_only",
+            "quote": "守进场直到协奏满 在切人 开始循环"
+          }
+        }
+      ]
+    },
+    {
+      "id": "team-3",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "A：普攻；E：共鸣技能；R：共鸣解放：Z：长按普攻；Q：声骇"
+      ],
+      "team_variant": {
+        "label": "【奥古斯塔 & 莫特斐 & 维里奈】",
+        "quote": "【奥古斯塔 & 莫特斐 & 维里奈】",
+        "selectors": [
+          "【奥古斯塔 & 莫特斐 & 维里奈】"
+        ],
+        "members": [
+          "奥古斯塔",
+          "莫特斐",
+          "维里奈"
+        ]
+      },
+      "phases": [
+        "【奥古斯塔 & 莫特斐 & 维里奈】"
+      ],
+      "blocks": [
+        {
+          "phase": "【奥古斯塔 & 莫特斐 & 维里奈】",
+          "prose": true,
+          "lines": [
+            "【奥古斯塔 & 莫特斐 & 维里奈】",
+            "奥QEQ 切 莫特斐",
+            "莫AEAAE 切 维里奈",
+            "维AAEQR空格AA 切莫特斐",
+            "莫REQ 切奥古斯塔",
+            "奥ZREEEQ 长按R 终结技后 QAAAZA 切维里奈",
+            "维进场直到协奏满 在切人 开始循环"
+          ],
+          "cycle_reference": {
+            "kind": "start_condition_only",
+            "quote": "维进场直到协奏满 在切人 开始循环"
+          }
+        }
+      ]
+    }
+  ]
+}

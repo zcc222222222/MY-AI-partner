@@ -1,0 +1,17 @@
+[
+  {
+    "alias": "心月狐",
+    "entity_id": "1311",
+    "canonical_name": "心",
+    "source_id": "mcguide/1311/10232",
+    "source_revision": 3,
+    "source_sha256": "df7c90eb74f896997f0cb298fe4711431322e724264f18ed90052ab6a92c871f",
+    "source_path": [
+      "title"
+    ],
+    "quote": "心月狐快速上手小技巧——silly沐",
+    "reviewer": "codex-source-review",
+    "reviewed_on": "2026-10-24",
+    "note": "攻略role_id=1311，标题与正文使用心月狐；基础库同ID名称为心。仅补同一实体名称，不推广队友短称。"
+  }
+]

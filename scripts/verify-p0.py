@@ -16,7 +16,10 @@ WORKSPACE = pathlib.Path(__file__).resolve().parents[1]
 # Optional first argument: verify another root instead of this workspace
 # (e.g. the PyCharm repo) so the check runs against the shipped copy.
 ROOT = pathlib.Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else WORKSPACE
-BACKEND = ROOT / "v1" / "backend"
+# 应用根目录名只在这里出现一次 —— 上次把它硬编码在三个脚本里,
+# 结果目录改名（v1 -> v2）时每个脚本都得改一遍,还漏一个就静默报错。
+APP_DIR = "v2"
+BACKEND = ROOT / APP_DIR / "backend"
 sys.path.insert(0, str(BACKEND))
 
 # Keep the scratch DB inside the target root: the sandbox lets spawned processes
@@ -81,19 +84,21 @@ print("\n== P0-6 sqlite pragmas + FK delete regression ==")
 Base.metadata.create_all(bind=engine)
 with SessionLocal() as db:
     seed_characters(db)
-    sess = session_service.create_session(db)
-    session_service.append_message(db, sess.id, "user", "hello")
-    session_service.append_message(db, sess.id, "assistant", "hi there")
+    db.add(models.User(id=1, username="verify", display_name="Verify", password_hash="unused"))
+    db.commit()
+    sess = session_service.create_session(db, owner_id=1)
+    session_service.append_message(db, sess.id, "user", "hello", owner_id=1)
+    session_service.append_message(db, sess.id, "assistant", "hi there", owner_id=1)
     sid = sess.id
 
 with SessionLocal() as db:
-    check("messages persisted", len(session_service.list_messages(db, sid)) == 2)
-    check("sessions listed during writes", len(session_service.list_sessions(db)) == 1)
+    check("messages persisted", len(session_service.list_messages(db, sid, owner_id=1)) == 2)
+    check("sessions listed during writes", len(session_service.list_sessions(db, owner_id=1)) == 1)
 
 with SessionLocal() as db:
-    deleted = session_service.delete_session(db, sid)
+    deleted = session_service.delete_session(db, sid, owner_id=1)
     check("delete_session still works with foreign_keys=ON", deleted is True)
-    check("child messages cascaded away", len(session_service.list_messages(db, sid)) == 0)
+    check("child messages cascaded away", len(session_service.list_messages(db, sid, owner_id=1)) == 0)
 
 from sqlalchemy import text  # noqa: E402
 
@@ -111,7 +116,7 @@ sig = inspect.signature(orchestrator.run_agent)
 check("run_agent passes temperature/max_tokens", {"temperature", "max_tokens"} <= set(sig.parameters), list(sig.parameters))
 orch_src = inspect.getsource(orchestrator)
 check("wrap-up path exists", "WRAP_UP_PROMPT" in orch_src)
-check("wrap-up drops tools", "stream(None)" in orch_src)
+check("wrap-up drops tools", "active_tools = tools if tool_rounds < MAX_TOOL_ROUNDS else None" in orch_src)
 check("no early return on budget exhaustion", "if not tool_calls or tool_rounds" not in orch_src)
 check("build_context exists", hasattr(roleplay, "build_context"))
 check("build_memory removed", not hasattr(roleplay, "build_memory"))
@@ -119,7 +124,8 @@ cs_src = inspect.getsource(chat_service)
 check("empty reply is not persisted", "no content" in cs_src or "content" in cs_src)
 check("empty-reply guard present", "strip()" in cs_src and "error" in cs_src)
 check("usage logged", "chat.completed" in cs_src)
-check("build_context called", "build_context(" in cs_src)
+from app.services import context_service
+check("budgeted context called", "context_service.prepare_context(" in cs_src and "build_context(" in inspect.getsource(context_service))
 check("usage collected from llm", "usage" in inspect.getsource(llm) and "include_usage" in inspect.getsource(llm))
 check("stream_options fallback present", "stream_options" in inspect.getsource(llm))
 
@@ -142,12 +148,12 @@ check("A2 _sse helper used for errors", chat_api_src.count("_sse(") >= 2)
 stream_src = chat_api_src[chat_api_src.index("def event_stream"):]
 check("A2 guards precede the try block", stream_src.index("character is None") < stream_src.index("try:"))
 
-client_ts = (ROOT / "v1/frontend/src/api/client.ts").read_text(encoding="utf-8")
+client_ts = (ROOT / APP_DIR / "frontend/src/api/client.ts").read_text(encoding="utf-8")
 check("A3 shared error-detail reader", client_ts.count("readErrorDetail") >= 3)
 check("A3 handles pydantic 422 array", "Array.isArray(data?.detail)" in client_ts)
 check("A3 streamPost no longer drops detail", "throw new Error(`请求失败" not in client_ts)
 
-input_vue = (ROOT / "v1/frontend/src/components/ChatInput.vue").read_text(encoding="utf-8")
+input_vue = (ROOT / APP_DIR / "frontend/src/components/ChatInput.vue").read_text(encoding="utf-8")
 check("A4 counts by code point", "[...text.value].length" in input_vue)
 # Only the tag matters -- the word "maxlength" also appears in an explanatory comment.
 textarea_tag = input_vue[input_vue.index("<textarea"):input_vue.index("</textarea>")]

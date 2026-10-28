@@ -1,0 +1,101 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1511/10191",
+  "source_revision": 1,
+  "source_sha256": "d983b4bf5bc38bef788b0809cc824dafb1e62ee214cf5cda35bde2d2cb7b847e",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1511/10191/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "personal",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "2.输出手法为"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      "blocks": [
+        {
+          "phase": "2.输出手法为",
+          "prose": true,
+          "lines": [
+            "2.输出手法为：变奏入场→EE→AAAA→E→AAAA→Z→RAAAAA→延奏下场。（Z为重击）"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    },
+    {
+      "id": "basic-0",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "基础连招"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ],
+      "blocks": [
+        {
+          "phase": "基础连招",
+          "prose": false,
+          "lines": [
+            "基础连招：变奏入场→声骸技能→共鸣技能*2→普攻*4→强化共鸣技能→强化普通攻击*4→强化重击*2→共鸣解放→普攻*4→延奏离场"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves",
+      "playstyle": {
+        "label": "基础连招",
+        "quote": "基础连招：变奏入场→声骸技能→共鸣技能*2→普攻*4→强化共鸣技能→强化普通攻击*4→强化重击*2→共鸣解放→普攻*4→延奏离场",
+        "selectors": [
+          "基础连招"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "skillDisplayDescription"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

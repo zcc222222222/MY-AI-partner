@@ -1,0 +1,21 @@
+{
+  "schema": "provided-gameplay-references-v1",
+  "entries": [
+    {
+      "platform": "weibo",
+      "account_id": "7908192515",
+      "post_id": "RoCN7wee6",
+      "author": "漂泊帮帮团",
+      "title": "漂泊帮帮团：10.26冥歌海墟配队推荐",
+      "url": "https://weibo.com/7908192515/RoCN7wee6",
+      "topic": "冥歌海墟",
+      "claimed_start_date": "2026-10-26",
+      "claimed_end_date": "2026-11-23",
+      "claimed_game_versions": ["3.7", "3.8"],
+      "evidence_basis": "user_provided_post_url_and_original_post_screenshot",
+      "registered_on": "2026-10-28",
+      "body_read": false,
+      "automatic_refresh": false
+    }
+  ]
+}

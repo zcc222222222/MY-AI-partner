@@ -1,0 +1,48 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1106/10146",
+  "source_revision": 1,
+  "source_sha256": "e807e23c9688c376e86ffaf5e8c9c4112be69a31a99cda7dbc9d6c8ce099453e",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1106/10146/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "team",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "开局釉瑚EAA R E 切散华ER重击 切釉瑚靠闪避反击获得四个吉祥物 Q接重击协奏切折枝3e切散华打满协奏Q 协奏切折枝R EAE跳E跳E跳(等散华协奏结束开始循环)。"
+          ],
+          "sequence_anchors": [
+            "开局釉瑚EAA R E",
+            "切散华ER重击",
+            "切釉瑚靠闪避反击获得四个吉祥物",
+            "Q接重击协奏切折枝3e",
+            "切散华打满协奏Q",
+            "协奏切折枝R EAE跳E跳E跳"
+          ],
+          "cycle_reference": {
+            "kind": "start_condition_only",
+            "quote": "(等散华协奏结束开始循环)"
+          }
+        }
+      ]
+    }
+  ]
+}

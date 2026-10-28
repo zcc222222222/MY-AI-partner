@@ -1,0 +1,129 @@
+{
+  "note": "Agent-curated narrow retrieval checks; not independent semantic or gameplay validation.",
+  "game_version": "3.7",
+  "locale": "zh",
+  "entities": ["character:1210"],
+  "kind": "character_mechanics",
+  "cases": [
+    {
+      "query": "同步率",
+      "expected": "200"
+    },
+    {
+      "query": "共鸣率",
+      "expected": "4"
+    },
+    {
+      "query": "流溢辉光",
+      "expected": "600"
+    },
+    {
+      "query": "流光突进",
+      "expected": "200"
+    },
+    {
+      "query": "光翼共奏之时",
+      "expected": "5秒"
+    },
+    {
+      "query": "星屑共振",
+      "expected": "2次"
+    },
+    {
+      "query": "轨迹封存",
+      "expected": "10秒"
+    },
+    {
+      "query": "二维电子幽灵",
+      "expected": "5秒"
+    },
+    {
+      "query": "固有技能星与星之间",
+      "expected": "60%"
+    },
+    {
+      "query": "重击",
+      "expected": "二段"
+    },
+    {
+      "query": "流光增幅",
+      "expected": "15秒"
+    },
+    {
+      "query": "终结",
+      "expected": "消耗全部"
+    },
+    {
+      "query": "星辉破界而来·过载",
+      "expected": "30秒"
+    },
+    {
+      "query": "光翼共奏·降临",
+      "expected": "100"
+    },
+    {
+      "query": "光翼共奏·登台",
+      "expected": "100"
+    },
+    {
+      "query": "震谐轨迹",
+      "expected": "30层"
+    },
+    {
+      "query": "聚爆轨迹",
+      "expected": "30层"
+    },
+    {
+      "query": "即刻响应·辉芒",
+      "expected": "4秒"
+    },
+    {
+      "query": "震谐响应·星爆",
+      "expected": "8秒"
+    },
+    {
+      "query": "不可见的守候",
+      "expected": "20秒"
+    },
+    {
+      "query": "全属性伤害加成",
+      "expected": "20%"
+    },
+    {
+      "query": "受到致命伤害",
+      "expected": "10分钟"
+    },
+    {
+      "query": "共鸣解放伤害提升",
+      "expected": "40%"
+    },
+    {
+      "query": "暴击固定",
+      "expected": "80%"
+    },
+    {
+      "query": "层数上限提升至60层",
+      "expected": "60层"
+    },
+    {
+      "query": "构型切换",
+      "expected": "普攻"
+    },
+    {
+      "query": "兵装融合",
+      "expected": "机兵形态"
+    },
+    {
+      "query": "启明之音",
+      "expected": "爱弥斯形态"
+    },
+    {
+      "query": "谐度破坏",
+      "expected": "第3段"
+    },
+    {
+      "query": "角色编入队伍或切换模态",
+      "expected": "重置"
+    }
+  ]
+}

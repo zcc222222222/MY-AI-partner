@@ -1,0 +1,138 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1208/10142",
+  "source_revision": 1,
+  "source_sha256": "a908bcf2f215aeb1c0964fae96290dc06326f7ce45c29506a5674f09018a1826",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1208/10142/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "younuo",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "A：普攻；E：共鸣技能；R：共鸣解放：Z：长按普攻（重击）；Q：声骇"
+      ],
+      "phases": [
+        "【嘉贝莉娜 & 尤诺 & 守岸人】"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "【嘉贝莉娜 & 尤诺 & 守岸人】",
+          "prose": true,
+          "lines": [
+            "【嘉贝莉娜 & 尤诺 & 守岸人】",
+            "嘉EQ 切 尤诺",
+            "尤EQE 切 守岸人",
+            "守AAAZ 切嘉AAA 能量条满 切守岸人",
+            "守AAAZ REQ 切 尤诺",
+            "尤ER 空格 AAA EEZ 切 嘉贝莉娜",
+            "嘉AAEZ QER A至能量空 切 守岸人",
+            "循环轴：",
+            "守岸人AAAZ 切嘉AAA 能量条满 切守岸人",
+            "守AAAZ REQ 切 尤诺...."
+          ],
+          "cycle_reference": {
+            "kind": "partial_ellipsis",
+            "quote": "守AAAZ REQ 切 尤诺...."
+          }
+        }
+      ],
+      "team_variant": {
+        "label": "【嘉贝莉娜 & 尤诺 & 守岸人】",
+        "quote": "【嘉贝莉娜 & 尤诺 & 守岸人】",
+        "selectors": [
+          "【嘉贝莉娜 & 尤诺 & 守岸人】"
+        ],
+        "members": [
+          "嘉贝莉娜",
+          "尤诺",
+          "守岸人"
+        ]
+      }
+    },
+    {
+      "id": "lupa",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "A：普攻；E：共鸣技能；R：共鸣解放：Z：长按普攻（重击）；Q：声骇"
+      ],
+      "phases": [
+        "【嘉贝莉娜 & 露帕 & 守岸人】",
+        "循环轴"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "【嘉贝莉娜 & 露帕 & 守岸人】",
+          "prose": true,
+          "lines": [
+            "【嘉贝莉娜 & 露帕 & 守岸人】",
+            "嘉EQ 切 露帕",
+            "露帕EQ 切 守岸人",
+            "守AAAZ 切嘉AAA 切守岸人",
+            "守AAAZ REQ 切 露帕",
+            "露帕REAAAAE 切 嘉贝莉娜",
+            "嘉AAEZ 能量条满 QER A至能量空 切 守岸人"
+          ]
+        },
+        {
+          "phase": "循环轴",
+          "prose": true,
+          "lines": [
+            "循环轴：",
+            "守岸人AAAZ REQ 协奏满 切露帕",
+            "露帕REAAAAE 切 嘉贝莉娜",
+            "嘉AAEZ 能量条满 QER A至能量空 切 守岸人"
+          ]
+        }
+      ],
+      "team_variant": {
+        "label": "【嘉贝莉娜 & 露帕 & 守岸人】",
+        "quote": "【嘉贝莉娜 & 露帕 & 守岸人】",
+        "selectors": [
+          "【嘉贝莉娜 & 露帕 & 守岸人】"
+        ],
+        "members": [
+          "嘉贝莉娜",
+          "露帕",
+          "守岸人"
+        ]
+      }
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "_note": "weapon 整数 -> 武器类型。同样是从 roster 分布 + 角色实际武器推导的,源站没有映射文件。请抽查一遍(例如 长离/散华 应为迅刀,珂莱塔/炽霞 应为手枪)。",
+  "_verified": false,
+  "_source": "derived from https://static.nanoka.cc/ww/3.7/character.json",
+  "map": {
+    "1": { "name": "长刃", "en": "Broadblade" },
+    "2": { "name": "迅刀", "en": "Sword" },
+    "3": { "name": "手枪", "en": "Pistols" },
+    "4": { "name": "臂铠", "en": "Gauntlets" },
+    "5": { "name": "音感仪", "en": "Rectifier" }
+  }
+}

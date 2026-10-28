@@ -1,0 +1,9 @@
+{
+  "note": "Agent-authored integration probes, not an independent factual benchmark. Do not put expected answers into model prompts.",
+  "cases": [
+    {"id": "mechanism", "query": "爱弥斯的光翼共奏为什么放不出来？简短说清触发条件，并标明资料版本。", "expected_route": "wiki"},
+    {"id": "structured", "query": "爱弥斯的专武名字叫什么？简短回答，并标明资料出处。", "expected_route": "sql"},
+    {"id": "wrong_entity", "query": "维里奈的光翼共奏怎么触发？没有这个技能就明确告诉我，不要换成其他角色的条件。", "expected_route": "no_cross_entity"},
+    {"id": "unavailable_version", "query": "请按3.8版本说明爱弥斯光翼共奏的触发条件。没有3.8资料就直说，不要把3.7当作3.8。", "expected_route": "version_boundary"}
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "supplement/taptap/719276523214865858",
+  "source_revision": 1,
+  "source_sha256": "4eea9eab66a2f923bc74c2c73a1486ecfc215bec535dc028d6aa8b5af92d802c",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/supplement/taptap/719276523214865858/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "historical-double-intro",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "(最高可以叠10层,椿变奏进场之后会出现暗紫色能量条,此时攻击敌人消耗能量条进行叠层，攻击一下叠一层,普攻和技能都能叠，基本上能量条没了正好叠满10层)所以如果在吃完副c的buff之后再进行叠层以及进行后续输出,那么后续的强化普攻就容易掉buff,所以一般的输出手法是:奶妈协奏满切椿椿变奏入场开始叠层(一套转转转可能叠不满10层,视情况要不要继续叠,如果怪物离角色较远无法快速叠层则无需叠满,损失不了太多伤害)叠层完成之后注意!!!不要让椿的协奏值满!!!,这样切副c,协奏值没了,不切副c,buff没了(是的,有点像寸止buhsi)随后切副c打满协奏椿再次变奏入场此时有大招,协奏值几乎满（没满开完大招也就满了）,叠层也好了(我已是完全之椿!),开大招,开一日花,然后转转转打强化普攻,协奏值满切奶妈(椿强化普攻加协奏很快,怪不得带快速协奏标签),循环结束"
+          ],
+          "sequence_anchors": [
+            "奶妈协奏满切椿",
+            "不要让椿的协奏值满",
+            "随后切副c打满协奏椿再次变奏入场",
+            "开大招,开一日花",
+            "协奏值满切奶妈"
+          ]
+        }
+      ]
+    }
+  ]
+}

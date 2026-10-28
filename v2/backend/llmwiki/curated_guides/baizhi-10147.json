@@ -1,0 +1,41 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1103/10147",
+  "source_revision": 1,
+  "source_sha256": "2b623d5f065744056843ebf322b0da68cd3c7030697f533455b28dcc32f41a5c",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1103/10147/part-1",
+  "review_basis": "逐行核对已保存中文原文，保留键位说明、条件、全部箭头与退场/能量动作。未注明链数，未推断零链；不推断泛称或缩写对应角色。",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "source-team",
+      "format": "exact-lines",
+      "mode": "原文配队",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "（e：共鸣技能；r：共鸣解放：z：长按普攻；q：声骇）"
+      ],
+      "phases": [
+        "配队手法",
+        "循环轴"
+      ],
+      "lines": [
+        {
+          "phase": "配队手法",
+          "line": "配队手法：开局散华erz→椿eq→白芷打满协奏能量→椿变奏长按普攻接e→散华eq→椿变奏进场炸一日花接大招a→循环轴"
+        },
+        {
+          "phase": "循环轴",
+          "line": "循环轴：椿退场→散华erz→椿eq→白芷打满协奏能量→椿变奏长按普攻接e→散华eq→椿变奏进场炸一日花接大招a"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1502/10113",
+  "source_revision": 1,
+  "source_sha256": "637b192e358e2c6e05d21682c6907a8ed54196da20bb3ee003517152fd4be68b",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1502/10113/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "stack",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "在菲比，漂泊者，任意奶妈这个队伍中",
+            "漂泊者入场时，主要就是需要考虑把敌人身上的光噪层数叠加上来，合理利用共鸣技能CD短，共鸣回路微光效果可以保持光噪层数不减的特性，释放1次共鸣解放，2次共鸣技能，就能把敌人的光噪层数叠加到10层了。",
+            "等菲比入场输出的时候，敌人身上有10层光噪效应，菲比就能吃到此间永驻之光这个声骸套装的5件套效果。"
+          ],
+          "sequence_anchors": [
+            "在菲比，漂泊者，任意奶妈这个队伍中",
+            "释放1次共鸣解放，2次共鸣技能",
+            "等菲比入场输出的时候"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "guide-quality-v1",
+  "page_id": "document/mcguide/1601/10103/part-1",
+  "source_id": "mcguide/1601/10103",
+  "source_revision": 1,
+  "source_sha256": "b1b4eaa6a0e7e540b142d28fc8952702c3a3a0229f66f4d27f2cd3e9584a4f8d",
+  "status": "pending_verification",
+  "issues": [
+    {
+      "code": "key_binding",
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "quote": "立即释放共鸣技能【固若金汤】（Q），叠加3层【磐岩护壁】，触发弹反减伤。"
+    },
+    {
+      "code": "skill_attribution",
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "quote": "大招【不动如山】（Q）施放时机：BOSS破盾或增伤BUFF叠加至峰值（维里奈20%攻击+桃祈38%技能增伤）。"
+    },
+    {
+      "code": "unsupported_numeric",
+      "source_path": [
+        "content",
+        "roleResonanceTexts",
+        0,
+        "recommendDescription"
+      ],
+      "quote": "3链​：护盾持续时间延长至30秒（优化循环覆盖率）。"
+    },
+    {
+      "code": "buff_condition",
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      "quote": "​强制闪避：金圈阶段内长按闪避可无视BOSS控制技能（如无常凶鹭击飞），保障珂莱塔输出稳定性。"
+    }
+  ]
+}

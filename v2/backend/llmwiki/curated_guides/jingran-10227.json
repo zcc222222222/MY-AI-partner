@@ -1,0 +1,68 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1212/10227",
+  "source_revision": 1,
+  "source_sha256": "9a90afa0805f0f22f929d3e22ee4d93cbae2f1c07241ae65e8b07f48cc103823",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1212/10227/part-1",
+  "review_basis": "逐块核对已保存中文原文：保留全部行、条件、原标签及作者的详细过程。不补动作、不猜键位与简称；景燃队友链数不视为景燃自身链数。仅声明原文块完整，不保证实战或当前版本适用。",
+  "terms": [],
+  "unresolved_terms": [
+    "守",
+    "尤",
+    "景",
+    "莫"
+  ],
+  "rotations": [
+    {
+      "id": "source-method",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "A：普攻；E：共鸣技能；R：共鸣解放：Z：长按普攻（重击）；Q：声骇"
+      ],
+      "phases": [
+        "景燃 & 尤诺 & 守岸人",
+        "景燃 & 尤诺 & 1链莫宁"
+      ],
+      "blocks": [
+        {
+          "phase": "景燃 & 尤诺 & 守岸人",
+          "selectors": [
+            "守岸人"
+          ],
+          "lines": [
+            "【景燃 & 尤诺 & 守岸人】",
+            "守AAAZR AAAZEQ →尤ER 空格 闪Q AAA EEZ →景RZ FEQ ZEZ"
+          ]
+        },
+        {
+          "phase": "景燃 & 尤诺 & 1链莫宁",
+          "selectors": [
+            "莫宁"
+          ],
+          "lines": [
+            "【景燃 & 尤诺 & 1链莫宁】",
+            "莫AAAZ R EZQ →尤ER 空格 闪Q AAA EEZ →景AF RZ EQ ZEZ"
+          ]
+        }
+      ],
+      "teammate_chain_conditions": [
+        {
+          "text": "1链莫宁",
+          "chain": 1,
+          "name": "莫宁",
+          "target_ids": [
+            "1209"
+          ]
+        }
+      ]
+    }
+  ]
+}

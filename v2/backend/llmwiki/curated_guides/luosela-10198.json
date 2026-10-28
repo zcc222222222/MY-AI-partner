@@ -1,0 +1,51 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1109/10198",
+  "source_revision": 1,
+  "source_sha256": "5d32d89e1fa43671e716b0ff24929f2a613c8d2c5e740bec0882597c0df83ae3",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1109/10198/part-1",
+  "terms": [],
+  "unresolved_terms": [
+    "千"
+  ],
+  "rotations": [
+    {
+      "id": "team",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [
+        "A：普攻；E：共鸣技能；R：共鸣解放：Z：长按普攻（重击）；Q：声骇；F：谐度破坏",
+        "绯雪 &洛瑟菈&千咲 轮椅轴手法"
+      ],
+      "phases": [
+        "原文流程"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "lines": [
+            "绯雪E(4链) 切 千EAAAAAQ REZ →洛瑟菈E（长按）RAAA→绯雪ZR AAAAA FE E(长按) AAA Z R(长按)"
+          ],
+          "action_chain_annotations": [
+            {
+              "action": "绯雪E",
+              "quote": "绯雪E(4链)",
+              "chain": 4,
+              "name": "绯雪",
+              "target_ids": [
+                "1108"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

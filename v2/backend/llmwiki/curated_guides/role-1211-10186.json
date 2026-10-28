@@ -1,0 +1,69 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1211/10186",
+  "source_revision": 1,
+  "source_sha256": "50a173fea19e76f4f82cfed5aab29a5be040c07b83e9293817e3aee34ad19bcb",
+  "source_path": [
+    "content",
+    "baseTexts",
+    0,
+    "introductionDetail"
+  ],
+  "page_id": "document/mcguide/1211/10186/part-1",
+  "terms": [],
+  "unresolved_terms": [],
+  "rotations": [
+    {
+      "id": "personal",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": [],
+      "phases": [
+        "原文流程"
+      ],
+      "source_path": [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ],
+      "blocks": [
+        {
+          "phase": "原文流程",
+          "prose": true,
+          "lines": [
+            "达妮娅的输出流程非常简单，我们变奏入场后直接A一下，看到获得机制条后接E技能，攒满机制条后直接开一段大招进入大招模式，释放大招模式的两段强化E技能攒特殊能量，接着连A四下打出一套平A，再释放一次普通E技能，最后使用二段大完成一套流程。整套输出速度非常快，简单易懂好上手。",
+            "基础手法：变奏入场 →A →E→ R→ EE→ AAAA →E→ R→延奏下场"
+          ],
+          "sequence_anchors": [
+            "我们变奏入场后直接A一下",
+            "攒满机制条后直接开一段大招",
+            "连A四下打出一套平A",
+            "最后使用二段大完成一套流程"
+          ]
+        }
+      ],
+      "coverage_scope": "local_moves"
+    }
+  ],
+  "coverage_review": {
+    "status": "reviewed_text",
+    "reviewed_paths": [
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionDetail"
+      ],
+      [
+        "content",
+        "baseTexts",
+        0,
+        "introductionSynopsis"
+      ]
+    ],
+    "note": "已整理本次锁定文字中的可引用流程；仅保证所列原文段完整保留，不表示所有版本、链数、配队或完整实战循环均已覆盖。",
+    "blockers": []
+  }
+}

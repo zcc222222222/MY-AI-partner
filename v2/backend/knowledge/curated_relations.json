@@ -1,0 +1,13 @@
+[
+  {
+    "from_type": "character", "from_id": "1210", "from_name": "爱弥斯",
+    "relation": "signature_weapon",
+    "to_type": "weapon", "to_id": "21020076", "to_name": "永远的启明星",
+    "versions": ["3.7"],
+    "source_field": "专属武器",
+    "source_url": "https://wiki.biligame.com/wutheringwaves/角色/爱弥斯",
+    "evidence_kind": "reviewed_community",
+    "reviewed_at": "2026-10-16",
+    "note": "人工核对社区Wiki的专属武器字段，并与nanoka实体ID及推荐列表交叉核对；不是nanoka原生专武字段，也不代表武器仅该角色可装备。"
+  }
+]

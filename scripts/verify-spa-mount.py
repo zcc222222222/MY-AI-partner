@@ -18,7 +18,9 @@ import shutil
 import sys
 
 ROOT = pathlib.Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else pathlib.Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "v1" / "backend"))
+# 应用根目录名只在这里出现一次(改名时改这一处)
+APP_DIR = "v2"
+sys.path.insert(0, str(ROOT / APP_DIR / "backend"))
 
 SCRATCH = ROOT / ".d1-verify"
 shutil.rmtree(SCRATCH, ignore_errors=True)
@@ -30,7 +32,7 @@ from fastapi.testclient import TestClient  # noqa: E402
 
 import app.main as app_main  # noqa: E402
 
-DIST = ROOT / "v1" / "frontend" / "dist"
+DIST = ROOT / APP_DIR / "frontend" / "dist"
 EXPECT_MOUNTED = DIST.is_dir()
 FAILED = []
 
