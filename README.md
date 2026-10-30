@@ -237,6 +237,7 @@ docker compose logs --tail 100 app
 | `APP_DATA_DIR` | `./v2/backend/data`，绑定挂载到 `/app/data`，保存账号、知识库、报告和备份 |
 | `APP_PORT` | `8000`，宿主机访问端口 |
 | `APP_BIND_ADDRESS` | `127.0.0.1`，默认仅本机可访问；对外部署需按反向代理拓扑配置 |
+| `APP_FORWARDED_ALLOW_IPS` | `127.0.0.1`；HTTPS 部署时改为宿主机代理到容器的实际 Docker 网关 IP，仅信任该来源的转发头 |
 
 以上变量在启动 Compose 的终端设置；例如 PowerShell `$env:APP_PORT='8080'`，Linux `APP_PORT=8080 docker compose up -d --wait`。业务配置仍放在 `APP_ENV_FILE` 指向的文件里。Compose 固定容器内 SQLite 与知识路径，不沿用宿主机的 Windows 数据库连接路径。`WIKI_UPSTREAM_DB_PATH` 显式映射本地原始知识库，保留旧 Wiki 来源元数据与哈希校验；它只适用于本项目单一原始镜像库的部署。
 
@@ -257,7 +258,25 @@ docker compose exec app python /app/v2/scripts/wiki.py --help
 
 容器验收报告保存在本地 `v2/backend/data/container-evaluations/`。检查页面、登录／CSRF、持久化、非 root Chromium、镜像不含密钥，以及可用公共知识副本在 Linux 路径下的检索。脚本自行停止测试容器，保留测试报告和隔离数据，不接触正式账号库。镜像健康检查只代表 HTTP 服务存活，不保证 SMTP、模型或外站可用。
 
-对外分享仍需配置 HTTPS、`AUTH_COOKIE_SECURE=true`、可信来源和反向代理的 SSE 转发；Uvicorn 仅对明确可信的代理启用转发头信任，不把任意客户端地址头当成认证限频依据。Compose 不额外启动 MySQL／Redis，不将容器化视为多实例支持。
+Compose 不额外启动 MySQL／Redis，不将容器化视为多实例支持。
+
+### 公网 HTTPS：宿主机 Nginx → Docker 应用
+
+仓库提供 [Nginx 配置模板](deploy/nginx.conf)，适用于 Ubuntu 宿主机运行 Nginx、应用仍只映射 `127.0.0.1:8000` 的单代理部署。不要同时将应用端口开放到公网。安全组放行 80、443，SSH 仅允许维护来源。若使用 CDN、负载均衡或容器内代理，需要重新确定代理信任范围，不能直接沿用该模板。
+
+1. 将域名解析到服务器公网 IP，安装 Nginx 和证书工具，取得该域名的有效 TLS 证书。模板使用 `/etc/letsencrypt/live/你的域名/`；使用其他证书时修改路径。证书申请与续期由宿主机管理，勿提交私钥。使用 standalone 方式签发时需先释放 80 端口。
+2. 在 `v2/backend/.env` 设置 `AUTH_COOKIE_SECURE=true` 和 `CORS_ORIGINS=https://你的域名`，来源不带结尾斜杠。保留 `APP_BIND_ADDRESS=127.0.0.1` 与 `APP_PORT=8000`；若自定义端口，同步修改模板的 `proxy_pass`。
+3. 应用启动后，在服务器项目根目录执行下面命令，查询实际网关，**不要假定是 `172.17.0.1`**：
+
+   ```bash
+   docker inspect --format '{{range .NetworkSettings.Networks}}{{.Gateway}}{{end}}' "$(docker compose ps -q app)"
+   ```
+
+   将输出 IP 写入项目根目录 `.env`：`APP_FORWARDED_ALLOW_IPS=实际网关IP`，再执行 `docker compose up -d --force-recreate --wait`。根目录 `.env` 用于 Compose 参数，与 `v2/backend/.env` 的业务配置分开；均被 Git 忽略。不要配置 `*` 或整个私网网段。若网络被重建，重新检查网关；若实际后端连接来源与网关不同，应按实际来源配置。
+4. 将 `deploy/nginx.conf` 中所有 `example.com` 改成实际域名，配置证书路径，安装到 `/etc/nginx/conf.d/aipartner.conf`，执行 `sudo nginx -t` 通过后重载 Nginx。如已有同域名的站点配置，合并或移除重复配置。模板固定传递站点 Host，覆盖客户端的 `X-Forwarded-For`、`X-Forwarded-Proto`，并关闭响应缓冲和压缩、延长读取超时以支持 SSE。
+5. 访问 `https://你的域名` 验证登录、注册、发送消息及逐段输出；HTTP 应跳转到 HTTPS。确认登录 Cookie 带 Secure，不同客户端在访问日志中还原为不同地址。上线网络、证书、真实 IP 和模型流式回答必须在目标服务器验收，离线测试不替代此步骤。
+
+Uvicorn 根据 `FORWARDED_ALLOW_IPS` 信任代理转发头，Compose 显式将其映射到 `APP_FORWARDED_ALLOW_IPS`。仅配置 `CORS_ORIGINS` 可放行明确来源，但不能解决所有客户端被识别为 Docker 网关、共用注册登录 IP 限流的问题。不要通过取消 Origin／CSRF 校验解决代理配置错误。
 
 ## 数据准备与知识维护
 

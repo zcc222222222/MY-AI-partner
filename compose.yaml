@@ -12,6 +12,9 @@ services:
       DATABASE_URL: sqlite:////app/data/app.db
       KB_DATA_DIR: /app/data
       WIKI_UPSTREAM_DB_PATH: /app/data/knowledge.db
+      # Host Nginx reaches the container through the Docker bridge gateway.
+      # Set its observed address explicitly for HTTPS deployment; never use '*'.
+      FORWARDED_ALLOW_IPS: ${APP_FORWARDED_ALLOW_IPS:-127.0.0.1}
     ports:
       - "${APP_BIND_ADDRESS:-127.0.0.1}:${APP_PORT:-8000}:8000"
     volumes:
