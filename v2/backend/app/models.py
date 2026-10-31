@@ -80,6 +80,7 @@ class User(Base):
     email_verified_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     display_name: Mapped[str] = mapped_column(String(64))
     password_hash: Mapped[str] = mapped_column(String(255))
+    password_changed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow)
 
@@ -105,6 +106,20 @@ class EmailVerification(Base):
     email: Mapped[str] = mapped_column(String(254), primary_key=True)
     nonce: Mapped[str] = mapped_column(String(32))
     code_hash: Mapped[str] = mapped_column(String(64))
+    expires_at: Mapped[datetime] = mapped_column(DateTime)
+    resend_after: Mapped[datetime] = mapped_column(DateTime)
+    attempts: Mapped[int] = mapped_column(Integer, default=0)
+    delivered: Mapped[bool] = mapped_column(Boolean, default=False)
+
+
+class PasswordResetChallenge(Base):
+    __tablename__ = "password_reset_challenges"
+    email: Mapped[str] = mapped_column(String(254), primary_key=True)
+    user_id: Mapped[int | None] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), nullable=True)
+    credential_digest: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    nonce: Mapped[str] = mapped_column(String(32))
+    code_hash: Mapped[str] = mapped_column(String(64))
+    created_at: Mapped[datetime] = mapped_column(DateTime)
     expires_at: Mapped[datetime] = mapped_column(DateTime)
     resend_after: Mapped[datetime] = mapped_column(DateTime)
     attempts: Mapped[int] = mapped_column(Integer, default=0)

@@ -80,6 +80,30 @@ class EmailCodeRequest(BaseModel):
         return value.strip().lower() if isinstance(value, str) else value
 
 
+def validate_new_password(password, confirmation, username=None):
+    if not re.search(r"[A-Za-z]", password) or not re.search(r"[0-9]", password):
+        raise ValueError("密码须为10–128个字符，且至少包含一个英文字母和一个数字")
+    if password != password.strip():
+        raise ValueError("密码首尾不能包含空格")
+    if password.casefold() in {"password123", "password1234", "password12345", "qwerty12345", "qwerty123456", "abc123456789", "123456789a", "1234567890a"}:
+        raise ValueError("密码过于常见，请使用更难猜测的密码")
+    if username and password.casefold() == username.casefold():
+        raise ValueError("密码不能与用户名相同")
+    if password != confirmation:
+        raise ValueError("两次输入的密码不一致")
+
+
+class PasswordResetIn(EmailCodeRequest):
+    email_code: str = Field(pattern=r"^[0-9]{6}$")
+    new_password: SecretStr = Field(min_length=10, max_length=128)
+    confirm_password: SecretStr = Field(min_length=10, max_length=128)
+
+    @model_validator(mode="after")
+    def password_rules(self):
+        validate_new_password(self.new_password.get_secret_value(), self.confirm_password.get_secret_value())
+        return self
+
+
 class RegisterIn(LoginIn, EmailCodeRequest):
     password: SecretStr = Field(min_length=10, max_length=128)
     confirm_password: SecretStr = Field(min_length=10, max_length=128)
@@ -88,17 +112,7 @@ class RegisterIn(LoginIn, EmailCodeRequest):
 
     @model_validator(mode="after")
     def registration_rules(self):
-        password = self.password.get_secret_value()
-        if not re.search(r"[A-Za-z]", password) or not re.search(r"[0-9]", password):
-            raise ValueError("密码须为10–128个字符，且至少包含一个英文字母和一个数字")
-        if password != password.strip():
-            raise ValueError("密码首尾不能包含空格")
-        if password.casefold() in {"password123", "password1234", "password12345", "qwerty12345", "qwerty123456", "abc123456789", "123456789a", "1234567890a"}:
-            raise ValueError("密码过于常见，请使用更难猜测的密码")
-        if password.casefold() == self.username.casefold():
-            raise ValueError("密码不能与用户名相同")
-        if password != self.confirm_password.get_secret_value():
-            raise ValueError("两次输入的密码不一致")
+        validate_new_password(self.password.get_secret_value(), self.confirm_password.get_secret_value(), self.username)
         return self
 
     @field_validator("display_name", mode="before")

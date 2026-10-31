@@ -1,12 +1,12 @@
 """Registration, login, current user and logout; cookies carry opaque credentials."""
-from fastapi import APIRouter, Depends, Request, Response
+from fastapi import APIRouter, BackgroundTasks, Depends, Request, Response
 from sqlalchemy import delete
 
 from .. import models, schemas
 from ..auth import current_user, check_origin
 from ..config import settings
 from ..database import SessionLocal
-from ..services import auth_service, email_verification
+from ..services import auth_service, email_verification, password_reset
 
 router = APIRouter(prefix="/api/v1/auth", tags=["auth"])
 
@@ -49,6 +49,33 @@ def send_email_code(body: schemas.EmailCodeRequest, request: Request):
 @router.post("/register", response_model=schemas.AuthOut, status_code=201)
 def register(body: schemas.RegisterIn, request: Request, response: Response):
     return _signin(body, request, response, registering=True)
+
+
+@router.post("/password-reset/code")
+def request_password_reset(body: schemas.EmailCodeRequest, request: Request, background_tasks: BackgroundTasks):
+    check_origin(request)
+    with SessionLocal() as db:
+        remote = request.client.host if request.client else "unknown"
+        # Share email send limits with registration to prevent cross-purpose spam.
+        auth_service.throttle(db, remote, "email-code-ip", limit=10, minutes=60)
+        auth_service.throttle(db, str(body.email), "email-code-address", limit=5, minutes=60)
+        delivery = password_reset.request_code(db, str(body.email))
+    if delivery:
+        background_tasks.add_task(password_reset.deliver_code, *delivery)
+    return {"message": "若该邮箱已绑定可恢复的账号，重置验证码将发送到邮箱，请检查收件箱及垃圾邮件", "retry_after": 60, "expires_in": 600}
+
+
+@router.post("/password-reset")
+def reset_password(body: schemas.PasswordResetIn, request: Request, response: Response):
+    check_origin(request)
+    with SessionLocal() as db:
+        remote = request.client.host if request.client else "unknown"
+        auth_service.throttle(db, remote, "password-reset-ip", limit=20, minutes=60)
+        auth_service.throttle(db, str(body.email), "password-reset-address", limit=10, minutes=60)
+        password_reset.reset_password(db, str(body.email), body.email_code, body.new_password.get_secret_value())
+    # Recovery never signs in automatically. All old tokens were revoked atomically.
+    response.delete_cookie(settings.auth_cookie_name, path="/", secure=settings.auth_cookie_secure, httponly=True, samesite="lax")
+    return {"message": "密码已重置，请使用用户名和新密码重新登录"}
 
 
 @router.post("/login", response_model=schemas.AuthOut)

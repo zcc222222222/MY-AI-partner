@@ -12,12 +12,20 @@ def require_mail():
 
 
 def send_registration_code(email: str, code: str):
+    _send_code(email, code, "注册")
+
+
+def send_password_reset_code(email: str, code: str):
+    _send_code(email, code, "重置密码")
+
+
+def _send_code(email: str, code: str, purpose: str):
     require_mail()
     message = EmailMessage()
-    message["Subject"] = "爱弥斯 AI 助手 · 注册验证码"
+    message["Subject"] = f"爱弥斯 AI 助手 · {purpose}验证码"
     message["From"] = settings.smtp_from
     message["To"] = email
-    message.set_content(f"你的注册验证码是：{code}\n\n验证码10分钟内有效，仅可使用一次。请勿将验证码告诉他人。\n如非本人操作，请忽略此邮件。")
+    message.set_content(f"你的{purpose}验证码是：{code}\n\n验证码10分钟内有效，仅可用于{purpose}，仅可使用一次。请勿将验证码告诉他人。\n如非本人操作，请忽略此邮件。")
     context = ssl.create_default_context()
     try:
         if settings.smtp_security == "ssl":

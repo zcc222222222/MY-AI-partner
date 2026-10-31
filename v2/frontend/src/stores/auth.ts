@@ -53,5 +53,6 @@ export const useAuthStore = defineStore('auth', () => {
     catch (e) { error.value = e instanceof Error ? e.message : '退出失败，请重试' }
     finally { busy.value = false }
   }
-  return { user, ready, busy, error, restore, signIn, signOut, expire }
+  function passwordResetComplete() { expire(); changed(); ready.value = true }
+  return { user, ready, busy, error, restore, signIn, signOut, expire, passwordResetComplete }
 })

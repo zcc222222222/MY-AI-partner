@@ -51,6 +51,14 @@ def throttle(db: Session, remote: str, action: str, *, limit=None, minutes=5):
 
 
 def issue_session(db: Session, user: models.User):
+    # Serialize session issuance with password resets, including on SQLite.
+    # A login that verified an old password cannot create a session after reset.
+    changed = db.execute(update(models.User).where(models.User.id == user.id,
+        models.User.password_hash == user.password_hash, models.User.is_active.is_(True))
+        .values(password_hash=models.User.password_hash), execution_options={"synchronize_session": False}).rowcount
+    if changed != 1:
+        db.rollback()
+        raise HTTPException(status_code=401, detail="用户名或密码错误")
     raw = secrets.token_urlsafe(32)
     csrf = secrets.token_urlsafe(32)
     db.add(models.AuthSession(token_hash=token_digest(raw), user_id=user.id, csrf_token=csrf,
