@@ -878,7 +878,7 @@ textarea {
 .auth-submit { width: 100%; padding: 12px; margin-top: 10px; border: 0; border-radius: 9px; color: var(--accent-ink); background: var(--accent); font: inherit; cursor: pointer; }
 .guest-entry { margin: 0 0 8px; }
 .guest-entry-hint { margin-bottom: 24px; }
-.guest-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+.guest-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--border); background: oklch(0.18 0.024 255 / 0.8); color: var(--muted); font-size: 12px; }
 .guest-banner .ghost { flex-shrink: 0; }
 .guest-examples { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 20px; color: var(--muted); font-size: 13px; }
 .guest-examples p { flex-basis: 100%; }
@@ -897,6 +897,11 @@ textarea {
 .mobile-auth-error { display: none; }
 @media (max-width: 760px) {
   .mobile-auth-error { display: block; margin: 8px 16px; }
+  .chat-header { flex-wrap: wrap; gap: 8px; }
+  .chat-header-title { flex: 1 1 100%; display: flex; align-items: baseline; gap: 12px; }
+  .chat-header-title h1 { white-space: nowrap; font-size: 18px; }
+  .session-id { max-width: min(150px, 45vw); margin-top: 0; }
   .mobile-controls { flex-wrap: wrap; justify-content: flex-end; }
-  .chat-header-right { min-width: 0; }
+  .chat-header-right { min-width: 0; width: 100%; justify-content: space-between; }
+  .status { flex-shrink: 0; }
 }
