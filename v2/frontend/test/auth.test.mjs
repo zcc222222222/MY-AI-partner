@@ -37,6 +37,31 @@ test('guest entry prevents rapid duplicate requests and ignores responses after 
   delete globalThis.__guestApi; delete globalThis.__guestTokens
 })
 
+test('rapid first-question clicks create one session and send only one question', async () => {
+  let finishCreate, finishSend, creates = 0, sends = 0
+  globalThis.__firstQuestionApi = {
+    createSession: () => { creates++; return new Promise((r) => { finishCreate = r }) },
+    listMessages: async () => [],
+    sendMessage: () => { sends++; return new Promise((r) => { finishSend = r }) },
+    listSessions: async () => [{ id: 'guest-first', has_user_message: true }],
+  }
+  const text = (await source('../src/stores/chat.ts'))
+    .replace("import * as api from '../api/chat'", 'const api = globalThis.__firstQuestionApi')
+    .replace("'pinia'", JSON.stringify(import.meta.resolve('pinia')))
+    .replace("'vue'", JSON.stringify(import.meta.resolve('vue')))
+  const { useChatStore } = await import(url(text))
+  setActivePinia(createPinia())
+  const chat = useChatStore()
+  const a = chat.send('first question'), b = chat.send('second click')
+  assert.equal(creates, 1)
+  finishCreate({ id: 'guest-first', has_user_message: false })
+  await new Promise((r) => setImmediate(r))
+  assert.equal(sends, 1)
+  finishSend(42)
+  await Promise.all([a, b])
+  delete globalThis.__firstQuestionApi
+})
+
 test('credentials included and CSRF supplied on writes', async (t) => {
   transport.setCsrfToken('csrf-alice')
   let sent

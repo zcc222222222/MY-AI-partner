@@ -73,7 +73,7 @@ function onSessionChange(event: Event) {
       />
       <div v-if="auth.user?.is_guest && greetingMessage" class="guest-examples" aria-label="体验问题示例">
         <p>可以从这些问题开始：</p>
-        <button v-for="question in examples" :key="question" type="button" class="ghost" :disabled="chat.streaming" @click="chat.send(question)">{{ question }}</button>
+        <button v-for="question in examples" :key="question" type="button" class="ghost" :disabled="chat.streaming || chat.creatingSession" @click="chat.send(question)">{{ question }}</button>
       </div>
       <ChatMessage
         v-for="(m, index) in chat.messages"

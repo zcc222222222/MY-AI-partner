@@ -115,7 +115,7 @@ export const useChatStore = defineStore('chat', () => {
     const text = content.trim()
     if (!text) return
     if (!activeSessionId.value) await newSession()
-    if (epoch !== accountEpoch || !activeSessionId.value) return
+    if (epoch !== accountEpoch || !activeSessionId.value || streaming.value) return
 
     error.value = ''
     const sessionId = activeSessionId.value as string
