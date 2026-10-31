@@ -16,7 +16,7 @@ from sqlalchemy.orm import sessionmaker
 from app import auth, models
 from app.api import auth as auth_api
 from app.main import app
-from app.migrations import migrate
+from app.migrations import HEAD, migrate
 from app.services import auth_service, email_verification, mail_service, password_reset
 
 
@@ -193,7 +193,7 @@ class PasswordResetTests(unittest.TestCase):
         self.assertNotIn('password_reset_challenges',inspect(self.engine).get_table_names())
         self.assertNotIn('password_changed_at',{c['name'] for c in inspect(self.engine).get_columns('users')})
         result=migrate(self.engine)
-        self.assertEqual(result['revision'],'0007_password_reset')
+        self.assertEqual(result['revision'],HEAD)
         self.assertIsNotNone(result['backup'])
         with self.sessions() as db:
             user=db.get(models.User,1)

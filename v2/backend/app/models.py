@@ -81,6 +81,9 @@ class User(Base):
     display_name: Mapped[str] = mapped_column(String(64))
     password_hash: Mapped[str] = mapped_column(String(255))
     password_changed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    is_guest: Mapped[bool] = mapped_column(Boolean, default=False, server_default="0")
+    guest_expires_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    guest_ip_hash: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow)
 

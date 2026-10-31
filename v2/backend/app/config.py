@@ -31,6 +31,12 @@ class Settings:
     auth_cookie_secure: bool = os.getenv("AUTH_COOKIE_SECURE", "false").lower() == "true"
     auth_session_hours: int = int(os.getenv("AUTH_SESSION_HOURS", "168"))
     auth_rate_limit: int = int(os.getenv("AUTH_RATE_LIMIT", "30"))
+    guest_enabled: bool = os.getenv("GUEST_ENABLED", "true").lower() == "true"
+    guest_daily_questions: int = int(os.getenv("GUEST_DAILY_QUESTIONS", "3"))
+    guest_ttl_hours: int = int(os.getenv("GUEST_TTL_HOURS", "24"))
+    guest_daily_starts: int = int(os.getenv("GUEST_DAILY_STARTS", "100"))
+    guest_rpm: int = int(os.getenv("GUEST_RPM", "2"))
+    guest_ip_secret: str = os.getenv("GUEST_IP_SECRET", os.getenv("EMAIL_CODE_SECRET", ""))
     quota_user_daily_questions: int = int(os.getenv('QUOTA_USER_DAILY_QUESTIONS','20'))
     quota_global_daily_questions: int = int(os.getenv('QUOTA_GLOBAL_DAILY_QUESTIONS','200'))
     quota_user_daily_micros: int = int(os.getenv('QUOTA_USER_DAILY_MICROS','500000'))
@@ -73,6 +79,8 @@ class Settings:
     llm_context_safety_tokens: int = 2048
 
     def __post_init__(self):
+        if min(self.guest_daily_questions, self.guest_ttl_hours, self.guest_daily_starts, self.guest_rpm) <= 0:
+            raise ValueError("访客额度、有效期和限频必须为正整数")
         if any(v<=0 for v in (self.quota_user_daily_questions,self.quota_global_daily_questions,
                 self.quota_user_daily_micros,self.quota_global_daily_micros,self.quota_global_monthly_micros,
                 self.quota_user_rpm,self.quota_user_concurrency,self.quota_global_concurrency,self.generation_timeout_seconds)):

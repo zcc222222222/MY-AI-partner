@@ -6,13 +6,13 @@ from .. import models, schemas
 from ..auth import current_user, check_origin
 from ..config import settings
 from ..database import SessionLocal
-from ..services import auth_service, email_verification, password_reset
+from ..services import auth_service, email_verification, password_reset, guest_service
 
 router = APIRouter(prefix="/api/v1/auth", tags=["auth"])
 
 
-def set_cookie(response: Response, raw):
-    response.set_cookie(settings.auth_cookie_name, raw, max_age=settings.auth_session_hours * 3600,
+def set_cookie(response: Response, raw, max_age=None):
+    response.set_cookie(settings.auth_cookie_name, raw, max_age=settings.auth_session_hours * 3600 if max_age is None else max_age,
                         httponly=True, secure=settings.auth_cookie_secure, samesite="lax", path="/")
     response.headers["Cache-Control"] = "no-store"
 
@@ -44,6 +44,18 @@ def send_email_code(body: schemas.EmailCodeRequest, request: Request):
         auth_service.throttle(db, str(body.email), "email-code-address", limit=5, minutes=60)
         email_verification.request_code(db, str(body.email))
     return {"message": "若该邮箱可用于注册，验证码将发送到邮箱，请检查收件箱及垃圾邮件", "retry_after": 60, "expires_in": 600}
+
+
+@router.post("/guest", response_model=schemas.AuthOut)
+def enter_guest(request: Request, response: Response):
+    check_origin(request)
+    with SessionLocal() as db:
+        user, raw, csrf, created = guest_service.enter(db,
+            request.cookies.get(settings.auth_cookie_name), request.client.host if request.client else 'unknown')
+        payload = schemas.AuthOut(user=schemas.UserOut.model_validate(user), csrf_token=csrf)
+    if created:
+        set_cookie(response, raw, max_age=settings.guest_ttl_hours * 3600)
+    return payload
 
 
 @router.post("/register", response_model=schemas.AuthOut, status_code=201)

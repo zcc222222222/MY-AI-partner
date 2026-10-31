@@ -26,7 +26,7 @@ class RetrievalDiagnosticsTests(unittest.TestCase):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
         patcher=patch.object(diag,'ROOT',Path(self.tmp.name)/'diagnostics');patcher.start();self.addCleanup(patcher.stop)
         self.app=FastAPI();self.app.include_router(router)
-        self.app.dependency_overrides[auth.current_user]=lambda:NS(user_id=1)
+        self.app.dependency_overrides[auth.current_user]=lambda:NS(user_id=1,is_guest=False)
         patcher=patch.object(auth,'settings',replace(config.settings,knowledge_admin_user_ids=(1,)))
         patcher.start();self.addCleanup(patcher.stop)
         self.client=TestClient(self.app);self.addCleanup(self.client.close)
@@ -34,7 +34,7 @@ class RetrievalDiagnosticsTests(unittest.TestCase):
     def test_read_does_not_create_directory_and_requires_admin(self):
         self.assertEqual(self.client.get('/api/v1/knowledge/ops/retrievals').json(),{'records':[]})
         self.assertFalse(diag.ROOT.exists())
-        self.app.dependency_overrides[auth.current_user]=lambda:NS(user_id=2)
+        self.app.dependency_overrides[auth.current_user]=lambda:NS(user_id=2,is_guest=False)
         self.assertEqual(self.client.get('/api/v1/knowledge/ops/retrievals').status_code,403)
         with patch.object(retry,'start') as start:
             self.assertEqual(self.client.post('/api/v1/knowledge/ops/retrievals/recheck',json={'topic':'逆境深塔'}).status_code,403)

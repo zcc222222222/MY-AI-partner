@@ -10,6 +10,33 @@ const url = (source) => 'data:text/javascript;base64,' + Buffer.from(ts.transpil
 const source = (file) => readFile(new URL(file, import.meta.url), 'utf8')
 const transport = await import(url((await source('../src/api/client.ts')).replace('import.meta.env.VITE_API_BASE', 'undefined')))
 
+test('guest entry prevents rapid duplicate requests and ignores responses after identity expiry', async () => {
+  let resolve, calls = 0
+  globalThis.__guestApi = { enterGuest: () => { calls++; return new Promise((r) => { resolve = r }) } }
+  globalThis.__guestTokens = []
+  const text = (await source('../src/stores/auth.ts'))
+    .replace("import * as api from '../api/auth'", 'const api = globalThis.__guestApi')
+    .replace("import { setCsrfToken } from '../api/client'", 'const setCsrfToken = (value) => globalThis.__guestTokens.push(value)')
+    .replace("'pinia'", JSON.stringify(import.meta.resolve('pinia')))
+    .replace("'vue'", JSON.stringify(import.meta.resolve('vue')))
+  const { useAuthStore } = await import(url(text))
+  setActivePinia(createPinia())
+  const auth = useAuthStore()
+  const first = auth.enterGuest(), duplicate = auth.enterGuest()
+  assert.equal(calls, 1); assert.equal(auth.busy, true)
+  resolve({ user: { id: 12, is_guest: true }, csrf_token: 'guest-csrf' })
+  await Promise.all([first, duplicate])
+  assert.equal(auth.user.is_guest, true); assert.equal(auth.busy, false)
+  assert.equal(globalThis.__guestTokens.at(-1), 'guest-csrf')
+  const late = auth.enterGuest()
+  auth.expire()
+  resolve({ user: { id: 99, is_guest: true }, csrf_token: 'stale' })
+  await late
+  assert.equal(auth.user, null)
+  assert.equal(globalThis.__guestTokens.at(-1), '')
+  delete globalThis.__guestApi; delete globalThis.__guestTokens
+})
+
 test('credentials included and CSRF supplied on writes', async (t) => {
   transport.setCsrfToken('csrf-alice')
   let sent

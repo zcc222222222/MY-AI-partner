@@ -181,9 +181,23 @@ def admit(factory,owner_id,session_id,client_id,content):
         if previous:
             if previous.input_digest!=digest:raise QuotaError('同一请求ID不能用于不同消息',code=409)
             return public_request(previous),False
+        user=db.get(models.User,owner_id)
+        if not user or not user.is_active:raise QuotaError('登录已失效，请重新登录',code=401)
+        guest=bool(user.is_guest)
+        if guest and (not settings.guest_enabled or not user.guest_expires_at or user.guest_expires_at<=now() or not user.guest_ip_hash):
+            raise QuotaError('体验已结束，请注册或登录',code=401)
         if bucket(db,'system-lock').questions or bucket(db,f'pause:user:{owner_id}').questions:
             raise QuotaError('当前已暂停模型调用，请联系管理员',code=503)
         running=db.scalars(select(models.GenerationRequest).where(models.GenerationRequest.status.in_(ACTIVE))).all()
+        guest_ip_row=None
+        if guest:
+            peers=select(models.User.id).where(models.User.is_guest.is_(True),models.User.guest_ip_hash==user.guest_ip_hash)
+            if db.scalar(select(func.count()).select_from(models.GenerationRequest).where(
+                    models.GenerationRequest.owner_id.in_(peers),models.GenerationRequest.status.in_(ACTIVE))):
+                raise QuotaError('该网络已有体验回答正在生成，请稍后再试')
+            recent_ip=db.scalar(select(func.count()).select_from(models.GenerationRequest).where(
+                models.GenerationRequest.owner_id.in_(peers),models.GenerationRequest.created_at>now()-timedelta(seconds=60)))
+            if recent_ip>=settings.guest_rpm:raise QuotaError('体验提问过于频繁，请稍后再试')
         if any(r.session_id==session_id for r in running):raise QuotaError('此会话已有回答正在生成',code=409)
         if sum(r.owner_id==owner_id for r in running)>=settings.quota_user_concurrency:
             raise QuotaError('当前账号已有回答正在生成，请等待完成')
@@ -193,13 +207,20 @@ def admit(factory,owner_id,session_id,client_id,content):
             models.GenerationRequest.owner_id==owner_id,models.GenerationRequest.created_at>moment-timedelta(seconds=60)))
         if recent>=settings.quota_user_rpm:raise QuotaError(f'每分钟最多发送{settings.quota_user_rpm}条消息，请稍后再试')
         names=keys(owner_id,moment);rows=[bucket(db,key) for key in names]
-        for row,cap in zip(rows[:2],(settings.quota_user_daily_questions,settings.quota_global_daily_questions)):
-            if row.questions>=cap:raise QuotaError('今日提问额度已用完，北京时间零点重置',retry=_reset_seconds(moment))
+        if guest:
+            from .guest_service import ip_bucket
+            guest_ip_row=bucket(db,ip_bucket(user.guest_ip_hash,moment))
+            if guest_ip_row.questions>=settings.guest_daily_questions:
+                raise QuotaError('该网络今日免注册体验额度已用完，请注册或登录继续',retry=_reset_seconds(moment))
+        question_rows=rows[:2]+([guest_ip_row] if guest_ip_row else [])
+        for row,cap in zip(question_rows,(settings.guest_daily_questions if guest else settings.quota_user_daily_questions,
+                                        settings.quota_global_daily_questions,settings.guest_daily_questions)):
+            if row.questions>=cap:raise QuotaError('体验额度已用完，请注册或登录继续' if guest else '今日提问额度已用完，北京时间零点重置',retry=_reset_seconds(moment))
         for row,cap in zip(rows,(settings.quota_user_daily_micros,settings.quota_global_daily_micros,settings.quota_global_monthly_micros)):
             if row.spent_micros+row.reserved_micros>=cap:raise QuotaError('模型费用预算已用完，请稍后再试')
-        for row in rows[:2]:row.questions+=1
+        for row in question_rows:row.questions+=1
         request=models.GenerationRequest(id=uuid.uuid4().hex,owner_id=owner_id,session_id=session_id,
-            client_request_id=client_id,input_digest=digest,status='running',question_buckets=json.dumps(names[:2]),
+            client_request_id=client_id,input_digest=digest,status='running',question_buckets=json.dumps([r.key for r in question_rows]),
             created_at=moment,lease_until=moment+timedelta(seconds=300))
         db.add(request);db.flush()
         return public_request(request),True
@@ -242,6 +263,10 @@ def reserve_call(kwargs,purpose):
         lock(db);expire(db)
         request=db.get(models.GenerationRequest,scope.request_id)
         if not request or request.status not in ACTIVE:raise QuotaError('生成任务已结束',code=409)
+        owner=db.get(models.User,request.owner_id)
+        if owner and owner.is_guest and (not settings.guest_enabled or not owner.is_active or
+                not owner.guest_expires_at or owner.guest_expires_at<=now()):
+            raise QuotaError('体验已结束，请注册或登录',code=401)
         if bucket(db,'system-lock').questions or bucket(db,f'pause:user:{request.owner_id}').questions:
             raise QuotaError('当前已暂停模型调用',code=503)
         names=keys(request.owner_id,now());rows=[bucket(db,key) for key in names]
@@ -316,8 +341,18 @@ def overview(db,owner_id,*,admin=False):
             'budget_micros':cap,'remaining_micros':max(0,cap-spent-reserved)})
     control=db.get(models.QuotaBucket,'system-lock')
     paused=db.get(models.QuotaBucket,f'pause:user:{owner_id}')
-    result={'limits':limits(),'user':data[0],'paused':bool(control and control.questions or paused and paused.questions),
-            'reset_timezone':'Asia/Shanghai','remaining_questions':max(0,settings.quota_user_daily_questions-data[0]['questions'])}
+    user=db.get(models.User,owner_id);guest=bool(user and user.is_guest)
+    question_cap=settings.guest_daily_questions if guest else settings.quota_user_daily_questions
+    remaining=max(0,question_cap-data[0]['questions'])
+    if guest:
+        from .guest_service import ip_bucket
+        ip=db.get(models.QuotaBucket,ip_bucket(user.guest_ip_hash,moment)) if user.guest_ip_hash else None
+        remaining=min(remaining,max(0,question_cap-(ip.questions if ip else 0)))
+    personal_limits=limits()
+    personal_limits['user_daily_questions']=question_cap
+    if guest:personal_limits['user_rpm']=min(settings.guest_rpm,settings.quota_user_rpm)
+    result={'limits':personal_limits,'user':data[0],'paused':bool(control and control.questions or paused and paused.questions),
+            'reset_timezone':'Asia/Shanghai','remaining_questions':remaining,'is_guest':guest}
     if admin:
         result.update(global_day=data[1],global_month=data[2],global_paused=bool(control and control.questions))
         user_rows=db.scalars(select(models.QuotaBucket).where(models.QuotaBucket.key.like('user:%:day:'+names[0].rsplit(':',1)[1]))

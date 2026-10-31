@@ -1,5 +1,6 @@
 """FastAPI 入口。"""
 import logging
+import asyncio
 import os
 import re
 from contextlib import asynccontextmanager
@@ -37,9 +38,11 @@ def _bootstrap() -> None:
     from .migrations import migrate
     migrate(engine)
     from .services import usage_service
+    from .services import guest_service
     with SessionLocal() as db,db.begin():
         usage_service.lock(db)
         usage_service.expire(db)
+        guest_service.cleanup(db)
     with SessionLocal() as db:
         seed_characters(db)
 
@@ -62,11 +65,32 @@ async def lifespan(app: FastAPI):
     )
     if not settings.mail_ready:
         logger.warning("邮件服务尚未配置：已有账号可登录，新账号需配置 SMTP 后验证邮箱注册")
+    cleanup_task = asyncio.create_task(_guest_cleanup_loop())
     try:
         yield
     finally:
+        cleanup_task.cancel()
+        try:
+            await cleanup_task
+        except asyncio.CancelledError:
+            pass
         from .agents.live_guides import CLIENT
         CLIENT.close()
+
+
+async def _guest_cleanup_loop():
+    def clean():
+        from .services import usage_service, guest_service
+        with SessionLocal() as db, db.begin():
+            usage_service.lock(db)
+            usage_service.expire(db)
+            guest_service.cleanup(db)
+    while True:
+        await asyncio.sleep(3600)
+        try:
+            await asyncio.to_thread(clean)
+        except Exception:
+            logger.exception('guest_cleanup_failed')
 
 
 app = FastAPI(title="爱弥斯 AI 助手", version="1.0.0", lifespan=lifespan)

@@ -22,6 +22,6 @@ def current_user(request: Request) -> Principal:
 
 
 def knowledge_admin(principal: Principal = Depends(current_user)) -> Principal:
-    if principal.user_id not in settings.knowledge_admin_user_ids:
+    if principal.is_guest or principal.user_id not in settings.knowledge_admin_user_ids:
         raise HTTPException(status_code=403, detail='此账号没有知识库管理权限')
     return principal

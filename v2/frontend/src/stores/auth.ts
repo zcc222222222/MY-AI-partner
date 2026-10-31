@@ -53,6 +53,17 @@ export const useAuthStore = defineStore('auth', () => {
     catch (e) { error.value = e instanceof Error ? e.message : '退出失败，请重试' }
     finally { busy.value = false }
   }
+  async function enterGuest() {
+    if (busy.value) return
+    const turn = ++epoch
+    busy.value = true; error.value = ''
+    try {
+      const result = await api.enterGuest()
+      if (turn !== epoch) return
+      setCsrfToken(result.csrf_token); user.value = result.user; changed()
+    } catch (e) { error.value = e instanceof Error ? e.message : '暂时无法体验，请稍后重试' }
+    finally { busy.value = false; ready.value = true }
+  }
   function passwordResetComplete() { expire(); changed(); ready.value = true }
-  return { user, ready, busy, error, restore, signIn, signOut, expire, passwordResetComplete }
+  return { user, ready, busy, error, restore, signIn, signOut, enterGuest, expire, passwordResetComplete }
 })

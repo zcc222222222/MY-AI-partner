@@ -47,10 +47,10 @@ const emit = defineEmits<{ manageKnowledge: [] }>()
       </div>
     </nav>
     <div class="account-menu">
-      <UsageStatus />
+      <UsageStatus v-if="!auth.user?.is_guest" />
       <button v-if="auth.user?.can_manage_knowledge" type="button" @click="emit('manageKnowledge')">知识库管理</button>
       <span>{{ auth.user?.display_name }}</span>
-      <button type="button" :disabled="auth.busy" @click="auth.signOut()">退出登录</button>
+      <button type="button" :disabled="auth.busy" @click="auth.signOut()">{{ auth.user?.is_guest ? '注册 / 登录' : '退出登录' }}</button>
       <p v-if="auth.error" class="auth-error" role="alert">{{ auth.error }}</p>
     </div>
   </aside>

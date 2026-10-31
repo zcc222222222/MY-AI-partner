@@ -35,7 +35,7 @@ class KnowledgeOpsTests(unittest.TestCase):
         self.addCleanup(lambda:[p.stop() for p in reversed(self.patches)])
         app = FastAPI(); app.include_router(router)
         self.app=app
-        self.app.dependency_overrides[auth.current_user] = lambda:NS(user_id=1)
+        self.app.dependency_overrides[auth.current_user] = lambda:NS(user_id=1,is_guest=False)
         self.client=TestClient(app)
         self.addCleanup(self.client.close)
 
@@ -45,7 +45,7 @@ class KnowledgeOpsTests(unittest.TestCase):
         return result,spawn
 
     def test_non_admin_cannot_read_or_write_and_no_task_spawned(self):
-        self.app.dependency_overrides[auth.current_user] = lambda:NS(user_id=2)
+        self.app.dependency_overrides[auth.current_user] = lambda:NS(user_id=2,is_guest=False)
         with patch.object(ops,'snapshot') as read,patch.object(ops,'start_job') as start:
             self.assertEqual(self.client.get('/api/v1/knowledge/ops').status_code,403)
             self.assertEqual(self.client.post('/api/v1/knowledge/ops/jobs',json={'recipe':'periods'}).status_code,403)

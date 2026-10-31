@@ -74,6 +74,10 @@ async function submit() {
       <h1>{{ resetting ? '重置密码' : registering ? '创建你的账号' : '欢迎回来' }}</h1>
       <p class="auth-intro">{{ resetting ? '使用注册时已验证的邮箱接收验证码，设置新密码。' : '登录后继续你的私人对话。' }}</p>
       <p v-if="successNotice" class="auth-hint" role="status">{{ successNotice }}</p>
+      <template v-if="mode === 'login'">
+        <button class="auth-submit guest-entry" type="button" :disabled="auth.busy" @click="auth.enterGuest()">{{ auth.busy ? '请稍候…' : '免注册体验' }}</button>
+        <p class="auth-hint guest-entry-hint">每天可体验3次提问，同一网络共享额度。体验会话24小时后过期。</p>
+      </template>
       <label v-if="!resetting">用户名<input v-model="username" name="username" autocomplete="username" required minlength="3" maxlength="32" pattern="[A-Za-z0-9_]+" placeholder="3–32位字母、数字或下划线" :disabled="auth.busy" /></label>
       <p v-if="registering" class="auth-hint">用户名忽略大小写且不能重复；昵称可以重复。</p>
       <label v-if="registering">昵称（选填）<input v-model="displayName" name="displayName" autocomplete="nickname" maxlength="64" :disabled="auth.busy" /></label>

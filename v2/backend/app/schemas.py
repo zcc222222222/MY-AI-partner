@@ -126,12 +126,13 @@ class UserOut(BaseModel):
     id: int
     username: str
     display_name: str
+    is_guest: bool = False
 
     @computed_field
     @property
     def can_manage_knowledge(self) -> bool:
         from .config import settings
-        return self.id in settings.knowledge_admin_user_ids
+        return not self.is_guest and self.id in settings.knowledge_admin_user_ids
 
 
 class AuthOut(BaseModel):

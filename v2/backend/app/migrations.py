@@ -9,7 +9,7 @@ from alembic import command
 from alembic.config import Config
 from sqlalchemy import inspect, text
 
-HEAD = "0007_password_reset"
+HEAD = "0008_guest_access"
 ALLOWED_TABLES = {"characters", "chat_sessions", "messages", "users", "auth_sessions", "auth_throttles", "alembic_version", "email_verifications", "password_reset_challenges", "chat_context_summaries", "quota_buckets", "generation_requests", "llm_usage"}
 
 

@@ -56,3 +56,22 @@ test('forgot-password UI submits recovery, returns to login, and never signs in 
     app.unmount(); delete globalThis.__resetAuth; delete globalThis.__resetApi
   }
 })
+
+test('guest entry is available without filling required login fields', async () => {
+  let entered = 0, signedIn = 0
+  globalThis.__resetAuth = reactive({ busy: false, error: '',
+    enterGuest: () => { entered++ }, signIn: () => { signedIn++ },
+  })
+  globalThis.__resetApi = {}
+  const { default: component } = await import(moduleUrl + '#guest')
+  const app = createApp(component); app.mount('#app')
+  try {
+    const entry = [...document.querySelectorAll('button')].find((b) => b.textContent === '免注册体验')
+    assert.ok(entry); assert.equal(entry.type, 'button')
+    assert.equal(document.querySelector('[name=username]').value, '')
+    entry.click(); await nextTick()
+    assert.equal(entered, 1); assert.equal(signedIn, 0)
+    globalThis.__resetAuth.busy = true; await nextTick()
+    assert.equal(entry.disabled, true)
+  } finally { app.unmount(); delete globalThis.__resetAuth; delete globalThis.__resetApi }
+})
