@@ -40,12 +40,16 @@ DOCUMENT_RESPONSE_RULES = (
 )
 
 
-def _structured_version():
+def _structured_version(entity_type=None, name=None):
     try:
         from contextlib import closing
         import sqlite3
         from llmwiki.tools import KNOWLEDGE_PATH
         with closing(sqlite3.connect(KNOWLEDGE_PATH.resolve().as_uri() + "?mode=ro", uri=True)) as conn:
+            if name:
+                conn.row_factory = sqlite3.Row
+                from knowledge.scopes import entity_version
+                return entity_version(conn, entity_type or 'character', name)
             row = conn.execute("SELECT value FROM meta WHERE key='game_version'").fetchone()
             return row[0] if row else None
     except (OSError, sqlite3.Error):
@@ -192,7 +196,8 @@ def run_agent(messages: list[dict], tools: list[dict] | None = None,
             else:
                 if scope_error:
                     result = json.dumps({"error":"intent_scope_mismatch","note":scope_error},ensure_ascii=False)
-                elif wiki_scope and function["name"] in STRUCTURED_TOOLS and _structured_version() != wiki_scope:
+                elif wiki_scope and function["name"] in STRUCTURED_TOOLS and _structured_version(
+                        parsed_arguments.get('entity_type', 'character'), parsed_arguments.get('name')) != wiki_scope:
                     result = json.dumps({"error": "knowledge_version_mismatch", "game_version": wiki_scope,
                                          "note": "本轮Wiki查询已锁定该版本，当前SQLite版本不同或无法确认，不能用其他版本补答案。请直接说明指定版本资料不足。"}, ensure_ascii=False)
                 else:

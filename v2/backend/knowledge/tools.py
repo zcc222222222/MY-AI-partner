@@ -472,10 +472,11 @@ def _get_knowledge_entity(entity_type: str, name: str, level: int = 90,
         entity[field] = json.loads(entity[field]) if entity.get(field) else None
     for effect in entity.get("effects", []):
         effect["params"] = json.loads(effect["params"] or "[]")
-    version = conn.execute("SELECT value FROM meta WHERE key='game_version'").fetchone()[0]
-    source = (conn.execute("SELECT source_url FROM raw_docs WHERE kind=? AND doc_id=? LIMIT 1",
-                           (detail_source, str(entity["id"]))).fetchone() if detail_source else
-              conn.execute("SELECT source_url FROM raw_docs WHERE kind=? LIMIT 1", (entity_type,)).fetchone())
+    from .scopes import entity_version
+    version = entity_version(conn, entity_type, str(entity['id']))
+    source = (conn.execute("SELECT source_url FROM raw_docs WHERE kind=? AND doc_id=? AND game_version=? LIMIT 1",
+                           (detail_source, str(entity["id"]), version)).fetchone() if detail_source else
+              conn.execute("SELECT source_url FROM raw_docs WHERE kind=? AND game_version=? LIMIT 1", (entity_type, version)).fetchone())
     source_path = f"{entity_type}/{entity['id']}.json" if detail_source else f"{entity_type}.json"
     return {"entity_type": entity_type, "entity": entity,
             "source": f"nanoka {version} / {source_path}",

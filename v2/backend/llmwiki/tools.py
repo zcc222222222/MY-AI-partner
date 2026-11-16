@@ -55,9 +55,11 @@ def search_wiki(query, entity_name, entity_type="character", game_version=None, 
                 return {"error": "kb_version_missing"}
             active_version = row[0]
             entity = resolve(conn, entity_type, entity_name.strip())
+            from knowledge.scopes import entity_version
+            structured_version = entity_version(conn, entity_type, entity_name.strip())
         if "error" in entity:
             return {"error": "entity_unresolved", "detail": entity, "note": "不使用其他角色的资料替代；请确认完整名称或ID。"}
-        version = game_version or active_version
+        version = game_version or structured_version or active_version
         store = WikiStore(WIKI_PATH, create=False, read_only=True)
         results = store.search(query.strip(), game_version=version, locale=locale, limit=max(1, min(int(limit), 5)),
                                max_chars=5600, entities=[f"{entity_type}:{entity['id']}"], kind=kind, reviewed_only=True)
@@ -74,12 +76,12 @@ def search_wiki(query, entity_name, entity_type="character", game_version=None, 
                  "game_version": version, "locale": locale, "generation": generation,
                  "threshold": None, "score_kind": "lexical_overlap_not_probability"}
         result = {"route": "wiki", "query": query.strip(), "entity": {"type": entity_type, "id": str(entity["id"]), "name": entity["name"]},
-                  "game_version": version, "structured_kb_version": active_version, "locale": locale,
+                  "game_version": version, "structured_kb_version": structured_version, "locale": locale,
                   "status": "found" if results else "no_reviewed_match", "policy": POLICY,
                   "results": results, "trace": trace}
-        if version != active_version:
-            result["version_note"] = (f"当前SQLite原始数据只有{active_version}，不提供{version}的原始技能、面板、材料或专武关系。"
-                                      f"禁止声称可查询{version}原始数据，不能用{active_version}补答案。没有后台监控，不能承诺后续主动通知。")
+        if version != structured_version:
+            result["version_note"] = (f"该实体当前SQLite原始数据只有{structured_version}，不提供{version}的原始技能、面板、材料或专武关系。"
+                                      f"禁止声称可查询{version}原始数据，不能用{structured_version}补答案。没有后台监控，不能承诺后续主动通知。")
         if not results:
             result["note"] = "没有该实体在指定版本/语言下的有效已审核摘录。可查同版本原始工具，不能推断该机制不存在。"
         while results and len(json.dumps(result, ensure_ascii=False)) > MAX_RESULT_CHARS:

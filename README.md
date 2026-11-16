@@ -298,6 +298,8 @@ Uvicorn 根据 `FORWARDED_ALLOW_IPS` 信任代理转发头，Compose 显式将�
 
 `DATABASE_URL` 配置业务库；`KB_DATA_DIR` 可重定位公共知识目录，不会一起搬迁业务库。当前结构化数据有3.7历史基线，不能因网站或游戏更新就自动声称是最新版本。
 
+可用 `supplement-character.py` 从已校验的版本镜像补充新角色及新装备、材料条目，例如 `--version 3.8 --character-id 1512 --expected-name 莉莉`。这一步完全离线，需事先镜像该版本的索引和该角色详情；不会把原有角色改标为新版，也不会覆盖已有角色。Wiki 默认版本及聊天数值校验按所查实体的实际来源版本处理；补充后仍须单独编译、审核发布角色机制与作者攻略。
+
 <details>
 <summary>首次建库、文档构建与后续更新命令</summary>
 

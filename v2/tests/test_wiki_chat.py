@@ -63,6 +63,28 @@ class WikiChatTests(unittest.TestCase):
         self.assertIn("version_note", result)
         self.assertIn("不提供", result["version_note"])
 
+    def test_new_character_defaults_to_its_own_patch_without_changing_old_characters(self):
+        with closing(sqlite3.connect(self.kb)) as c, c:
+            c.execute('ALTER TABLE characters ADD COLUMN game_version TEXT')
+            c.execute("UPDATE characters SET game_version='3.7'")
+            c.execute("INSERT INTO characters VALUES(3,'New','3.8')")
+        self.store.import_source('new-guide',game_version='3.8',title='New guide',raw=b'Limit is 300.',
+                                 metadata={'entities':['character:3']})
+        draft={'page_id':'new/mechanics','game_version':'3.8','locale':'zh','title':'New mechanics',
+            'kind':'character_mechanics','body':'Limit is 300. [source:new-guide@1]','entities':['character:3'],
+            'sources':[{'source_id':'new-guide','revision':1}], 'claims':[{'claim_id':'cap','text':'Limit is 300.',
+                'citations':[{'source_id':'new-guide','revision':1,'quote':'Limit is 300.'}]}]}
+        publish_reviewed(self.store,self.store.stage_page(draft)['draft_id'])
+        new=wiki.search_wiki('Limit','New')
+        self.assertEqual(new['game_version'],'3.8')
+        self.assertEqual(new['structured_kb_version'],'3.8')
+        self.assertEqual(new['status'],'found')
+        self.assertNotIn('version_note',new)
+        self.assertEqual(wiki.search_wiki('Limit','New',game_version='3.7')['results'],[])
+        self.assertEqual(wiki.search_wiki('Limit','Alpha')['game_version'],'3.7')
+        self.assertEqual(orchestrator._structured_version('character','New'),'3.8')
+        self.assertEqual(orchestrator._structured_version('character','Alpha'),'3.7')
+
     def test_chat_tool_opens_read_only_even_while_update_holds_writer_lock(self):
         connect = sqlite3.connect
         opened = []
