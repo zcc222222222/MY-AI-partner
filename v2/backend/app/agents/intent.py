@@ -36,6 +36,7 @@ PROMPT = (
     "同名同元素的男女ID本身不构成元素歧义；未限定性别时可保留同元素两者，不因两个ID就要求澄清。"
     "topics可多选：profile档案，stats面板倍率，materials材料，mechanism机制触发，equipment装备属性或专武归属，"
     "build武器声骸推荐或图片，team配队，rotation输出手法，event活动，endgame高难周期，notice公告，story剧情，chat闲聊，unknown不确定。"
+    "共鸣链、几链的效果或机制原文属于mechanism，不是profile档案；抽取建议或链数推荐属于build。"
     "guide_terms是某篇攻略的作者局部缩写/简称含义；此时entity_keys指攻略所属角色，不把被解释的队友当作攻略所属角色，不用全局档案猜作者缩写。"
     "推荐武器属于build，不是equipment；用户只问某作者攻略，不扩展其他来源。"
     "用户要求某篇攻略里的格挡、反击或招式衔接原文时选rotation；这些操作名不表示应绕过攻略只查mechanism。"
@@ -200,6 +201,8 @@ def validate(raw, turns, choices):
             and not re.search(r'作者|只(?:依据|用)',restriction_text(user_text))):
         raw['author']=None
     current=turns[-1]['text']
+    if (topics==['profile'] and re.search(r'(?:共鸣链|[一二三四五六1-6]\s*链).{0,20}(?:效果|机制|原文|作用)',current)):
+        topics=['mechanism']
     if (re.search(r'(?:版本|更新|公告).{0,35}(?:影响|修复|削弱|加强|失效|复核)|旧攻略.{0,12}(?:还能用|过时|有效)',current)
             and 'version_impact' not in topics and len(topics)<5):topics=[*topics,'version_impact']
     if (re.search(r'(?:攻略|作者原文).{0,30}(?:格挡|反击|招式|衔接)',current)

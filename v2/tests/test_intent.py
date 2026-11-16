@@ -71,6 +71,17 @@ class IntentTests(unittest.TestCase):
         self.assertEqual(captured[0]['turns'][-1]['text'],'那她配队呢？')
         self.assertNotIn('character:2',[c['key'] for c in captured[0]['candidates']])
 
+    def test_chain_effects_are_not_limited_to_profile_when_extractor_misclassifies(self):
+        plan=self.resolve('角色甲的三链有什么效果？',raw(['profile'],['character:1']))
+        self.assertEqual(plan['topics'],['mechanism'])
+        names={t['function']['name'] for t in intent.allowed_tools(plan,tools.TOOLS)}
+        self.assertIn('get_character_skills',names)
+        self.assertIn('search_wiki',names)
+        recommended=self.resolve('角色甲三链值得抽吗？',raw(['build'],['character:1']))
+        self.assertEqual(recommended['topics'],['build'])
+        profile=self.resolve('角色甲的生日是什么？',raw(['profile'],['character:1']))
+        self.assertEqual(profile['topics'],['profile'])
+
     def test_role_correction_and_sessions_do_not_share_targets(self):
         one=self.resolve('改为角色乙',raw(keys=['character:2']),[{'role':'user','content':'角色甲怎么养成'}])
         two=self.resolve('她呢？',raw(keys=['character:2']))
