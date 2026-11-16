@@ -9,5 +9,16 @@
     "evidence_kind": "reviewed_community",
     "reviewed_at": "2026-10-16",
     "note": "人工核对社区Wiki的专属武器字段，并与nanoka实体ID及推荐列表交叉核对；不是nanoka原生专武字段，也不代表武器仅该角色可装备。"
+  },
+  {
+    "from_type": "character", "from_id": "1512", "from_name": "莉莉",
+    "relation": "signature_weapon",
+    "to_type": "weapon", "to_id": "21030076", "to_name": "安魂",
+    "versions": ["3.8"],
+    "source_field": "作者攻略 weaponTexts[0].recommendDescription：安魂[专武]",
+    "source_url": "https://mcguide.kurogames.com/?role_id=1512&strategy_id=10242",
+    "evidence_kind": "reviewed_author_guide",
+    "reviewed_at": "2026-11-16",
+    "note": "核对长风ei原文专武标记，并与nanoka 3.8实体ID、名称及莉莉推荐列表交叉核对；是有署名的作者来源关联，不表示武器仅莉莉可装备，也不表示该攻略已验证全部适用3.8。"
   }
 ]
