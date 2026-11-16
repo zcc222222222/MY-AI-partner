@@ -21,6 +21,15 @@ def named_scope(period):
 
 
 def current_period(topic, as_of=None, *, path=None, moment=None):
+    return _approved_period(topic, as_of, path=path, moment=moment)
+
+
+def next_period(topic, *, path=None, moment=None):
+    """Expose a verified upcoming window to administrators without calling it current."""
+    return _approved_period(topic, path=path, moment=moment, upcoming=True)
+
+
+def _approved_period(topic, as_of=None, *, path=None, moment=None, upcoming=False):
     if topic not in ('逆境深塔', '冥歌海墟', '终焉矩阵'):
         return None
     try:
@@ -69,7 +78,8 @@ def current_period(topic, as_of=None, *, path=None, moment=None):
                 if invalid: continue
                 for period in meta.get('periods', []):
                     start, end = datetime.fromisoformat(period['start']), datetime.fromisoformat(period['end'])
-                    if start.tzinfo is None or end.tzinfo is None or not start <= reference <= end: continue
+                    if start.tzinfo is None or end.tzinfo is None or start > end: continue
+                    if not (reference < start if upcoming else start <= reference <= end): continue
                     found.append({'start': start.astimezone(LOCAL).isoformat(), 'end': end.astimezone(LOCAL).isoformat(),
                                   'label_date': start.astimezone(LOCAL).date().isoformat(),
                                   'reference_time': reference.astimezone(LOCAL).isoformat(),
@@ -78,6 +88,9 @@ def current_period(topic, as_of=None, *, path=None, moment=None):
                                   'document_version':meta.get('document_version'),
                                   'source_url': meta.get('origin'), 'schedule_verified': True})
             unique = {(p['start'], p['end']): p for p in found}
+            if upcoming and unique:
+                earliest = min(p['start'] for p in unique.values())
+                unique = {key:p for key,p in unique.items() if p['start'] == earliest}
             if len(unique) != 1: return None
             result = next(iter(unique.values()))
             label = named_scope(result)

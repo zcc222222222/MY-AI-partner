@@ -72,6 +72,27 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(len(self.starts), 3)  # robots, a, b (cached robots)
         self.assertTrue(all(b-a >= 5 for a,b in zip(self.starts, self.starts[1:])))
 
+    def test_collector_uses_native_curl_on_windows_and_linux(self):
+        import llmwiki.collector as collector
+        for platform, command in (('nt', 'curl.exe'), ('posix', 'curl')):
+            c = self.client()
+            c.robots['guide-server.aki-game.com'] = ''
+            with patch.object(collector, 'os', SimpleNamespace(name=platform)), \
+                 patch('llmwiki.collector.subprocess.run', side_effect=self.curl()) as run:
+                c.fetch('https://guide-server.aki-game.com/' + platform)
+            self.assertEqual(run.call_args.args[0][0], command)
+
+    def test_missing_curl_reports_runtime_dependency_without_claiming_network_failure(self):
+        c = self.client()
+        c.robots['guide-server.aki-game.com'] = ''
+        with patch('llmwiki.collector.subprocess.run', side_effect=FileNotFoundError('/private/path')):
+            with self.assertRaises(CollectionError) as caught:
+                c.fetch('https://guide-server.aki-game.com/a')
+        self.assertIn('requires curl', str(caught.exception))
+        self.assertNotIn('/private/path', str(caught.exception))
+        self.assertFalse(caught.exception.retryable)
+        self.assertEqual(c.log, [])
+
     def test_429_pauses_future_runs_without_retrying(self):
         c = self.client()
         c.robots['guide-server.aki-game.com'] = ''

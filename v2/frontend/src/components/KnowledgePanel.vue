@@ -26,7 +26,7 @@ const labels: Record<string, string> = {
   starting: '准备', collection: '采集', build: '编译与审核', roles: '角色同步', finished: '结束', stopped: '已停止',
   published: '已发布', unchanged: '无需更新', pending: '待处理', needs_attention: '待处理', retryable_failure: '暂时失败',
   unavailable: '暂无有效数据', deferred: '限额顺延', compiling: '编译中', reviewing: '审核中',
-  current: '周期有效', recent: '近期检查成功', stale: '建议重新检查', not_checked: '未找到检查记录',
+  current: '周期有效', upcoming: '即将开启（当前尚未生效）', recent: '近期检查成功', stale: '建议重新检查', not_checked: '未找到检查记录',
   ok: '上次访问成功', not_used: '本次服务启动后尚无联网查询', source_unavailable: '上次访问未成功', access_restricted: '站点访问受限，等待冷却',
   needs_review: '待复核', no_text_change: '所列结论无需改文', insufficient_evidence: '待补证', revision_required: '需修订', revision_published: '修订已发布',
 }

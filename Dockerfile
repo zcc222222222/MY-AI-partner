@@ -30,7 +30,8 @@ RUN python -m playwright install --with-deps chromium \
     && mkdir -p /app/data \
     && chown aipartner:aipartner /app/data
 RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata curl ca-certificates \
+    && curl --version >/dev/null \
     && rm -rf /var/lib/apt/lists/*
 ENV TZ=Asia/Shanghai
 WORKDIR /app/v2/backend

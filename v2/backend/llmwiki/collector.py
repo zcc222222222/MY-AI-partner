@@ -5,6 +5,7 @@ from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import sqlite3
@@ -114,7 +115,7 @@ class Collector:
             headers_path, body_path = self.directory / (key + ".headers"), self.directory / (key + ".tmp")
             started = self.clock()
             try:
-                result = subprocess.run(["curl.exe", "-sS", "--connect-timeout", "10", "--max-time", "25",
+                result = subprocess.run(["curl.exe" if os.name == "nt" else "curl", "-sS", "--connect-timeout", "10", "--max-time", "25",
                                          "--max-filesize", "10485760", "-A", UA, "-H", "x-language: zh-Hans",
                                          "-D", str(headers_path), "-o", str(body_path), "-w", "%{http_code}", safe_url],
                                         capture_output=True, timeout=30)
@@ -155,6 +156,9 @@ class Collector:
                     target.write_bytes(raw)
                     conn.execute("INSERT OR REPLACE INTO cache VALUES (?,?,?,?)", (url, str(target.resolve()), self.clock(), json.dumps(headers)))
                 return raw, headers, status
+            except FileNotFoundError as exc:
+                raise CollectionError("Knowledge collector requires curl in the runtime image",
+                                      host=parts.hostname, retryable=False) from exc
             except subprocess.SubprocessError as exc:
                 raise CollectionError(f"Network process failed for {parts.hostname}: {type(exc).__name__}",
                                       host=parts.hostname, retryable=True) from exc

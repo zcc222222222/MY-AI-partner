@@ -16,7 +16,7 @@ from ..config import settings
 from knowledge.config import DATA_DIR
 from llmwiki.store import WikiStore, WikiError
 from llmwiki.updates import UpdateLock, UpdateBusy, UpdateOptions, atomic_json, plan_documents, run_update
-from ..agents.guide_periods import current_period
+from ..agents.guide_periods import current_period, next_period
 
 WIKI_PATH = Path(DATA_DIR) / 'wiki/wiki.db'
 KNOWLEDGE_PATH = Path(DATA_DIR) / 'knowledge.db'
@@ -251,7 +251,11 @@ def snapshot():
     periods = []
     for topic in ('逆境深塔','冥歌海墟','终焉矩阵'):
         period = current_period(topic,path=WIKI_PATH)
-        periods.append({'topic':topic,'status':'current' if period else 'unavailable',
+        status = 'current' if period else 'unavailable'
+        if period is None:
+            period = next_period(topic,path=WIKI_PATH)
+            if period: status = 'upcoming'
+        periods.append({'topic':topic,'status':status,
                         **({k:period[k] for k in ('start','end','source_name')} if period else {})})
     counts['pending_pages'] = sum(p['status']!='unchanged' for p in plan['pages'])
     from .retrieval_diagnostics import recent

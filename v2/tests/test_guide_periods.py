@@ -10,7 +10,7 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'backend'))
-from app.agents.guide_periods import current_period
+from app.agents.guide_periods import current_period, next_period
 from app.agents.guide_periods import named_scope
 
 
@@ -66,6 +66,19 @@ class GuidePeriodTests(unittest.TestCase):
         self.assertIsNone(self.resolve('2026-11-09T04:00:00+08:00'))
         self.assertIsNone(self.resolve('2026-10-12T03:59:59+08:00'))
 
+    def test_verified_future_window_is_upcoming_and_never_current(self):
+        moment = datetime.fromisoformat('2026-10-12T03:59:59+08:00')
+        before = self.path.read_bytes()
+        future = next_period('逆境深塔', path=self.path, moment=moment)
+        self.assertEqual(future['start'], '2026-10-12T04:00:00+08:00')
+        self.assertTrue(future['schedule_verified'])
+        self.assertIsNone(current_period('逆境深塔', path=self.path, moment=moment))
+        self.assertIsNone(next_period('逆境深塔', path=self.path,
+            moment=datetime.fromisoformat('2026-10-26T12:00:00+08:00')))
+        self.assertIsNone(next_period('逆境深塔', path=self.path,
+            moment=datetime.fromisoformat('2026-11-09T04:00:00+08:00')))
+        self.assertEqual(self.path.read_bytes(), before)
+
     def test_pending_dirty_deleted_or_changed_source_not_accepted(self):
         baseline = self.path.read_bytes()
         for sql in ["UPDATE pages SET dirty=1", "UPDATE source_revisions SET deleted=1",
@@ -76,6 +89,8 @@ class GuidePeriodTests(unittest.TestCase):
                 with closing(sqlite3.connect(self.path)) as c, c:
                     c.execute(sql)
                 self.assertIsNone(self.resolve())
+                self.assertIsNone(next_period('逆境深塔', path=self.path,
+                    moment=datetime.fromisoformat('2026-10-01T00:00:00+08:00')))
 
     def test_modified_payload_without_matching_review_fails_closed(self):
         self.payload['document_metadata']['periods'][0]['end'] = '2028-12-31T00:00:00+00:00'
