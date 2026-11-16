@@ -1,0 +1,25 @@
+{
+  "schema": "guide-curation-v1",
+  "source_id": "mcguide/1512/10242",
+  "source_revision": 1,
+  "source_sha256": "6d78990a14597e8527573e379b6f9d48c9ae96eb2bcb4c75e9c01a79a0cdc6ca",
+  "source_path": ["content", "baseTexts", 0, "introductionDetail"],
+  "page_id": "document/mcguide/1512/10242/part-1",
+  "review_basis": "核对长风ei原文启动、循环两行及A/E/Q/R定义。保留原文5.8秒启动措辞，不将其断言为完整队伍循环时长。原文未给这两段操作限定链数，重击1/2未单独定义，不自行展开。",
+  "terms": [],
+  "unresolved_terms": ["重击1", "重击2"],
+  "rotations": [
+    {
+      "id": "source-method",
+      "format": "source-blocks",
+      "mode": "原文手法",
+      "chain_scope": "原文未标明链数",
+      "context": ["（A-普攻，E-共鸣技能，Q-声骸，R-共鸣解放）"],
+      "phases": ["启动", "循环"],
+      "blocks": [
+        {"phase": "启动", "prose": true, "lines": ["启动：2A-E，A-重击1-重击2，QR。（6.5秒启动）"]},
+        {"phase": "循环", "prose": true, "lines": ["循环：E，A-重击1-重击2，QR。（5.8秒启动）"]}
+      ]
+    }
+  ]
+}
